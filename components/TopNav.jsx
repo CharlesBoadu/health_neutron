@@ -5,7 +5,7 @@ import { FiSearch } from "react-icons/fi";
 function TopNav() {
   return (
     <div className='bg-black py-2 flex flex-row w-full space-x-4 font-montserrat px-2'>
-        <div className='flex w-[300px] text-white'>
+        <div className='flex w-[300px] text-white pl-2'>
             Health Neutron
         </div>
         <div className='flex-1 w-[600px]'>

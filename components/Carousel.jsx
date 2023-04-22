@@ -42,7 +42,7 @@ function Carousel() {
   };
 
   return (
-    <div className='max-w-full h-[400px] w-full relative group'>
+    <div className='max-w-full h-[80vh] w-full relative group'>
       <div
         style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
         className='w-full h-full bg-center bg-cover duration-500'
