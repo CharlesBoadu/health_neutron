@@ -1,7 +1,7 @@
 import React from "react";
 import { BsCart4 } from "react-icons/bs";
 import { FiSearch } from "react-icons/fi";
-import { IoMdArrowDropdown } from "react-icons/io";
+import { useRouter } from "next/router";
 
 const Options = [
     {
@@ -18,7 +18,14 @@ const Options = [
     }
 ]
 
-function TopNav() {
+function TopNav({ cart, setIsCart }) {
+
+    const router = useRouter();
+
+    function handleNavigateToCart() {
+        router.push("/cart");
+    }
+
   return (
     <div className="bg-black py-2 flex flex-row w-full space-x-4 font-montserrat px-2">
       <div className="flex w-[300px] text-white pl-2">Health Neutron</div>
@@ -60,10 +67,14 @@ function TopNav() {
       </div>
       {/* <div className='flex w-[50px] bg-[#f3a847] justify-center items-center'>
         </div> */}
-      <div className="flex flex-row w-[100px] text-white">
+      <div className="flex flex-row w-[100px] text-white cursor-pointer" onClick={handleNavigateToCart}>
         <div>
-          <div className="font-montserrat font-bold ml-4 mb-[-12px] mt-[-5px]">
-            0
+          <div className="font-montserrat font-bold ml-4 mb-[-12px] mt-[-5px] text-[#fa8900]">
+          {cart.length > 0 ? (
+            <span className="">
+              {cart.length}
+            </span>
+          ) : "0"}
           </div>
           <div>
             <BsCart4 size={35} />
