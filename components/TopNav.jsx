@@ -2,6 +2,9 @@ import React from "react";
 import { BsCart4 } from "react-icons/bs";
 import { FiSearch } from "react-icons/fi";
 import { useRouter } from "next/router";
+import { useRecoilState } from 'recoil'
+import { cartState } from '../atoms/cartState'
+
 
 const Options = [
     {
@@ -18,9 +21,10 @@ const Options = [
     }
 ]
 
-function TopNav({ cart, setIsCart }) {
+function TopNav() {
 
     const router = useRouter();
+    const [cartItem] = useRecoilState(cartState);
 
     function handleNavigateToCart() {
         router.push("/cart");
@@ -70,11 +74,7 @@ function TopNav({ cart, setIsCart }) {
       <div className="flex flex-row w-[100px] text-white cursor-pointer" onClick={handleNavigateToCart}>
         <div>
           <div className="font-montserrat font-bold ml-4 mb-[-12px] mt-[-5px] text-[#fa8900]">
-          {cart.length > 0 ? (
-            <span className="">
-              {cart.length}
-            </span>
-          ) : "0"}
+          {cartItem.length}
           </div>
           <div>
             <BsCart4 size={35} />

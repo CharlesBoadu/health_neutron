@@ -4,53 +4,57 @@ import TopNavSecond from "../../components/TopNavSecond";
 import Footer from "../../components/Footer";
 import { useRouter } from "next/router";
 import FooterSecond from "../../components/FooterSecond";
+import { cartState } from "../../atoms/CartState"
+import { useRecoilState } from 'recoil';
+import toast from 'react-hot-toast';
+
 
 function Item() {
-  const [isShowCart, setIsShowCart] = useState(false);
   const router = useRouter();
-  const [itemName, setItemName] = useState("");
-  const [cart, setCart] = useState([]);
+  const [cartItem, setCartItem] = useRecoilState(cartState);
+  const [itemId, setItemId] = useState("");
 
-  //Handle Add to Cart
-  function handleAddToCart (product) {
-    setCart((prev) => {
-      const findProductInCart = prev.find((item) => item.id === product.id);
+  //Adding items to Cart
+  const addItemsToCart = () => {
+    // console.log("Hi", cartItem);
+    if (cartItem.findIndex(pro => pro.id === itemId) === -1) {
+        setCartItem(prevState => [...prevState, itemId])
+    } else {
+        setCartItem(prevState => {
+            return prevState.map((item) => {
+                return item.id === itemId ? { ...item, quantity: item.quantity + 1 } : item
+            })
+        })
+    }
 
-      if (findProductInCart) {
-        return prev.map((item) =>
-          item.id === product.id ? { ...item, amount: item.amount + 1 } : item
-        );
-      }
+    toast(`${itemId} added to cart`)
 
-      //Firt
-      return [...prev, { ...product, amount: 1 }];
-    });
-  };
+}
 
   //Handle Remove from cart
-  function handleRemoveFromCart (id) {
-    setCart((prev) => {
-      return prev.reduce((cal, item) => {
-        if (item.id === id) {
-          if (item.amount === 1) return cal;
+  // function handleRemoveFromCart (id) {
+  //   setCart((prev) => {
+  //     return prev.reduce((cal, item) => {
+  //       if (item.id === id) {
+  //         if (item.amount === 1) return cal;
 
-          return [...cal, { ...item, amount: item.amount - 1 }];
-        }
+  //         return [...cal, { ...item, amount: item.amount - 1 }];
+  //       }
 
-        return [...cal, { ...item }];
-      }, []);
-    });
-  };
+  //       return [...cal, { ...item }];
+  //     }, []);
+  //   });
+  // };
 
   useEffect(() => {
-    const { query, query1 } = router;
-    console.log(query);
-    setItemName(query.item);
-  }, [itemName]);
+    const { query } = router;
+    // console.log("Hello", query);
+    setItemId(query.item);
+  }, [itemId]);
 
   return (
     <>
-      <TopNav cart={cart} setIsShowCart={setIsShowCart}/>
+      <TopNav />
       <TopNavSecond />
       <div className="flex flex-row bg-gray-200 w-[900px] h-[200px] mx-auto m-4 items-center justify-center">
         <div className="flex w-[300px] h-full">
@@ -58,13 +62,11 @@ function Item() {
         </div>
         <div className="flex-1 w-[600px] space-y-3">
           <div>
-            Details of {itemName}
+            Details of Item{itemId}
           </div>
           <div className="space-y-1 text-xs">
             <div className="bg-[#ffd814] hover:bg-[#fa8900] cursor-pointer w-[200px] px-3 py-1 rounded-2xl font-montserrat text-center"
-            onClick={() =>{
-              handleAddToCart(itemName)
-            }}
+            onClick={addItemsToCart}
             >
               Add to Cart
             </div>
@@ -73,14 +75,6 @@ function Item() {
             </div>
           </div>
         </div>
-        {isShowCart && (
-          <CartSideNav
-            cart={cart}
-            handleRemoveFromCart={handleRemoveFromCart}
-            handleAddToCart={handleAddToCart}
-            setIsShowCart={setIsShowCart}
-          />
-        )}
       </div>
       <Footer />
       <FooterSecond />

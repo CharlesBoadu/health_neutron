@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import SideNav from "./SideNav";
 import { useRouter } from "next/router";
+import SideNavTwo from "./SideNavTwo";
+import { GoThreeBars } from "react-icons/go";
 
 
 function TopNavSecond() {
   const router = useRouter();
+  const [showSideNav, setShowSideNav] = useState(false);
 
   function handleNavigateToLabs () {
     router.push("/labs");
@@ -22,10 +25,27 @@ function TopNavSecond() {
     router.push("/blogs");
   }
 
+  function handleOpenSideNav () {
+    setShowSideNav(!showSideNav);
+  }
+
   return (
     <div className="bg-gray-600 py-3 font-montserrat flex flex-row space-x-8 p-2">
-      <div className="mr-4">
-        <SideNav />
+      <div onClick={handleOpenSideNav}>
+        <div className="flex flex-row space-x-8">
+          <div>
+            <GoThreeBars
+                className="absolute cursor-pointer w-7 border-dark-purple mt-[1.5px]"
+                color="white"
+              />
+          </div>
+          <div className="text-white cursor-pointer text-sm">
+            All
+          </div>
+        </div>
+        {showSideNav && (
+          <SideNavTwo showSideNav={showSideNav}/>
+        )}
       </div>
       <div className="text-white cursor-pointer text-sm" onClick={handleNavigateToLabs}>Labs</div>
       <div className="text-white cursor-pointer text-sm" onClick={handleNavigateToHomeCare}>Home Care</div>

@@ -7,12 +7,10 @@ import Footer from "../components/Footer";
 import FooterSecond from "../components/FooterSecond";
 
 export default function Home() {
-  const [cart, setCart] = useState([]);
-  const [isShowCart, setIsShowCart] = useState(false);
   
   return (
     <>
-      <TopNav cart={cart}  setIsShowCart={setIsShowCart}/>
+      <TopNav />
       <TopNavSecond />
       <Carousel />
       <CardSetOne />

@@ -10,7 +10,7 @@ function Card() {
   }
   return (
     <>
-      <div className="flex flex-row space-x-6 items-center justify-center pt-[90px]">
+      <div className="flex flex-row space-x-6 items-center justify-center pt-[90px] z-1">
         <div className="bg-white w-[300px] h-[380px]">
           <div className="ml-10 text-lg font-montserrat font-bold">Labs</div>
           <SmallCards />

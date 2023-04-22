@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { AiOutlinePlusSquare, AiOutlineMinusSquare } from "react-icons/ai";
 
 function CartSideNav({
@@ -7,6 +7,8 @@ function CartSideNav({
   handleAddToCart,
   handleRemoveFromCart,
 }) {
+  const cartRef = useRef();
+
   const DollarUsd = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
@@ -32,7 +34,7 @@ function CartSideNav({
       >
         <h1 className="bg-red-400 py-2 text-center text-white">Cart</h1>
         <div className="flex flex-col items-center px-2 py-4">
-          {cart.map((item) => (
+          {/* {cart.map((item) => (
             <div
               key={item.id}
               className="text-center border-b-[3px] w-full mb-2 flex flex-col items-center"
@@ -59,7 +61,7 @@ function CartSideNav({
               </div>
             </div>
           ))}
-          {cart.length > 0 && <p>Total: {DollarUsd.format(total(cart))} </p>}
+          {cart.length > 0 && <p>Total: {DollarUsd.format(total(cart))} </p>} */}
         </div>
       </div>
     </div>
