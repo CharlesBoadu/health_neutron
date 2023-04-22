@@ -21,7 +21,7 @@ const SideNav = () => {
     <div className="flex">
       <div
         className={` ${
-          open ? "w-60 bg-black/90 h-[50%]" : "w-8"
+          open ? "w-60  h-[50%]" : "w-8"
         } bg-dark-purple h-[5px] relative duration-300`}
       >
         <div className="flex flex-row space-x-8" onClick={handleOpen}>

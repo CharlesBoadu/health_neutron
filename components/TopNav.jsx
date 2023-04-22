@@ -23,13 +23,13 @@ function TopNav() {
     <div className="bg-black py-2 flex flex-row w-full space-x-4 font-montserrat px-2">
       <div className="flex w-[300px] text-white pl-2">Health Neutron</div>
       <div className="flex-1 w-[600px] flex flex-row">
-        <div className="flex w-[50px] z-10 bg-[#e3e6e6] px-2 mr-[-50px] rounded-lg justify-center items-center cursor-pointer">
+        <div className="flex w-[50px] z-10  px-2 mr-[-62px] rounded-sm justify-center items-center cursor-pointer">
           {/* <div>All</div>
           <div>
              <IoMdArrowDropdown />
           </div> */}
           <select
-              className="block w-[70px] px-4 py-2 bg-[#e3e6e6] border border-gray-200 active:border-gray-300 outline-none rounded-md"
+              className="font-semibold text-sm block w-[70px] px-4 py-2 bg-[#e3e6e6] border border-gray-200 active:border-gray-300 outline-none rounded-sm"
             //   required={true}
             //   onChange={(e) => {
             //     setValues({

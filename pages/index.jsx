@@ -3,6 +3,7 @@ import TopNav from "../components/TopNav";
 import Carousel from "../components/Carousel";
 import CardSetOne from "../components/CardSetOne";
 import TopNavSecond from "../components/TopNavSecond";
+import Footer from "../components/Footer";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <TopNavSecond />
       <Carousel />
       <CardSetOne />
+      <Footer />
     </>
   );
 }
