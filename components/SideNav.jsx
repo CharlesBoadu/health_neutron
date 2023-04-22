@@ -1,18 +1,33 @@
 import React, { useState } from "react";
 import { GoThreeBars } from "react-icons/go";
+import { useRouter } from "next/router";
 
 const SideNav = () => {
   const [open, setOpen] = useState(false);
+  const router = useRouter();
+
   const Menus = [
-    { title: "Labs", src: "Chart_fill" },
+    { title: "Labs", src: "labs" },
     { title: "Home Care", src: "Chat" },
     { title: "Vaccines", src: "User"},
-    { title: "Blogs ", src: "Calendar" },
+    { title: "Blogs", src: "Calendar" },
     // { title: "Search", src: "Search" },
     // { title: "Analytics", src: "Chart" },
     // { title: "Files ", src: "Folder", gap: true },
     // { title: "Setting", src: "Setting" },
   ];
+
+  function handleNavigation(title) {
+    if (title === "Labs") {
+      router.push("/labs");
+    } else if (title === "Home Care") {
+      router.push("/homecare");
+    } else if (title === "Vaccines") {
+      router.push("/vaccines");
+    } else if (title === "Blogs") {
+      router.push("/blogs");
+    }
+  }
 
   function handleOpen() {
     setOpen(!open);
@@ -63,7 +78,10 @@ const SideNav = () => {
               } `}
             >
               {/* <img src={`./src/assets/${Menu.src}.png`} /> */}
-              <span className={`${!open && "hidden"} origin-left duration-200`}>
+              <span className={`${!open && "hidden"} origin-left duration-200`} onClick={() => {
+                handleNavigation(Menu.title)
+              }
+              }>
                 {Menu.title}
               </span>
             </li>
