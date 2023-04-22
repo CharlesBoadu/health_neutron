@@ -5,9 +5,9 @@ const SideNav = () => {
   const [open, setOpen] = useState(false);
   const Menus = [
     { title: "Labs", src: "Chart_fill" },
-    { title: "Second Heading", src: "Chat" },
-    { title: "Third Heading", src: "User"},
-    // { title: "Schedule ", src: "Calendar" },
+    { title: "Home Care", src: "Chat" },
+    { title: "Vaccines", src: "User"},
+    { title: "Blogs ", src: "Calendar" },
     // { title: "Search", src: "Search" },
     // { title: "Analytics", src: "Chart" },
     // { title: "Files ", src: "Folder", gap: true },
@@ -26,11 +26,11 @@ const SideNav = () => {
       >
         <div className="flex flex-row space-x-8" onClick={handleOpen}>
           <GoThreeBars
-            className={`absolute cursor-pointer w-7 border-dark-purple mt-1
+            className={`absolute cursor-pointer w-7 border-dark-purple mt-[1.5px]
             ${!open && "rotate-180"}`}
             color="white"
           />
-          <div className="text-white cursor-pointer">All</div>
+          <div className="text-white cursor-pointer text-sm">All</div>
         </div>
         {/* <img
           src="../public/control.png"
