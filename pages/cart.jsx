@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import TopNav from "../components/TopNav";
 import Footer from "../components/Footer";
 import FooterSecond from "../components/FooterSecond";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue} from "recoil";
 import { cartState } from "../atoms/cartState";
 import CartList from "../components/CartList";
 import TopNavSecond from "../components/TopNavSecond";
@@ -10,6 +10,8 @@ import CheckOut from "../components/CheckOut";
 
 function cart() {
   const [cartItem, setCartItem] = useRecoilState(cartState);
+  // const cartItems = useRecoilValue(cartState);
+  console.log("Howdy", cartItem)
 
   const totalPrice = () => {
     let total = 0;
@@ -36,22 +38,9 @@ function cart() {
             )}
           </div>
           <div className="flex">
-              <CheckOut />
+              <CheckOut totalPrice={totalPrice()}/>
           </div>
         </div>
-        {cartItem.length > 0 && (
-          <div className="mx-auto mt-4">
-            <h2 className="text-center text-3xl font-bold">
-              Total: ${totalPrice()}
-            </h2>
-            {/* <button
-              className="text-right bg-red-600 text-white py-4 px-12 mt-4 block mx-auto hover:bg-red-800"
-              onClick={createCheckoutSession}
-            >
-              Checkout
-            </button> */}
-          </div>
-        )}
         {/* <div className="flex flex-row bg-gray-200 w-[90%] h-[200px] mx-auto m-4">
           <div className="flex w-[300px] h-full">
             <img src="https://picsum.photos/200/300" alt="" />
