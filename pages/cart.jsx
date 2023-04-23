@@ -5,6 +5,7 @@ import FooterSecond from "../components/FooterSecond";
 import { useRecoilState } from "recoil";
 import { cartState } from "../atoms/cartState";
 import CartList from "../components/CartList";
+import TopNavSecond from "../components/TopNavSecond";
 
 function cart() {
   const [cartItem, setCartItem] = useRecoilState(cartState);
@@ -18,6 +19,7 @@ function cart() {
   return (
     <>
       <TopNav />
+      <TopNavSecond />
       <div>
         <div className="w-contain h-[30vh] m-4 bg-black flex items-center justify-center">
           <span className="font-montserrat text-4xl text-white">
