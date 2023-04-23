@@ -6,6 +6,7 @@ import { useRecoilState } from "recoil";
 import { cartState } from "../atoms/cartState";
 import CartList from "../components/CartList";
 import TopNavSecond from "../components/TopNavSecond";
+import CheckOut from "../components/CheckOut";
 
 function cart() {
   const [cartItem, setCartItem] = useRecoilState(cartState);
@@ -26,11 +27,18 @@ function cart() {
             Shopping Cart
           </span>
         </div>
-        {cartItem.length <= 0 ? (
-          <h1 className="text-center text-4xl m-32">Your Cart Is Empty</h1>
-        ) : (
-          cartItem.map((item) => <CartList key={item.id} data={item} />)
-        )}
+        <div className="flex flex-row">
+          <div className="flex-1">
+            {cartItem.length <= 0 ? (
+              <h1 className="text-center text-4xl m-32">Your Cart Is Empty</h1>
+            ) : (
+              cartItem.map((item) => <CartList key={item.id} data={item} />)
+            )}
+          </div>
+          <div className="flex">
+              <CheckOut />
+          </div>
+        </div>
         {cartItem.length > 0 && (
           <div className="mx-auto mt-4">
             <h2 className="text-center text-3xl font-bold">
@@ -66,6 +74,9 @@ function cart() {
             </div>
           </div>
         </div> */}
+      {/* <div>
+        <CheckOut />
+      </div> */}
       </div>
       <Footer />
       <FooterSecond />

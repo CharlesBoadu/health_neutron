@@ -4,19 +4,21 @@ import TopNavSecond from "../../components/TopNavSecond";
 import Footer from "../../components/Footer";
 import { useRouter } from "next/router";
 import FooterSecond from "../../components/FooterSecond";
-import { cartState } from "../../atoms/CartState"
+import { cartState } from "../../atoms/CartState";
 import { useRecoilState } from 'recoil';
 import toast from 'react-hot-toast';
+import { useLocation, useParams } from 'react-router-dom';
+
 
 
 function Item() {
   const router = useRouter();
   const [cartItem, setCartItem] = useRecoilState(cartState);
   const [itemId, setItemId] = useState("");
+  // console.log("Hi", cartItem);
 
   //Adding items to Cart
   const addItemsToCart = () => {
-    // console.log("Hi", cartItem);
     if (cartItem.findIndex(pro => pro.id === itemId) === -1) {
         setCartItem(prevState => [...prevState, itemId])
     } else {
@@ -51,6 +53,8 @@ function Item() {
     // console.log("Hello", query);
     setItemId(query.item);
   }, [itemId]);
+
+  // console.log("Heya", itemId)
 
   return (
     <>

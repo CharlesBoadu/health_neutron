@@ -2,10 +2,11 @@ import React from "react";
 import CheckOut from "./CheckOut";
 import { AiOutlineDelete } from "react-icons/ai";
 
-function CartList({ name, image, quantity, price }) {
+function CartList({ data }) {
+    console.log("Cart data", data);
+   const  { name, image, quantity, price } = data;
   return (
     <>
-    <div className="flex flex-row">
       <div className="flex flex-row bg-gray-200 w-[900px] h-[200px] mx-auto m-4">
         <div className="flex w-[200px] h-full">
           <img src="https://picsum.photos/200/300" alt="" />
@@ -30,10 +31,6 @@ function CartList({ name, image, quantity, price }) {
             </div> */}
           </div>
         </div>
-      </div>
-      <div>
-        <CheckOut />
-      </div>
     </div>
     </>
   );
