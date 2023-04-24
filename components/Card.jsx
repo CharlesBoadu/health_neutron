@@ -1,6 +1,7 @@
 import React from "react";
 import SmallCards from "./SmallCards";
 import { useRouter } from "next/router";
+import CarouselSecond from "./CarouselSecond";
 
 function Card() {
   const router = useRouter();
@@ -10,6 +11,7 @@ function Card() {
   }
   return (
     <>
+      {/* <CarouselSecond /> */}
       <div className="flex flex-row space-x-6 items-center justify-center pt-[90px] z-1">
         <div className="bg-white w-[300px] h-[380px]">
           <div className="ml-10 text-lg font-montserrat font-bold">Labs</div>

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import { ChevronLeft, ChevronRight } from "react-feather"
 import Card from "./Card"
 
-export default function Carousel({
+export default function CarouselSecond({
   children: slides,
   autoSlide = false,
   autoSlideInterval = 3000,
@@ -20,14 +20,14 @@ export default function Carousel({
     return () => clearInterval(slideInterval)
   }, [])
   return (
-      <div className="overflow-hidden relative z-100 h-[80vh] border-t-0">
+      <div className="overflow-hidden relative z-100 h-[40vh]">
       <div
-        className="flex transition-transform ease-out duration-500"
+        className="flex transition-transform ease-out duration-500 border-b-0"
         style={{ transform: `translateX(-${curr * 100}%)` }}
       >
         {slides}
       </div>
-      {/* <div className="absolute inset-0 flex items-center justify-between p-4">
+      <div className="absolute inset-0 flex items-center justify-between p-4">
         <button
           onClick={prev}
           className="p-1 rounded-full shadow bg-white/80 text-gray-800 hover:bg-white"
@@ -40,9 +40,9 @@ export default function Carousel({
         >
         <ChevronRight size={40} />
         </button>
-      </div> */}
+      </div>
 
-      <div className="absolute inset-x-0 -top-20 right-0 left-0">
+      <div className="absolute bottom-4 right-0 left-0">
         <div className="flex items-center justify-center gap-2">
           {/* {slides.map((_, i) => (
               <div
@@ -53,7 +53,6 @@ export default function Carousel({
               />
               ))} */}
         </div>
-        <Card />
       </div>
     </div>
   )
