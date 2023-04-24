@@ -21,9 +21,10 @@ export default function Home() {
       <TopNav />
       <TopNavSecond />
       <CarouselSecond autoSlide={true} autoSlideInterval={5000}>{[...slides.map((s) => <img src={s} />)]}</CarouselSecond>
-      <Carousel autoSlide={true} autoSlideInterval={5000}>
-        {[...slides.map((s) => <img src={s} />)]}
-      </Carousel>
+      <Carousel /> 
+      {/* autoSlide={true} autoSlideInterval={5000}*/}
+        {/* {[...slides.map((s) => <img src={s} />)]} */}
+      {/* </Carousel> */}
       <CardSetOne />
       <Footer />
       <FooterSecond />

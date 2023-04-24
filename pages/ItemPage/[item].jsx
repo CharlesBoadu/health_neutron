@@ -130,22 +130,26 @@ function Item() {
     <>
       <TopNav />
       <TopNavSecond />
-      <div className="flex flex-row bg-gray-200 w-[900px] h-[200px] mx-auto m-4 items-center justify-center">
+      <div className="flex flex-row bg-gray-200 w-[900px] h-[250px] mx-auto m-4 items-center justify-center">
         <div className="flex w-[300px] h-full">
           <img src="https://picsum.photos/200/300" alt="" />
         </div>
         <div className="flex-1 w-[600px] space-y-3">
-          <div>Details of Item{itemId}</div>
+          <div className="text-lg font-bold font-montserrat">{items[itemId - 1]?.name}</div>
+          <div className="font-montserrat text-sm pr-4">{items[itemId - 1]?.details}</div>
           <div className="space-y-1 text-xs">
+            <div className="text-lg mb-2 font-montserrat font-bold">
+            ₵ {items[itemId - 1]?.price}
+            </div>
             <div
               className="bg-[#ffd814] hover:bg-[#fa8900] cursor-pointer w-[200px] px-3 py-1 rounded-2xl font-montserrat text-center"
               onClick={addItemsToCart}
             >
               Add to Cart
             </div>
-            <div className="bg-[#fa8900] hover:bg-[#ffd814] w-[200px] px-3 py-1 rounded-2xl font-montserrat text-center">
+            {/* <div className="bg-[#fa8900] hover:bg-[#ffd814] w-[200px] px-3 py-1 rounded-2xl font-montserrat text-center">
               Buy Now
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

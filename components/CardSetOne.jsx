@@ -2,7 +2,7 @@ import React from 'react'
 
 function CardSetOne() {
   return (
-    <div className='flex flex-row bg-[#e3e6e6] pl-10 pr-10 space-x-6 pt-10 z-1'>
+    <div className='flex flex-row bg-[#e3e6e6] pl-10 pr-10 space-x-6 pt-20 z-1 pb-10'>
         <div className='bg-white w-[300px] h-[400px] p-5 space-y-2'>
             <div className='flex text-black font-montserrat font-bold text-lg'>
                 Heading 1
