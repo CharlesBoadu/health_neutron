@@ -6,7 +6,9 @@ import { useRouter } from "next/router";
 import FooterSecond from "../../components/FooterSecond";
 import { cartState } from "../../atoms/CartState";
 import { useRecoilState } from "recoil";
-import toast from "react-hot-toast";
+// import { toast } from "react-hot-toast";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { useLocation, useParams } from "react-router-dom";
 
 function Item() {
@@ -23,7 +25,7 @@ function Item() {
     {
       id: 1,
       name: "Item1",
-      quantity: 0,
+      quantity: 1,
       details:
         "This lab package includes, Lipid profile (Cholesterol), Fasting blood sugar, Cardiac enzymes and Hepatitis B",
       price: "10.00",
@@ -32,7 +34,7 @@ function Item() {
     {
       id: 2,
       name: "Item2",
-      quantity: 0,
+      quantity: 1,
       details:
         "Lipids are fat and fat-like substance found in the body. A cholesterol test, also called a lipid profile, measures the fats in the blood. The measurements can help determine the risk of having a heart attack or other heart disease.",
       price: "15.00",
@@ -41,7 +43,7 @@ function Item() {
     {
       id: 3,
       name: "Item3",
-      quantity: 0,
+      quantity: 1,
       details:
         "RANDOM FASTING SUGAR A blood test done to evaluate the level of glucose in blood at any point of time in a day.",
       price: "20.00",
@@ -50,7 +52,7 @@ function Item() {
     {
       id: 4,
       name: "Item4",
-      quantity: 0,
+      quantity: 1,
       details:
         "Take advantage of the December/Football season discount and book now!!! Millions of people are likely to die from kidney failure when left untreated.",
       price: "25.00",
@@ -59,7 +61,7 @@ function Item() {
     {
       id: 5,
       name: "Item5",
-      quantity: 0,
+      quantity: 1,
       details:
         "A Pap smear, also called a Pap test, is a procedure to test for cervical cancer in women. Detecting cervical cancer early with a Pap smear gives you a greater chance at a cure. A Pap smear can also detect changes in your cervical cells that suggest cancer may develop in the future",
       price: "30.00",
@@ -69,38 +71,19 @@ function Item() {
 
   //Adding items to Cart
   const addItemsToCart = () => {
-    if (cartItem.findIndex((pro) => pro.id === itemId) === -1) {
-      function findMatchingObject(array1, array2) {
-        for (let obj1 of array1) {
-          for (let obj2 of array2) {
-            if (JSON.stringify(obj1) === JSON.stringify(obj2)) {
-              return obj1;
-            }
-          }
-        }
-        return null; // No matching object found
-      }
-
-      // if (findMatchingObject(cartItem, items) != null) {
-      //   setNewUpdatedItem(Object.assign({}, findMatchingObject(cartItem, items)));
-      //   newUpdatedItem.quantity += 1;
-      //   console.log("On God", newUpdatedItem);
-      //   setUpdatedItem(newUpdatedItem);
-      //   console.log("On God After", updatedItem);
-      // }
-      // console.log("Has match object", updatedItem);
+    if (cartItem.findIndex((pro) => pro.id === items[itemId - 1].id) === -1) {
       setCartItem((prevState) => [...prevState, items[itemId - 1]]);
     } else {
       setCartItem((prevState) => {
         return prevState.map((item) => {
-          return item.id === itemId
+          return item.id === items[itemId - 1].id
             ? { ...item, quantity: item.quantity + 1 }
             : item;
         });
       });
     }
 
-    toast(`${itemId} added to cart`);
+    toast.success(`${items[itemId - 1].name} added to cart`);
   };
 
   //Handle Remove from cart
@@ -128,6 +111,7 @@ function Item() {
 
   return (
     <>
+    <ToastContainer />
       <TopNav />
       <TopNavSecond />
       <div className="flex flex-row bg-gray-200 w-[900px] h-[250px] mx-auto m-4 items-center justify-center">
