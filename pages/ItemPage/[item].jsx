@@ -13,9 +13,12 @@ function Item() {
   const router = useRouter();
   const [cartItem, setCartItem] = useRecoilState(cartState);
   const [itemId, setItemId] = useState("");
+  const [updatedItem, setUpdatedItem] = useState("");
+  const [newUpdatedItem, setNewUpdatedItem] = useState("");
+
   // const { state } = useLocation();
   // const { name, price } = state;
-  // console.log("Heya", name);
+  console.log("Cart items", cartItem);
   const items = [
     {
       id: 1,
@@ -67,7 +70,25 @@ function Item() {
   //Adding items to Cart
   const addItemsToCart = () => {
     if (cartItem.findIndex((pro) => pro.id === itemId) === -1) {
-      items[itemId - 1].quantity += 1;
+      function findMatchingObject(array1, array2) {
+        for (let obj1 of array1) {
+          for (let obj2 of array2) {
+            if (JSON.stringify(obj1) === JSON.stringify(obj2)) {
+              return obj1;
+            }
+          }
+        }
+        return null; // No matching object found
+      }
+
+      // if (findMatchingObject(cartItem, items) != null) {
+      //   setNewUpdatedItem(Object.assign({}, findMatchingObject(cartItem, items)));
+      //   newUpdatedItem.quantity += 1;
+      //   console.log("On God", newUpdatedItem);
+      //   setUpdatedItem(newUpdatedItem);
+      //   console.log("On God After", updatedItem);
+      // }
+      // console.log("Has match object", updatedItem);
       setCartItem((prevState) => [...prevState, items[itemId - 1]]);
     } else {
       setCartItem((prevState) => {

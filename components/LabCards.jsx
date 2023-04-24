@@ -49,7 +49,7 @@ function LabCards() {
 
   return (
     <>
-      <div className="flex flex-row m-4 space-x-10 justify-center items-center">
+      <div className="flex flex-row m-8 space-x-10 justify-center items-center">
         {items.map((item, index) => {
           // console.log("Hello", item.id);
           return (
@@ -61,6 +61,14 @@ function LabCards() {
               }}
             >
               <img src={item.src} alt="Lab Image" />
+              <div className="space-y-1">
+                <div className="font-montserrat text-center text-xl font-bold">
+                  {item.name.toUpperCase()}
+                </div>
+                <div className="text-lg font-semibold text-center">
+                  ₵{item.price}.00
+                </div>
+              </div>
             </div>
           );
         })}
