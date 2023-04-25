@@ -5,9 +5,9 @@ function VaccineCards() {
     const router = useRouter();
 
     function HandleBooking(item) {
-      const { name, amount } = item;
+      const { id, name, amount } = item;
       router.push({
-        pathname: `/Booking/${name}`,
+        pathname: `/Booking/${id}`,
         query: {name: `${name}`, amount: `${amount}`},
       });
     }

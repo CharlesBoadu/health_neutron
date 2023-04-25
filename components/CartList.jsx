@@ -82,7 +82,7 @@ function CartList({ data }) {
           <div className="flex">
             <div className="mt-[-30px] space-y-3">
               <div>Price</div>
-              <div className="font-extrabold text-2xl">₵ {data.price * updatedItem.quantity}</div>
+              <div className="font-extrabold text-2xl">₵ {data.price}</div>
             </div>
           </div>
         </div>
