@@ -37,7 +37,7 @@ function Footer() {
     <div className="w-full bg-black font-montserrat flex flex-row space-x-8 text-sm p-8">
       <div className="flex-1">
         <div className="text-white mb-5">
-            Logo Goes here...
+            <img src="/logo_white.png" alt="Footer Logo" />
         </div>
         <div className="text-white">
           Healthneutron is a preventive healthcare institution that help save a

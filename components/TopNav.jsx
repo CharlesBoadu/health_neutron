@@ -1,38 +1,54 @@
-import React from "react";
+import React, { useState } from "react";
 import { BsCart4 } from "react-icons/bs";
 import { FiSearch } from "react-icons/fi";
 import { useRouter } from "next/router";
-import { useRecoilState } from 'recoil'
-import { cartState } from '../atoms/cartState'
-
+import { useRecoilState } from "recoil";
+import { cartState } from "../atoms/cartState";
 
 const Options = [
-    {
-        list: "Labs",
-    },
-    {
-        list: "Home Care",
-    }, 
-    {
-        list: "Vaccines",
-    },
-    {
-        list: "Blogs",
-    }
-]
+  {
+    list: "Labs",
+  },
+  {
+    list: "Home Care",
+  },
+  {
+    list: "Vaccines",
+  },
+  {
+    list: "Blogs",
+  },
+];
 
 function TopNav() {
+  const router = useRouter();
+  const [cartItem] = useRecoilState(cartState);
+  const [searchValue, setSearchValue] = useState({
+    search: "",
+  });
 
-    const router = useRouter();
-    const [cartItem] = useRecoilState(cartState);
+  function handleNavigateToCart() {
+    router.push("/cart");
+  }
 
-    function handleNavigateToCart() {
-        router.push("/cart");
-    }
+  function handleSelect(e) {
+    console.log("I have been selected", e.target.value);
+    // if (e.target.value === 'Labs') {
+    //   router.push("/labs");
+    // } else if (e.target.value === 'Home Care') {
+    //   router.push("/homecare");
+    // } else if (e.target.value === 'Vaccines') {
+    //   router.push("/vaccines");
+    // } else if (e.target.value === 'Blogs') {
+    //   router.push("/blogs");
+    // }
+  }
 
   return (
-    <div className="bg-black py-2 flex flex-row w-full space-x-4 font-montserrat px-2">
-      <div className="flex w-[300px] text-white pl-2">Health Neutron</div>
+    <div className="bg-[#7d018c] py-2 flex flex-row w-full space-x-4 font-montserrat px-2">
+      <div className="flex w-[300px] text-white pl-2">
+        <img src="/logo_white.png" alt="Logo" width={200} />
+      </div>
       <div className="flex-1 w-[600px] flex flex-row">
         <div className="flex w-[50px] z-10  px-2 mr-[-62px] rounded-sm justify-center items-center cursor-pointer">
           {/* <div>All</div>
@@ -40,27 +56,29 @@ function TopNav() {
              <IoMdArrowDropdown />
           </div> */}
           <select
-              className="font-semibold text-sm block w-[70px] px-4 py-2 bg-[#e3e6e6] border border-gray-200 active:border-gray-300 outline-none rounded-sm"
+            className="font-semibold text-sm block w-[150px] pr-8 py-[9px] bg-[#e3e6e6] border border-gray-200 active:border-gray-300 outline-none rounded-sm cursor-pointer"
             //   required={true}
-            //   onChange={(e) => {
-            //     setValues({
-            //       ...values,
-            //       which_employee: e.target.value,
-            //     });
-            //   }}
-              placeholder="All"
-            //   value={values.which_employee}
-            >
+            onChange={(e) => {
+              setSearchValue({
+                ...searchValue,
+                search: e.target.value,
+              });
+            }}
+            placeholder="All"
+          >
             {/* {console.log(fetchAllEmployees)} */}
-            <option value="" className="">
-                All
+            <option
+              // value={searchValue.search}
+              className=""
+            >
+              All
             </option>
-              {Options.map((em, i) => (
-                <option key={i} className="font-montserrat text-sm">
-                  {em.list}
-                </option>
-              ))}
-            </select>
+            {Options.map((em, i) => (
+              <option key={i} className="font-montserrat text-sm select option:select{py-3}">
+                {em.list}
+              </option>
+            ))}
+          </select>
         </div>
         <div>
           <input type="text" className="w-[700px] rounded-lg z-2" />
@@ -71,10 +89,13 @@ function TopNav() {
       </div>
       {/* <div className='flex w-[50px] bg-[#f3a847] justify-center items-center'>
         </div> */}
-      <div className="flex flex-row w-[100px] text-white cursor-pointer" onClick={handleNavigateToCart}>
+      <div
+        className="flex flex-row w-[100px] text-white cursor-pointer"
+        onClick={handleNavigateToCart}
+      >
         <div>
           <div className="font-montserrat font-bold ml-4 mb-[-12px] mt-[-5px] text-[#fa8900]">
-          {cartItem.length}
+            {cartItem.length}
           </div>
           <div>
             <BsCart4 size={35} />
