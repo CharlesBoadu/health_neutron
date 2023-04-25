@@ -1,11 +1,18 @@
-import React from 'react'
+import React from 'react';
+import { useRouter } from "next/router";
+import BookingForm from '../../components/BookingForm';
 
-function BookedItem() {
+function bookedItem() {
+  const router = useRouter();
+
+  const { name, amount } = router.query;
+
   return (
     <div>
-        Welcome to The Booking Page
+      Welcome to Booking Forms page
+      <BookingForm name={name} amount={amount}/>
     </div>
   )
 }
 
-export default BookedItem;
+export default bookedItem

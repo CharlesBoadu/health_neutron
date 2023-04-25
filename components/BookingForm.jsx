@@ -2,7 +2,8 @@ import React from "react";
 import Image from "next/Image";
 import vaccine_services from "../public/vaccine_services.jpg";
 
-function BookingForm() {
+
+function BookingForm({name, amount}) {
   return (
     <div className="flex justify-center items-center font-montserrat">
       <div className="mr-5 ml-5 mb-10 mt-3 flex rounded-lg w-full font-latoRegular h-contain">
@@ -116,7 +117,8 @@ function BookingForm() {
               // onChange={(event) =>
               //   setValues({ ...values, employee_id: event.target.value })
               // }
-              placeholder="Amount"
+              placeholder={amount}
+              disabled
             />
           </div>
         </div>
@@ -158,7 +160,8 @@ function BookingForm() {
               // onChange={(event) =>
               //   setValues({ ...values, phone_number: event.target.value })
               // }
-              placeholder="Enter Package"
+              placeholder={name}
+              disabled
             />
           </div>
 
