@@ -31,6 +31,10 @@ function TopNav() {
     router.push("/cart");
   }
 
+  function handleNavigationToHome() {
+    router.push("/");
+  }
+
   function handleSelect(e) {
     console.log("I have been selected", e.target.value);
     // if (e.target.value === 'Labs') {
@@ -46,7 +50,7 @@ function TopNav() {
 
   return (
     <div className="bg-[#7d018c] py-2 flex flex-row w-full space-x-4 font-montserrat px-2">
-      <div className="flex w-[300px] text-white pl-2">
+      <div className="flex w-[300px] text-white pl-2 cursor-pointer" onClick={handleNavigationToHome}>
         <img src="/logo_white.png" alt="Logo" width={200} />
       </div>
       <div className="flex-1 w-[600px] flex flex-row">
@@ -66,9 +70,7 @@ function TopNav() {
             }}
             placeholder="All"
           >
-            {/* {console.log(fetchAllEmployees)} */}
             <option
-              // value={searchValue.search}
               className=""
             >
               All
@@ -87,8 +89,6 @@ function TopNav() {
           <FiSearch size={25} />
         </div>
       </div>
-      {/* <div className='flex w-[50px] bg-[#f3a847] justify-center items-center'>
-        </div> */}
       <div
         className="flex flex-row w-[100px] text-white cursor-pointer"
         onClick={handleNavigateToCart}

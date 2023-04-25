@@ -11,7 +11,7 @@ function Footer() {
     }
     
     function handleNavigationToWebsite() {
-        router.push("/blogs");
+        router.push("https://healthneutron.com/");
     }
     
     function handleNavigationToBusinessPortal() {
@@ -34,7 +34,7 @@ function Footer() {
         router.push("")
     }
   return (
-    <div className="w-full bg-black font-montserrat flex flex-row space-x-8 text-sm p-8">
+    <div className="w-full bg-[#232f3e] font-montserrat flex flex-row space-x-8 text-sm p-8">
       <div className="flex-1">
         <div className="text-white mb-5">
             <img src="/logo_white.png" alt="Footer Logo" />
