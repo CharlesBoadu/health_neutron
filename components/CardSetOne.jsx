@@ -2,8 +2,11 @@ import React from 'react'
 
 function CardSetOne() {
   return (
-    <div className='flex flex-row bg-[#e3e6e6] pl-10 pr-10 space-x-6 pt-20 z-1 pb-10'>
-        <div className='bg-white w-[300px] h-[400px] p-5 space-y-2'>
+    <div className='flex flex-row bg-[#e5e7eb] mb-10 h-[50vh] space-x-6'>
+        <div className='flex items-center justify-center w-full bg-white m-10 h-[40vh] font-montserrat'>
+            Advertisement of Website Goes here...
+        </div>
+        {/* <div className='bg-white w-[300px] h-[400px] p-5 space-y-2'>
             <div className='flex text-black font-montserrat font-bold text-lg'>
                 Heading 1
             </div>
@@ -54,7 +57,7 @@ function CardSetOne() {
             <div className='flex text-sm text-blue-600'>
                 See more
             </div>
-        </div>
+        </div> */}
     </div>
   )
 }
