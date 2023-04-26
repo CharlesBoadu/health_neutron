@@ -37,7 +37,7 @@ function CartList({ data }) {
 
   return (
     <>
-      <div className="flex flex-row bg-gray-200 w-[1000px] h-[250px] mx-auto m-4 font-montserrat ml-5 mr-5">
+      <div className="flex flex-row bg-gray-200 w-[1000px] lg:w-1200 h-[250px] mx-auto m-4 font-montserrat ml-5 mr-5 mb-10">
         <div className="flex-1 w-[200px]">
           <img src={data.src} alt="" />
         </div>

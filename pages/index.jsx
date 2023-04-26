@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import TopNav from "../components/TopNav";
 import CardSetOne from "../components/CardSetOne";
 import TopNavSecond from "../components/TopNavSecond";
+import TopNavThird from "../components/TopNavThird";
+import SupportServices from "../components/SupportServices";
 import Footer from "../components/Footer";
 import FooterSecond from "../components/FooterSecond";
 import Carousel from "../components/Carousel";
@@ -24,11 +26,13 @@ export default function Home() {
       <TopNav />
       <TopNavSecond />
       <CarouselSecond autoSlide={true} autoSlideInterval={5000}>{[...slides.map((s) => <img src={s} />)]}</CarouselSecond>
+      <TopNavThird />
       <Carousel /> 
       {/* autoSlide={true} autoSlideInterval={5000}*/}
         {/* {[...slides.map((s) => <img src={s} />)]} */}
       {/* </Carousel> */}
       <CardSetOne />
+      <SupportServices />
       <Footer />
       <FooterSecond />
     </>
