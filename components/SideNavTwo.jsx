@@ -5,6 +5,10 @@ import { AiOutlineRight } from "react-icons/ai";
 function SideNavTwo() {
   const router = useRouter();
 
+  function handleNavigateToHome() {
+    router.push("/");
+  }
+
   function handleNavigateToLabs() {
     router.push("/labs");
   }
@@ -26,6 +30,15 @@ function SideNavTwo() {
       <div className="bg-white w-[250px] h-full absolute left-0 overflow-y-scroll animate-fade-in">
         <h1 className="bg-[#7d018c] py-2 text-left pl-10 text-white">All</h1>
         <div className="text-left flex flex-col space-y-4 ml-10 py-4">
+          <div
+            className="flex flex-row justify-between w-[150px] cursor-pointer hover:bg-[#7d018c] hover:text-white py-2 p-2 hover:rounded-lg"
+            onClick={handleNavigateToHome}
+          >
+            <div className="">Home</div>
+            <div className="">
+              <AiOutlineRight size={20} />
+            </div>
+          </div>
           <div
             className="flex flex-row justify-between w-[150px] cursor-pointer hover:bg-[#7d018c] hover:text-white py-2 p-2 hover:rounded-lg"
             onClick={handleNavigateToLabs}

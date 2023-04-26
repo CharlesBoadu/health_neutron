@@ -8,6 +8,9 @@ import Footer from "../components/Footer";
 import FooterSecond from "../components/FooterSecond";
 import Carousel from "../components/Carousel";
 import CarouselSecond from "../components/CarouselSecond";
+import FeaturedCategoriesCardOne from "../components/FeaturedCategoriesCardOne";
+import FeaturedCategoriesCardTwo from "../components/FeaturedCategoriesCardTwo";
+import FeaturedCategories from "../components/FeaturedCategories";
 
 const slides = [
   "/Health-Neutron-B2B-Web-banner20.jpg",
@@ -19,6 +22,11 @@ const slides = [
   // "https://images.unsplash.com/photo-1512756290469-ec264b7fbf87?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2253&q=80",
   // "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2671&q=80",
 ];
+
+const featured = [
+  <FeaturedCategoriesCardOne />,
+  <FeaturedCategoriesCardTwo />
+]
 
 export default function Home() {
   return (
@@ -32,6 +40,11 @@ export default function Home() {
         {/* {[...slides.map((s) => <img src={s} />)]} */}
       {/* </Carousel> */}
       <CardSetOne />
+      <FeaturedCategories 
+      autoSlide={true} autoSlideInterval={5000}
+      >
+      {[...featured.map((s) => s)]}
+      </FeaturedCategories>
       <SupportServices />
       <Footer />
       <FooterSecond />

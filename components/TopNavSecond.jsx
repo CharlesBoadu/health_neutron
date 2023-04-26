@@ -9,6 +9,10 @@ function TopNavSecond() {
   const router = useRouter();
   const [showSideNav, setShowSideNav] = useState(false);
 
+  function handleNavigateToHome () {
+    router.push("/");
+  }
+
   function handleNavigateToLabs () {
     router.push("/labs");
   }
@@ -47,6 +51,7 @@ function TopNavSecond() {
           <SideNavTwo showSideNav={showSideNav}/>
         )}
       </div>
+      <div className="text-white cursor-pointer text-sm" onClick={handleNavigateToHome}>Home</div>
       <div className="text-white cursor-pointer text-sm" onClick={handleNavigateToLabs}>Labs</div>
       <div className="text-white cursor-pointer text-sm" onClick={handleNavigateToHomeCare}>Home Care</div>
       <div className="text-white cursor-pointer text-sm" onClick={handleNavigateToVaccines}>Vaccines</div>
