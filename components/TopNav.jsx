@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { BsCart4 } from "react-icons/bs";
-import { FiSearch } from "react-icons/fi";
+import { FiSearch, FiFacebook, FiTwitter, FiInstagram } from "react-icons/fi";
+import { FaPinterest } from "react-icons/fa";
 import { useRouter } from "next/router";
 import { useRecoilState } from "recoil";
 import { cartState } from "../atoms/cartState";
@@ -35,6 +36,24 @@ function TopNav() {
     router.push("/");
   }
 
+  function HandleNavigateToFacebook() {
+    router.push("https://web.facebook.com/healthneutron/?_rdc=2&_rdr");
+  }
+
+  function HandleNavigateToTwitter() {
+    router.push("https://twitter.com/healthneutron");
+  }
+
+  function HandleNavigateToInstagram() {
+    router.push(
+      "https://www.instagram.com/accounts/login/?next=%2Fhealth_neutron%2F"
+    );
+  }
+
+  function HandleNavigateToPinterest() {
+    router.push("");
+  }
+
   function handleSelect(e) {
     console.log("I have been selected", e.target.value);
     // if (e.target.value === 'Labs') {
@@ -50,7 +69,10 @@ function TopNav() {
 
   return (
     <div className="bg-[#7d018c] py-2 flex flex-row w-full space-x-4 font-montserrat px-2">
-      <div className="flex w-[300px] text-white pl-2 cursor-pointer" onClick={handleNavigationToHome}>
+      <div
+        className="flex w-[300px] text-white pl-2 cursor-pointer"
+        onClick={handleNavigationToHome}
+      >
         <img src="/logo_white.png" alt="Logo" width={200} />
       </div>
       <div className="flex-1 w-[600px] flex flex-row">
@@ -70,13 +92,12 @@ function TopNav() {
             }}
             placeholder="All"
           >
-            <option
-              className=""
-            >
-              All
-            </option>
+            <option className="">All</option>
             {Options.map((em, i) => (
-              <option key={i} className="font-montserrat text-sm select option:select{py-3}">
+              <option
+                key={i}
+                className="font-montserrat text-sm select option:select{py-3}"
+              >
                 {em.list}
               </option>
             ))}
@@ -87,6 +108,20 @@ function TopNav() {
         </div>
         <div className="flex w-[50px] bg-[#f3a847] ml-[-50px] justify-center items-center cursor-pointer">
           <FiSearch size={25} />
+        </div>
+      </div>
+      <div className="flex flex-row mt-3 space-x-4 w-[150px]">
+        <div className="cursor-pointer" onClick={HandleNavigateToFacebook}>
+          <FiFacebook size={18} color="white" />
+        </div>
+        <div className="cursor-pointer" onClick={HandleNavigateToTwitter}>
+          <FiTwitter size={18} color="white" />
+        </div>
+        <div className="cursor-pointer" onClick={HandleNavigateToInstagram}>
+          <FiInstagram size={18} color="white" />
+        </div>
+        <div className="cursor-pointer" onClick={HandleNavigateToPinterest}>
+          <FaPinterest size={18} color="white" />
         </div>
       </div>
       <div

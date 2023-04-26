@@ -24,48 +24,48 @@ function Item() {
   const items = [
     {
       id: 1,
-      name: "Item1",
+      name: "HEPATITIS B PROFILE AND HBV VIRAL LOAD",
       quantity: 1,
       details:
         "This lab package includes, Lipid profile (Cholesterol), Fasting blood sugar, Cardiac enzymes and Hepatitis B",
-      price: "10.00",
-      src: "https://picsum.photos/200/300",
+      price: "1480.00",
+      src: "/hepatitis_b.jpg",
     },
     {
       id: 2,
-      name: "Item2",
+      name: "RANDOM BLOOD SUGAR",
       quantity: 1,
       details:
         "Lipids are fat and fat-like substance found in the body. A cholesterol test, also called a lipid profile, measures the fats in the blood. The measurements can help determine the risk of having a heart attack or other heart disease.",
-      price: "15.00",
-      src: "https://picsum.photos/200/300",
+      price: "142.00",
+      src: "/random-blood-sugar_rnnl38.jpg",
     },
     {
       id: 3,
-      name: "Item3",
+      name: "PSA",
       quantity: 1,
       details:
         "RANDOM FASTING SUGAR A blood test done to evaluate the level of glucose in blood at any point of time in a day.",
-      price: "20.00",
-      src: "https://picsum.photos/200/300",
+      price: "244.00",
+      src: "/psa_gtslvq.jpg",
     },
     {
       id: 4,
-      name: "Item4",
+      name: "RENAL KIDNEY PROFILE",
       quantity: 1,
       details:
         "Take advantage of the December/Football season discount and book now!!! Millions of people are likely to die from kidney failure when left untreated.",
-      price: "25.00",
-      src: "https://picsum.photos/200/300",
+      price: "300.00",
+      src: "/RENAL (KIDNEY).jpg",
     },
     {
       id: 5,
-      name: "Item5",
+      name: "END OF YEAR FAMILY LIFE PACKAGE",
       quantity: 1,
       details:
         "A Pap smear, also called a Pap test, is a procedure to test for cervical cancer in women. Detecting cervical cancer early with a Pap smear gives you a greater chance at a cure. A Pap smear can also detect changes in your cervical cells that suggest cancer may develop in the future",
-      price: "30.00",
-      src: "https://picsum.photos/200/300",
+      price: "750.00",
+      src: "/End of year.jpg",
     },
   ];
 
@@ -114,11 +114,11 @@ function Item() {
     <ToastContainer />
       <TopNav />
       <TopNavSecond />
-      <div className="flex flex-row bg-gray-200 w-[900px] h-[250px] mx-auto m-4 items-center justify-center">
-        <div className="flex w-[300px] h-full">
-          <img src="https://picsum.photos/200/300" alt="" />
+      <div className="flex flex-row bg-gray-200 w-[1000px] h-full mx-auto m-4 items-center justify-center space-x-8">
+        <div className="flex-1 w-full h-full">
+          <img src={items[itemId - 1]?.src} alt="" />
         </div>
-        <div className="flex-1 w-[600px] space-y-3">
+        <div className="flex flex-col w-[600px] space-y-3">
           <div className="text-lg font-bold font-montserrat">{items[itemId - 1]?.name}</div>
           <div className="font-montserrat text-sm pr-4">{items[itemId - 1]?.details}</div>
           <div className="space-y-1 text-xs">

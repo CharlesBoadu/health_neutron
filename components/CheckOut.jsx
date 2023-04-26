@@ -2,7 +2,7 @@ import React from "react";
 
 function CheckOut({ totalPrice }) {
   return (
-    <div className="bg-gray-300 space-y-4 w-[300px] h-[300px] p-4 flex item-center justify-center flex-col font-montserrat mr-10 mt-4 mb-10">
+    <div className="bg-gray-200 space-y-4 w-[300px] h-[300px] p-4 flex item-center justify-center flex-col font-montserrat mr-10 mt-4 mb-10">
       <div className="flex flex-row space-x-2">
         <div className="text-lg mt-1">SubTotal:</div> 
         <div className="text-2xl font-bold">₵ {totalPrice}.00</div> 

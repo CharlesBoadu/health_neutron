@@ -17,39 +17,39 @@ function LabCards() {
   const items = [
     {
       id: 1,
-      name: "Item1",
-      price: "10.00",
-      src: "https://picsum.photos/200/300",
+      name: "HEPATITIS B PROFILE AND HBV VIRAL LOAD",
+      price: "1480.00",
+      src: "/hepatitis_b.jpg",
     },
     {
       id: 2,
-      name: "Item2",
-      price: "15.00",
-      src: "https://picsum.photos/200/300",
+      name: "RANDOM BLOOD SUGAR",
+      price: "142.00",
+      src: "/random-blood-sugar_rnnl38.jpg",
     },
     {
       id: 3,
-      name: "Item3",
-      price: "20.00",
-      src: "https://picsum.photos/200/300",
+      name: "PSA",
+      price: "244.00",
+      src: "/psa_gtslvq.jpg",
     },
     {
       id: 4,
-      name: "Item4",
-      price: "25.00",
-      src: "https://picsum.photos/200/300",
+      name: "RENAL KIDNEY PROFILE",
+      price: "300.00",
+      src: "/RENAL (KIDNEY).jpg",
     },
     {
       id: 5,
-      name: "Item5",
-      price: "30.00",
-      src: "https://picsum.photos/200/300",
+      name: "END OF YEAR FAMILY LIFE PACKAGE",
+      price: "750.00",
+      src: "/End of year.jpg",
     },
   ];
 
   return (
     <>
-      <div className="flex flex-row m-8 space-x-10 justify-center items-center">
+      <div className="flex flex-row m-8 space-x-10 justify-center items-center font-montserrat">
         {items.map((item, index) => {
           // console.log("Hello", item.id);
           return (
@@ -62,11 +62,11 @@ function LabCards() {
             >
               <img src={item.src} alt="Lab Image" />
               <div className="space-y-1">
-                <div className="font-montserrat text-center text-xl font-bold">
+                <div className=" text-center text-base font-medium mt-2">
                   {item.name.toUpperCase()}
                 </div>
-                <div className="text-lg font-semibold text-center">
-                  ₵{item.price}.00
+                <div className="text-lg font-semibold text-center text-[#7d018c]">
+                  ₵{item.price}
                 </div>
               </div>
             </div>

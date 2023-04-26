@@ -2,16 +2,18 @@ import React, { useState } from "react";
 import TopNav from "../components/TopNav";
 import Footer from "../components/Footer";
 import FooterSecond from "../components/FooterSecond";
-import { useRecoilState, useRecoilValue} from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import { cartState } from "../atoms/cartState";
 import CartList from "../components/CartList";
 import TopNavSecond from "../components/TopNavSecond";
 import CheckOut from "../components/CheckOut";
+import { RxArrowTopLeft } from "react-icons/rx";
+import { useRouter } from "next/router";
 
 function cart() {
   const [cartItem, setCartItem] = useRecoilState(cartState);
-  // const cartItems = useRecoilValue(cartState);
-  console.log("Howdy", cartItem)
+  const router = useRouter();
+  console.log("Howdy", cartItem);
 
   const totalPrice = () => {
     let total = 0;
@@ -19,26 +21,42 @@ function cart() {
     return total;
   };
 
+  function handleContinue () {
+    router.push("/")
+  }
+
   return (
     <>
       <TopNav />
       <TopNavSecond />
       <div>
-        <div className="w-contain h-[30vh] m-4 bg-black flex items-center justify-center">
+        <div className="w-contain h-[30vh] m-4 bg-[#232f3e] flex items-center justify-center">
           <span className="font-montserrat text-4xl text-white">
             Shopping Cart
           </span>
         </div>
-        <div className="flex flex-row">
+        <div className="flex flex-row font-montserrat">
           <div className="flex-1">
             {cartItem.length <= 0 ? (
-              <h1 className="text-center text-4xl m-32">Your Cart Is Empty</h1>
+              <div className="flex flex-col items-center justify-center mt-32">
+                <div className="text-center text-4xl">
+                    Your Cart Is Empty
+                </div>
+                <div className="flex items-center flex-row space-x-2 mt-3 cursor-pointer shadow-sm" onClick={handleContinue}>
+                  <div>
+                    <RxArrowTopLeft size={25} color="#7d018c"/>
+                  </div>
+                  <div className="text-[#7d018c]">
+                    Continue shopping
+                  </div>
+                </div>
+              </div>
             ) : (
               cartItem.map((item) => <CartList key={item.id} data={item} />)
             )}
           </div>
           <div className="flex">
-              <CheckOut totalPrice={totalPrice()}/>
+            <CheckOut totalPrice={totalPrice()} />
           </div>
         </div>
         {/* <div className="flex flex-row bg-gray-200 w-[90%] h-[200px] mx-auto m-4">
@@ -63,7 +81,7 @@ function cart() {
             </div>
           </div>
         </div> */}
-      {/* <div>
+        {/* <div>
         <CheckOut />
       </div> */}
       </div>

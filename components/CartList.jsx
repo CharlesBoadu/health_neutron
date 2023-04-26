@@ -37,11 +37,11 @@ function CartList({ data }) {
 
   return (
     <>
-      <div className="flex flex-row bg-gray-200 w-[900px] h-[250px] mx-auto m-4 font-montserrat">
-        <div className="flex w-[200px] h-full">
-          <img src="https://picsum.photos/200/300" alt="" />
+      <div className="flex flex-row bg-gray-200 w-[1000px] h-[250px] mx-auto m-4 font-montserrat ml-5 mr-5">
+        <div className="flex-1 w-[200px]">
+          <img src={data.src} alt="" />
         </div>
-        <div className="flex-1 w-[600px] flex flex-row m-4 mt-10 border-t-2 border-gray-400">
+        <div className="flex w-[600px] flex flex-row m-4 mt-10 border-t-2 border-gray-400">
           <div className="flex-1 space-y-10">
             <div className="space-y-1">
               <div className="text-xl">{data.name}</div>
