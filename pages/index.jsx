@@ -8,9 +8,11 @@ import Footer from "../components/Footer";
 import FooterSecond from "../components/FooterSecond";
 import Carousel from "../components/Carousel";
 import CarouselSecond from "../components/CarouselSecond";
+import CustomerReviews from "../components/CustomerReviews";
 import FeaturedCategoriesCardOne from "../components/FeaturedCategoriesCardOne";
 import FeaturedCategoriesCardTwo from "../components/FeaturedCategoriesCardTwo";
 import FeaturedCategories from "../components/FeaturedCategories";
+import CustomerReviewCard from "../components/CustomerReviewCard";
 
 const slides = [
   "/Health-Neutron-B2B-Web-banner20.jpg",
@@ -26,6 +28,10 @@ const slides = [
 const featured = [
   <FeaturedCategoriesCardOne />,
   <FeaturedCategoriesCardTwo />
+]
+
+const customerReviews = [
+  <CustomerReviewCard />
 ]
 
 export default function Home() {
@@ -45,6 +51,9 @@ export default function Home() {
       >
       {[...featured.map((s) => s)]}
       </FeaturedCategories>
+      <CustomerReviews>
+      {[...customerReviews.map((s) => s)]}
+      </CustomerReviews>
       <SupportServices />
       <Footer />
       <FooterSecond />

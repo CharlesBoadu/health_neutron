@@ -22,7 +22,7 @@ function SideNavTwo() {
   }
 
   function handleNavigateToBlogs() {
-    router.push("/blogs");
+    router.push("https://healthneutron.com/blogs/", undefined, { target: '_blank' });
   }
 
   return (
