@@ -1,9 +1,8 @@
 import React from "react";
+import Homecare_services from "../public/Homecare_services.jpg";
 import Image from "next/Image";
-import vaccine_services from "../public/vaccine_services.jpg";
 
-
-function BookingForm({name, amount}) {
+function HomeCareForm() {
   return (
     <div className="flex justify-center items-center font-montserrat">
       <div className="mr-5 ml-5 mb-10 mt-3 flex rounded-lg w-full font-latoRegular h-contain">
@@ -11,7 +10,7 @@ function BookingForm({name, amount}) {
           <div className="rounded-2xl relative h-full w-full mb-4 flex justify-center text-center object-cover">
             <Image
               alt="AddUser form image"
-              src={vaccine_services}
+              src={Homecare_services}
               fill
               className="object-cover rounded-2xl h-full w-full"
             />
@@ -21,6 +20,56 @@ function BookingForm({name, amount}) {
           </h1> */}
         </div>
         <div className="flex-1 m-5">
+          {/* Service Type field */}
+          <div className="pb-4">
+            <label
+              className={"block font-latoBold text-sm pb-2"}
+              htmlFor="gender"
+            >
+              Service Type *
+            </label>
+            <select
+              name="service_type"
+              // value={values.privilege}
+              // onChange={(event) =>
+              //   setValues({ ...values, privilege: event.target.value })
+              // }
+              className="w-full rounded-lg bg-gray-200 text-xs focus:border-[#7d018c] focus:ring-[#7d018c]"
+            >
+              <option value="">Select Dr. Type</option>
+              <option value="general_practice">General Practice</option>
+              <option value="dietician">Dietician</option>
+              <option value="psychologist">Psychologist</option>
+              <option value="nursing">Nursing</option>
+              <option value="physiotherapy">Physiotherapy</option>
+            </select>
+          </div>
+
+          {/* Package Type field */}
+          <div className="pb-4">
+            <label
+              className={"block font-latoBold text-sm pb-2"}
+              htmlFor="gender"
+            >
+              Package Type *
+            </label>
+            <select
+              name="service_type"
+              // value={values.privilege}
+              // onChange={(event) =>
+              //   setValues({ ...values, privilege: event.target.value })
+              // }
+              className="w-full rounded-lg bg-gray-200 text-xs focus:border-[#7d018c] focus:ring-[#7d018c]"
+            >
+              <option value="">Select Package Type</option>
+              {/* <option value="general_practice">General Practice</option>
+              <option value="dietician">Dietician</option>
+              <option value="psychologist">Psychologist</option>
+              <option value="nursing">Nursing</option>
+              <option value="physiotherapy">Physiotherapy</option> */}
+            </select>
+          </div>
+
           {/* First Name input field */}
           <div className="pb-4">
             <label
@@ -40,7 +89,7 @@ function BookingForm({name, amount}) {
               placeholder="Enter First Name"
             />
           </div>
-          
+
           {/* Last Name input field */}
           <div className="pb-4">
             <label
@@ -80,7 +129,9 @@ function BookingForm({name, amount}) {
               placeholder="Enter Email"
             />
           </div>
-          
+        </div>
+
+        <div className="flex-1 m-5">
           {/* Phone Number input field */}
           <div className="pb-4">
             <label
@@ -101,29 +152,6 @@ function BookingForm({name, amount}) {
             />
           </div>
 
-          {/* Amount Input field*/}
-          <div className="pb-4">
-            <label
-              className={`block font-latoBold text-sm pb-2`}
-              htmlFor="amount"
-            >
-              Amount
-            </label>
-            <input
-              className="w-full bg-gray-200 p-2 rounded-md focus:border-[#7d018c] focus:ring-[#7d018c] text-xs"
-              type="text"
-              name="amount"
-              // value={values.employee_id}
-              // onChange={(event) =>
-              //   setValues({ ...values, employee_id: event.target.value })
-              // }
-              placeholder={amount}
-              disabled
-            />
-          </div>
-        </div>
-
-        <div className="flex-1 m-5">
           {/* Location Input field*/}
           <div className="pb-4">
             <label
@@ -141,27 +169,6 @@ function BookingForm({name, amount}) {
               //   setValues({ ...values, phone_number: event.target.value })
               // }
               placeholder="Enter Location"
-            />
-          </div>
-          
-          {/* Package Input field*/}
-          <div className="pb-4">
-            <label
-              className={`block font-latoBold text-sm pb-2`}
-              htmlFor="location"
-            >
-              Package *
-            </label>
-            <input
-              className="w-full bg-gray-200 p-2 rounded-md focus:border-[#7d018c] focus:ring-[#7d018c] text-xs"
-              type="text"
-              name="package"
-              // value={values.phone_number}
-              // onChange={(event) =>
-              //   setValues({ ...values, phone_number: event.target.value })
-              // }
-              placeholder={name}
-              disabled
             />
           </div>
 
@@ -203,10 +210,10 @@ function BookingForm({name, amount}) {
               // onChange={(event) =>
               //   setValues({ ...values, password: event.target.value })
               // }
-            //   placeholder="Select Visit Date"
+              //   placeholder="Select Visit Date"
             />
           </div>
-          
+
           {/* Visit Time field */}
           <div className="pb-4">
             <label
@@ -245,4 +252,4 @@ function BookingForm({name, amount}) {
   );
 }
 
-export default BookingForm;
+export default HomeCareForm;
