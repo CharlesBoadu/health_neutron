@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight } from "react-feather";
 
 function CustomerReviews({
@@ -6,7 +6,16 @@ function CustomerReviews({
 }) {
 
   const [curr, setCurr] = useState(0)
+  const [showControl, setShowControl] = useState(false);
 
+  useEffect(() => {
+      if (slides.length > 1) {
+        setShowControl(true);
+      } else {
+        setShowControl(false);
+      }
+  }, [slides.length])
+  
   const prev = () =>
     setCurr((curr) => (curr === 0 ? slides.length - 1 : curr - 1));
   const next = () =>
@@ -23,7 +32,7 @@ function CustomerReviews({
       >
         {slides}
       </div>
-      <div className="absolute w-full flex items-center mt-[-250px] justify-between p-4 z-1">
+      {showControl && <div className="absolute w-full flex items-center mt-[-250px] justify-between p-4 z-1">
         <button
           onClick={prev}
           className="p-1 rounded-sm shadow bg-white/80 text-gray-800 hover:bg-white h-[35vh]"
@@ -36,7 +45,7 @@ function CustomerReviews({
         >
           <ChevronRight size={40} />
         </button>
-      </div>
+      </div>}
 
       <div className="absolute bottom-4 right-0 left-0">
         <div className="flex items-center justify-center gap-2">

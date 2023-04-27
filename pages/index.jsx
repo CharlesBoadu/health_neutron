@@ -31,6 +31,7 @@ const featured = [
 ]
 
 const customerReviews = [
+  <CustomerReviewCard />,
   <CustomerReviewCard />
 ]
 

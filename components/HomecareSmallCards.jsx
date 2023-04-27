@@ -12,7 +12,7 @@ function HomecareSmallCards() {
         </div>
         <div className="flex flex-col">
           <div className="w-[150px] h-[100px] bg-gray-300">
-            <img src="/homecare_services.jpg" alt="Lab Image 2" className="object-cover h-full w-full"/>
+            <img src="/homecare_services_1.jpg" alt="Lab Image 2" className="object-cover h-full w-full"/>
           </div>
           <div className="text-sm text-gray-600">Home Care</div>
         </div>
@@ -20,13 +20,13 @@ function HomecareSmallCards() {
       <div className="flex flex-row justify-center items-center space-x-3 py-2">
         <div className="flex flex-col">
           <div className="w-[150px] h-[100px] bg-gray-300">
-            <img src="/homecare_services.jpg" alt="Lab Image 3" className="object-cover h-full w-full"/>
+            <img src="/homecare_services_2.jpg" alt="Lab Image 3" className="object-cover h-full w-full"/>
           </div>
           <div className="text-sm text-gray-600">Home Care</div>
         </div>
         <div className="flex flex-col">
           <div className="w-[150px] h-[100px] bg-gray-300">
-            <img src="/homecare_services.jpg" alt="Lab Image 4" className="object-cover h-full w-full"/>
+            <img src="/homecare_services_3.jpg" alt="Lab Image 4" className="object-cover h-full w-full"/>
           </div>
           <div className="text-sm text-gray-600">Home Care</div>
         </div>
