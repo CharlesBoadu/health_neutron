@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import TopNav from "../../components/TopNav";
 import TopNavSecond from "../../components/TopNavSecond";
-import SideNav from "../../components/SideNav";
+// import SideNav from "../../components/SideNav";
 import CarouselSecond from "../../components/CarouselSecond";
 import { useRecoilState } from "recoil";
 import { cartState } from "../../atoms/CartState";
@@ -12,15 +12,15 @@ import { useRouter } from "next/router";
 const hbvItems = [
   {
     id: 1,
-    name: "HEPATITIS B PROFILE AND HBV VIRAL LOAD",
+    name: "HEPATITIS B TEST HBSBAG",
     price: "1480.00",
-    src: "/hepatitis_b.jpg",
+    src: "/hepatitis-b_tvvx7k.jpg",
   },
   {
     id: 2,
-    name: "RANDOM BLOOD SUGAR",
+    name: "HEPATITIS B VIRAL LOAD",
     price: "142.00",
-    src: "/random-blood-sugar_rnnl38.jpg",
+    src: "/hepatitis-b-viral-load_rhlvce.jpg",
   },
 ];
 

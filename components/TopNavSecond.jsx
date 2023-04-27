@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import SideNav from "./SideNav";
 import { useRouter } from "next/router";
 import SideNavTwo from "./SideNavTwo";
 import { GoThreeBars } from "react-icons/go";

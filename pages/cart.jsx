@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import TopNav from "../components/TopNav";
 import Footer from "../components/Footer";
+import ShoppingCartControls from "../components/ShoppingCartControls";
 import FooterSecond from "../components/FooterSecond";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { cartState } from "../atoms/cartState";
@@ -12,6 +13,7 @@ import { useRouter } from "next/router";
 
 function cart() {
   const [cartItem, setCartItem] = useRecoilState(cartState);
+  const [controlState, setControlState] = useState(false);
   const router = useRouter();
   console.log("Howdy", cartItem);
 
@@ -24,6 +26,15 @@ function cart() {
   function handleContinue () {
     router.push("/")
   }
+
+  useEffect(() => {
+    if (cartItem.length >= 1) {
+      setControlState(true);
+    } else {
+      setControlState(false);
+    }
+  }, [])
+
 
   return (
     <>
@@ -52,7 +63,7 @@ function cart() {
                 </div>
               </div>
             ) : (
-              cartItem.map((item) => <CartList key={item.id} data={item} />)
+              cartItem.map((item) => <CartList key={item.id} data={item} totalPrice={totalPrice}/>)
             )}
           </div>
           <div className="flex">
@@ -85,6 +96,7 @@ function cart() {
         <CheckOut />
       </div> */}
       </div>
+      <ShoppingCartControls controlState={controlState}/>
       <Footer />
       <FooterSecond />
     </>

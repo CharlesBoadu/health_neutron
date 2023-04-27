@@ -3,9 +3,12 @@ import CheckOut from "./CheckOut";
 import { AiOutlineDelete } from "react-icons/ai";
 import { GrAdd, GrFormSubtract } from "react-icons/gr";
 
-function CartList({ data }) {
+function CartList({ data, totalPrice }) {
   const [updatedItem, setUpdatedItem] = useState("");
   const newData = Object.assign({}, data);
+  const [deleteState, setDeleteState] = useState(true);
+  const [newTotalPrice, setNewTotalPrice] = useState(totalPrice);
+  
 
   function handleIncrease () {
     setUpdatedItem(newData);
@@ -25,9 +28,13 @@ function CartList({ data }) {
   }
   
   function handleDelete () {
-    
+    setDeleteState(false);
+    const nowPrice = newTotalPrice - updatedItem.price;
+    return setNewTotalPrice(nowPrice);
   }
-
+  
+  console.log("New Price Outside Delete", newTotalPrice);
+  
   useEffect(() => {
     setUpdatedItem(newData);
   }, [])
@@ -37,6 +44,7 @@ function CartList({ data }) {
 
   return (
     <>
+    {deleteState && (
       <div className="flex flex-row bg-gray-200 w-[1000px] lg:w-1200 h-[250px] mx-auto m-4 font-montserrat ml-5 mr-5 mb-10">
         <div className="flex-1 w-[200px]">
           <img src={data.src} alt="" />
@@ -87,6 +95,7 @@ function CartList({ data }) {
           </div>
         </div>
       </div>
+    )}
     </>
   );
 }
