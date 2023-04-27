@@ -3,10 +3,10 @@ import { useRouter } from "next/router";
 import { AiOutlineRight } from "react-icons/ai";
 
 const Menus = [
-  { title: "Hepatitis B", src: "labs" },
-  { title: "Hypertension", src: "Chat" },
-  { title: "Diabetes", src: "User" },
-  { title: "Comprehensive Lab", src: "Calendar" },
+  { title: "Hepatitis B" },
+  { title: "Hypertension" },
+  { title: "Diabetes" },
+  { title: "Comprehensive Lab" },
 ];
 
 function SideNavTwo() {
@@ -39,6 +39,13 @@ function SideNavTwo() {
     setShowSubLabs(true);
   }
 
+  function handleSort(name) {
+    router.push({
+      pathname: `/Sorted/${name}`,
+      query: {name: `${name}`},
+    });
+  }
+
   return (
     <div className="fixed inset-0 bg-[rgba(0,0,0,0.7)] z-10 overflow-hidden">
       <div className="bg-white w-[250px] h-full absolute left-0 overflow-y-scroll animate-fade-in">
@@ -56,6 +63,7 @@ function SideNavTwo() {
           <div
             className="flex flex-row justify-between w-[150px] cursor-pointer hover:bg-[#7d018c] hover:text-white py-2 p-2 hover:rounded-lg"
             onMouseEnter={handleShowSideLabs}
+            onClick={handleNavigateToLabs}
           >
             <div className="">Labs</div>
             <div className="">
@@ -69,38 +77,6 @@ function SideNavTwo() {
                   open ? "w-60" : "w-8"
                 } bg-dark-purple h-full relative duration-300 pl-4`}
               >
-                <div
-                  className="flex flex-row "
-                  //  onClick={handleOpen}
-                >
-                  {/* <GoThreeBars
-                     className={`absolute cursor-pointer w-7 border-dark-purple mt-[1.5px]
-                     ${!open && "rotate-180"}`}
-                     color="white"
-                   /> */}
-                  {/* <div className="text-white cursor-pointer text-sm">All</div> */}
-                </div>
-                {/* <img
-                   src="../public/control.png"
-                   className={`absolute cursor-pointer w-7 border-dark-purple
-                    border-2 rounded-full  ${!open && "rotate-180"}`}
-                   onClick={() => setOpen(!open)}
-                 /> */}
-                <div className="flex gap-x-4 items-center">
-                  {/* <img
-                     src="../public/control.png"
-                     className={`cursor-pointer duration-500 ${
-                       open && "rotate-[360deg]"
-                     }`}
-                   /> */}
-                  {/* <h1
-                     className={`text-white origin-left font-medium text-xl duration-200 ${
-                       !open && "scale-0"
-                     }`}
-                   >
-                     Designer
-                   </h1> */}
-                </div>
                 <ul
                   className=" space-y-2"
                   onMouseLeave={() => {
@@ -122,7 +98,7 @@ function SideNavTwo() {
                           !open && "hidden"
                         } origin-left duration-200`}
                         onClick={() => {
-                          handleNavigation(Menu.title);
+                          handleSort(Menu.title);
                         }}
                       >
                         <div className="flex flex-row justify-between space-x-4">

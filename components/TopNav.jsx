@@ -104,7 +104,7 @@ function TopNav() {
           </select>
         </div>
         <div>
-          <input type="text" className="w-[700px] rounded-lg z-2" />
+          <input type="text" className="w-[700px] rounded-lg z-2" placeholder="Search HealthNeutron"/>
         </div>
         <div className="flex w-[50px] bg-[#f3a847] ml-[-50px] justify-center items-center cursor-pointer">
           <FiSearch size={25} />

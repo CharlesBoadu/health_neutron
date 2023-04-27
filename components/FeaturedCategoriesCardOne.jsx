@@ -8,7 +8,6 @@ function FeaturedCategoriesCardOne() {
     router.push({
       pathname: `/Sorted/${name}`,
       query: {name: `${name}`},
-      // state: { name, price },
     });
   }
 

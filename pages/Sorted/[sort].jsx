@@ -82,7 +82,7 @@ function Sort() {
   };
 
   useEffect(() => {
-      if ( name === 'Hepatitis') {
+      if ( name === 'Hepatitis B') {
         setHBVItems(true);
         setHypertension(false);
       } else if (name === 'Hypertension') {
@@ -95,7 +95,7 @@ function Sort() {
     <>
       <TopNav />
       <TopNavSecond />
-      <SideNav />
+      {/* <SideNav /> */}
       <CarouselSecond autoSlide={true} autoSlideInterval={5000}>
         {[...slides.map((s) => <img src={s} />)]}
       </CarouselSecond>
