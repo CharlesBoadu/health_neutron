@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BsCart4 } from "react-icons/bs";
 import { FiSearch, FiFacebook, FiTwitter, FiInstagram } from "react-icons/fi";
 import { FaPinterest } from "react-icons/fa";
@@ -27,6 +27,7 @@ function TopNav() {
   const [searchValue, setSearchValue] = useState({
     search: "",
   });
+  const [searchSelect, setSearchSelect] = useState("");
 
   function handleNavigateToCart() {
     router.push("/cart");
@@ -55,18 +56,16 @@ function TopNav() {
   }
 
   function handleSelect(e) {
-    console.log("I have been selected", e.target.value);
-    // if (e.target.value === 'Labs') {
-    //   router.push("/labs");
-    // } else if (e.target.value === 'Home Care') {
-    //   router.push("/homecare");
-    // } else if (e.target.value === 'Vaccines') {
-    //   router.push("/vaccines");
-    // } else if (e.target.value === 'Blogs') {
-    //   router.push("/blogs");
-    // }
+    return setSearchSelect(e.target.value);
   }
 
+  useEffect(() => {
+    console.log("Current search value: ", searchSelect)
+  }, [searchSelect])
+
+  function handleSearch () {
+    
+  }
   return (
     <div className="bg-[#7d018c] py-2 flex flex-row w-full space-x-4 font-montserrat px-2">
       <div
@@ -76,7 +75,9 @@ function TopNav() {
         <img src="/logo_white.png" alt="Logo" width={200} />
       </div>
       <div className="flex-1 w-[600px] flex flex-row">
-        <div className="flex w-[50px] z-10  px-2 mr-[-62px] rounded-sm justify-center items-center cursor-pointer">
+        <div className="flex w-[50px] z-10  px-2 mr-[-62px] rounded-sm justify-center items-center cursor-pointer"
+        onClick={handleSelect}
+        >
           {/* <div>All</div>
           <div>
              <IoMdArrowDropdown />
