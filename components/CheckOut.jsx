@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import CheckOutFormModal from "./CheckOutFormModal";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function CheckOut({ totalPrice }) {
   const [isOpened, setIsOpened] = useState(false);
@@ -12,9 +14,9 @@ function CheckOut({ totalPrice }) {
     setIsOpened(false);
   }
 
-
   return (
     <>
+    <ToastContainer />
       <CheckOutFormModal 
       visible={isOpened}
       closeModal={closeModal}
@@ -29,7 +31,10 @@ function CheckOut({ totalPrice }) {
           <div className="text-3xl font-bold">₵ {totalPrice}.00</div>
         </div>
         <div className="bg-[#f7ca00] w-[260px] py-2 cursor-pointer hover:bg-[#ffd814] text-center rounded-lg text-sm"
-        onClick={openModal}
+        onClick={() => {
+          totalPrice === 0 ? toast.error("Cart is empty") : openModal();
+          }
+        }
         >
           Procced To CheckOut
         </div>

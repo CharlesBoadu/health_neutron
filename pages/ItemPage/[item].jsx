@@ -6,10 +6,9 @@ import { useRouter } from "next/router";
 import FooterSecond from "../../components/FooterSecond";
 import { cartState } from "../../atoms/CartState";
 import { useRecoilState } from "recoil";
-// import { toast } from "react-hot-toast";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useLocation, useParams } from "react-router-dom";
+import { BsArrowLeftShort } from "react-icons/bs";
 
 function Item() {
   const router = useRouter();
@@ -18,9 +17,6 @@ function Item() {
   const [updatedItem, setUpdatedItem] = useState("");
   const [newUpdatedItem, setNewUpdatedItem] = useState("");
 
-  // const { state } = useLocation();
-  // const { name, price } = state;
-  console.log("Cart items", cartItem);
   const items = [
     {
       id: 1,
@@ -68,6 +64,10 @@ function Item() {
       src: "/End of year.jpg",
     },
   ];
+
+  function handleGoBack () {
+    router.back()
+  }
 
   //Adding items to Cart
   const addItemsToCart = () => {
@@ -135,6 +135,16 @@ function Item() {
               Buy Now
             </div> */}
           </div>
+        </div>
+      </div>
+      <div className="py-4 font-montserrat flex flex-row items-center justify-center space-x-4 hover:text-[#7d018c] hover:cursor-pointer"
+      onClick={handleGoBack}
+      >
+        <div>
+          <BsArrowLeftShort />
+        </div>
+        <div>
+          Go back
         </div>
       </div>
       <Footer />

@@ -10,9 +10,9 @@ function vaccines() {
       <TopNav />
       <TopNavSecond />
       <div>
-        <div className="w-contain h-[40vh] m-4 bg-[#232f3e] flex items-center justify-center">
+        <div className="w-contain h-[40vh] m-4 bg-[#232f3e] flex items-center justify-center bg-gradient-to-r from-violet-500 to-fuchsia-500">
           <span className="font-montserrat text-4xl text-white">
-            Welcome to the Vaccines Page
+            Vaccines available
           </span>
         </div>
           <VaccineCards />

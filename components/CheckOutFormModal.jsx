@@ -18,7 +18,7 @@ function CheckOutFormModal({ visible = true, closeModal }) {
               </button>
             </div>
           <div className="flex flex-row items-center justify-center">
-            <div className="flex flex-col w-[500px] m-5">
+            <div className="flex flex-col w-[500px] mr-5 ml-5 mb-5 mt-[-22px]">
               {/* First Name input field */}
               <div className="pb-4">
                 <label
@@ -240,6 +240,7 @@ function CheckOutFormModal({ visible = true, closeModal }) {
                 >
                   Book
                 </button>
+                <p className="text-sm text-gray-500 mt-2"><span className="font-extrabold text-[#7d018c]">NB: </span>After booking you will be redirected to a checkout page where you will make payment</p>
               </div>
             </div>
           </div>    
