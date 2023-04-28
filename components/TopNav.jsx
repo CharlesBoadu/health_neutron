@@ -64,7 +64,7 @@ function TopNav() {
   }, [searchSelect])
 
   function handleSearch () {
-    
+
   }
   return (
     <div className="bg-[#7d018c] py-2 flex flex-row w-full space-x-4 font-montserrat px-2">
@@ -75,7 +75,7 @@ function TopNav() {
         <img src="/logo_white.png" alt="Logo" width={200} />
       </div>
       <div className="flex-1 w-[600px] flex flex-row">
-        <div className="flex w-[50px] z-10  px-2 mr-[-62px] rounded-sm justify-center items-center cursor-pointer"
+        <div className="flex w-[50px] z-0  px-2 mr-[-62px] rounded-sm justify-center items-center cursor-pointer"
         onClick={handleSelect}
         >
           {/* <div>All</div>
