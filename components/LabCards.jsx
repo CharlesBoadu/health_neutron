@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import CartSideNav from "./CartSideNav";
 
 function LabCards() {
   const router = useRouter();
+  const [labItems, setLabItems] = useState([]);
 
   function handleNavigateToItem(item) {
     const { id, name, price } = item;
@@ -46,6 +47,36 @@ function LabCards() {
       src: "/End of year.jpg",
     },
   ];
+
+  useEffect(() => {
+    const fetchLabItems = async () => {
+      try {
+        const fetchedLabItems = await fetch(
+          "https://private-6dbba77-healthneutron.apiary-mock.com/api/v1/fetch/labs/bundles"
+        );
+        const fetchedResponse = await fetchedLabItems.json();
+        setLabItems(fetchedResponse?.data);
+      } catch (error) {
+        console.log("Error fetching data: ", error);
+      }
+    };
+
+    fetchLabItems();
+  }, []);
+
+  // useEffect(() => {
+  //   fetch('https://private-6dbba77-healthneutron.apiary-mock.com/api/v1/fetch/labs/bundles')
+  //     .then(response => {
+  //       if (response.ok) {
+  //         console.log("Heya", response.json());
+  //       }
+  //       throw new Error('Network response was not ok');
+  //     })
+  //     .then(data => console.log(data))
+  //     .catch(error => console.error(error));
+  // }, []);
+
+  // console.log("Success!", labItems);
 
   return (
     <>

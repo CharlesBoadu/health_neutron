@@ -60,7 +60,7 @@ function TopNav() {
   }
 
   useEffect(() => {
-    console.log("Current search value: ", searchSelect)
+    // console.log("Current search value: ", searchSelect)
   }, [searchSelect])
 
   function handleSearch () {
