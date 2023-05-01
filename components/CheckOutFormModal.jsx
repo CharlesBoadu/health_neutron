@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
+import { useRouter } from "next/router";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function CheckOutFormModal({ visible = true, closeModal }) {
+  const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [values, setValues] = useState({
     preferred_time: "",
@@ -42,10 +44,9 @@ function CheckOutFormModal({ visible = true, closeModal }) {
       } else {
         toast.success("Proceeding to Checkout page");
         setLoading(false);
-        // setTimeout(() => {
-        //   setHome(true);
-        //   setUser(false);
-        // }, 3000);
+        setTimeout(() => {
+          router.push("/payment");
+        }, 3000);
       }
     }
 

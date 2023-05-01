@@ -1,10 +1,10 @@
 import React from 'react'
-import CheckOutFormModal from '../components/CheckOutFormModal'
+import Payment from '../components/Payment';
 
 function trial() {
   return (
     <div>
-        <CheckOutFormModal />
+        <Payment />
     </div>
   )
 }
