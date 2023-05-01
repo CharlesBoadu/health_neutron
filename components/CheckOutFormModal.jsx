@@ -7,11 +7,16 @@ function CheckOutFormModal({ visible = true, closeModal }) {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [values, setValues] = useState({
+    first_name: "",
+    last_name: "",
+    email: "",
+    phone_number: "",
+    test_date: "",
     preferred_time: "",
     country: "",
     address: "",
     state: "",
-    city: ""
+    city: "",
   });
 
   const handleSubmit = async (e) => {
@@ -22,6 +27,11 @@ function CheckOutFormModal({ visible = true, closeModal }) {
       //   Authorization: `Bearer ${token}`,
       // },
       body: JSON.stringify({
+        first_name: values.first_name,
+        last_name: values.last_name,
+        email: values.email,
+        phone_number: values.phone_number,
+        test_date: values.test_date,
         preferred_time: values.preferred_time,
         country: values.country,
         address: values.address,
@@ -45,12 +55,20 @@ function CheckOutFormModal({ visible = true, closeModal }) {
         toast.success("Proceeding to Checkout page");
         setLoading(false);
         setTimeout(() => {
-          router.push("/payment");
+          router.push({
+            pathname: "/paymentPage",
+            query: { first_name: values.first_name, last_name: values.last_name, phone_number: values.phone_number },
+          });
         }, 3000);
       }
     }
 
     setValues({
+      first_name: "",
+      last_name: "",
+      email: "",
+      phone_number: "",
+      test_date: "",
       preferred_time: "",
       country: "",
       address: "",
@@ -81,14 +99,14 @@ function CheckOutFormModal({ visible = true, closeModal }) {
                   <div className="pb-4">
                     <label
                       className={"block font-latoBold text-sm pb-2"}
-                      htmlFor="name"
+                      htmlFor="first_name"
                     >
                       First Name *
                     </label>
                     <input
                       className="w-full bg-gray-100 p-2 rounded-md focus:border-[#7d018c] focus:ring-[#7d018c] text-xs"
                       type="text"
-                      name="name"
+                      name="first_name"
                       // value={values.name}
                       // onChange={(event) =>
                       //   setValues({ ...values, name: event.target.value })
@@ -101,14 +119,14 @@ function CheckOutFormModal({ visible = true, closeModal }) {
                   <div className="pb-4">
                     <label
                       className={"block font-latoBold text-sm pb-2"}
-                      htmlFor="name"
+                      htmlFor="last_name"
                     >
                       Last Name *
                     </label>
                     <input
                       className="w-full bg-gray-100 p-2 rounded-md focus:border-[#7d018c] focus:ring-[#7d018c] text-xs"
                       type="text"
-                      name="name"
+                      name="last_name"
                       // value={values.name}
                       // onChange={(event) =>
                       //   setValues({ ...values, name: event.target.value })
@@ -192,7 +210,10 @@ function CheckOutFormModal({ visible = true, closeModal }) {
                       name="preferred_time"
                       value={values.preferred_time}
                       onChange={(event) =>
-                        setValues({ ...values, preferred_time: event.target.value })
+                        setValues({
+                          ...values,
+                          preferred_time: event.target.value,
+                        })
                       }
                       className="w-full rounded-lg bg-gray-200 text-xs focus:border-[#7d018c] focus:ring-[#7d018c]"
                     >

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useRouter } from "next/router";
 import Image from "next/Image";
 import MobilePayment from "./MobilePayment";
 import CardPayment from "./CardPayment";
@@ -12,6 +13,10 @@ function Payment() {
   const [cardPayment, setCardPayment] = useState(false);
   const [payment, setPayment] = useState(true);
   const [imgSrc, setImgSrc] = useState("");
+  const router = useRouter();
+
+  const { first_name, last_name, phone_number } = router.query;
+
 
   const togglePayment = (select) => {
     if (select === "mobile") {
@@ -98,7 +103,7 @@ function Payment() {
             Card Payment
           </div>
         </div>
-        {mobilePayment && <MobilePayment />}
+        {mobilePayment && <MobilePayment first_name={first_name} last_name={last_name} phone_number={phone_number}/>}
         {cardPayment && <CardPayment />}
         {/* {payment ? <MobilePayment /> : <CardPayment />} */}
       </div>
