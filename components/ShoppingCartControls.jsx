@@ -17,7 +17,7 @@ function ShoppingCartControls({ controlState }) {
   }
 
   function handleClearCart () {
-    return newCartList.length = 0;
+    window.location.reload();
   }
 
 

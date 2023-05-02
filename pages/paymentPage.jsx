@@ -3,7 +3,7 @@ import Payment from '../components/Payment'
 
 function paymentPage() {
   return (
-    <div>
+    <div className='mt-10'>
       <Payment />
     </div>
   )

@@ -36,7 +36,7 @@ function Payment() {
   };
 
   return (
-    <div className="flex justify-center mx-auto items-center font-montserrat w-1/2">
+    <div className="flex justify-center mx-auto items-center font-montserrat w-1/2 my-auto">
       <div className="flex-1 text-black flex items-center justify-center flex-col bg-[#7d018c] py-10 rounded-md">
         <div className="rounded-2xl relative h-[30vh] w-3/4 mb-4 flex justify-center text-center object-contain">
           <Image

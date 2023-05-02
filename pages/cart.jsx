@@ -15,11 +15,13 @@ function cart() {
   const [cartItem, setCartItem] = useRecoilState(cartState);
   const [controlState, setControlState] = useState(false);
   const router = useRouter();
-  console.log("Howdy", cartItem);
+
+  const { newTotalPrice } = router.query;
+
 
   const totalPrice = () => {
     let total = 0;
-    cartItem.forEach((item) => (total += item.price * item.quantity));
+    cartItem.forEach((item) => (total += parseFloat(item?.price)));
     return total;
   };
 
