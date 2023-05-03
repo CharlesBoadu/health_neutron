@@ -1,81 +1,147 @@
-import React, { useState } from "react";
+import React, { useState, CSSProperties } from "react";
 import { useRouter } from "next/router";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import PuffLoader from "react-spinners/PuffLoader";
+import { DateTime } from 'luxon';
 
-function CheckOutFormModal({ visible = true, closeModal }) {
+
+export const override = {
+  display: "block",
+  margin: "0 auto",
+  borderColor: "red",
+};
+
+const formatDate = (date) => {
+  return DateTime.fromISO(date).toFormat('yyyy-MM-dd');
+};
+
+function getCurrentDatetime(dateValue) {
+  var date = new Date(dateValue);
+  var year = date.getFullYear();
+  var month = date.getMonth() + 1;
+  var day = date.getDate();
+
+  if (month < 10) {
+    month = "0" + month;
+  }
+  if (day < 10) {
+    day = "0" + day;
+  }
+
+  var currentDatetime =
+    year + "-" + month + "-" + day;
+
+  return currentDatetime;
+}
+
+function CheckOutFormModal({ visible = true, closeModal, amount }) {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+  const [color, setColor] = useState("#7d018c");
   const [values, setValues] = useState({
-    first_name: "",
-    last_name: "",
+    firstName: "",
+    lastName: "",
+    gender:"",
     email: "",
-    phone_number: "",
-    test_date: "",
-    preferred_time: "",
-    country: "",
+    contact: "",
+    testDate: "",
+    timeOfTest: "",
+    nationality: "",
     address: "",
     state: "",
     city: "",
   });
 
-  const handleSubmit = async (e) => {
-    const req = await fetch(``, {
+  const handleSubmit = async () => {
+    const req = await fetch("https://sandbox.healthneutron.com/api/v1/lab/wlk-book", {
       method: "POST",
-      // headers: {
-      //   "Content-Type": "application/json",
-      //   Authorization: `Bearer ${token}`,
-      // },
+      // mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization:
+          "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNTYwZmFiZmMzOTBlYmQ0M2FmMjc2ZjlmOTU3M2NjNTBjODAwZjk3MGU3N2FjZDM0N2E2ZTFlOGJiNjRkNDIwMDg4ZjEyZWY1ZjFlOWFmYmUiLCJpYXQiOjE2ODMxMjgxNTMuMjQ5MDE3LCJuYmYiOjE2ODMxMjgxNTMuMjQ5MDIxLCJleHAiOjE3MTQ3NTA1NTMuMjM2Nzg5LCJzdWIiOiI0OTQiLCJzY29wZXMiOltdfQ.pPOziLokbsT9pgSG13fuCIpbzSnxS5UFPwRaXc4A2NjbHQ6cBpg5J3zGbIJlxaYf9YHUThpiDCta7gTiJbP_YfulZMyO_k7_MwQEXreanV1WL2zayyhHUIS_cqx2e3RaEM0Mie-vrgEy8RXuJt6DGX6WpXTtxE9yqGAOBy_26hdKdpKE_R3H-nU6CAvrzGxUF6uAxKsl7z64l-hyhf3x8F7kbBL6BQeIlhGTVHvH_SnCWY3VXjgqB86HSiLP5X_ccL-UvmFLSMXuxCNMQBqrEEwCeQ6RAqsdgJZkzLwr_wC3bF3fGkPFf9qvn9V5raEmKRb6JE31QR2vUdXietTG-J5RnePAvmPGqZOUMn8irmh8SZ7CNNekPfjPwBGEXPMS0DdvzEbe5r4qeFzmQbkB4gLRZ5a-5wTYb_4WsGf5SWY-9tX4JuAXFNHuwmdQz_2iDsl173PmehxdRAkJyCss7wcnc6Tpq4UfoQw55G8ceT_Tw1gxDEdg2qdA70SbSBUvq9sX3Upj33VKnE8QjwF3rKSv5XeUFglP3udTBrPDHzhd83obKvcWEzBXzGe-2c-aF4tJ4jRyd64-TTcxQOp4JpfyixMRDiF0CZtTrGAK6x2zhPmZkkTQ1KGVfQSO4ReA79Fj14JKQKJeVhguju42l3y78ccaclYbgtTJccV64h0", //  'Access-Control-Allow-Origin':'*'
+      },
       body: JSON.stringify({
-        first_name: values.first_name,
-        last_name: values.last_name,
-        email: values.email,
-        phone_number: values.phone_number,
-        test_date: values.test_date,
-        preferred_time: values.preferred_time,
-        country: values.country,
-        address: values.address,
-        state: values.state,
-        city: values.city,
+        // labId:"90",
+        // firstName:values.firstName,
+        // lastName:values.lastName,
+        // gender:values.gender,
+        // email:values.email,
+        // requesterToken:"n_a",
+        // consultationId:"8888",
+        // patientToken:"n_a",
+        // labDetails:"Well woman|790",
+        // labType:"FBC",
+        // facilitator:"HealthNeutron",
+        // sampleLocation:"n_a",
+        // testDate:formatDate(new Date (values.testDate)),
+        // dob:"n_a",
+        // timeOfTest:values.timeOfTest,
+        // landmark:"n_a",
+        // contact:values.contact,
+        // nationality:values.nationality,
+        // amount: amount,
+        // cart:"3"
       }),
-    });
-    if (req.status != 200) {
-      toast.error(`Error code: ${req.status}`);
-      setLoading(false);
-    } else {
-      const res = await req.json();
-      console.log({ res });
-      setLoading(false);
-      if (res?.statusCode != "MT00") {
-        toast.error(`Failed to Proceed to Checkout page`);
-        setTimeout(() => {
-          setLoading(false);
-        }, 2000);
-      } else {
-        toast.success("Proceeding to Checkout page");
-        setLoading(false);
-        setTimeout(() => {
-          router.push({
-            pathname: "/paymentPage",
-            query: { first_name: values.first_name, last_name: values.last_name, phone_number: values.phone_number },
-          });
-        }, 3000);
-      }
-    }
+    }).then(response => {console.log("Hey", response)})
+    console.log(`
+      FirstName: ${values.firstName},
+      LastName: ${values.lastName},
+      gender: ${values.gender},
+      email: ${values.email},
+      testDate: ${values.testDate},
+      timeOfTest: ${values.timeOfTest},
+      contact: ${values.contact},
+      nationality: ${values.nationality},
+      Amount: ${amount}
+    `)
+    // console.log("Request Status", req.status );
+    // if (req.status != 200) {
+    //   toast.error(`Error code: ${req.status}`);
+    //   setLoading(false);
+    // } else {
+    //   const res = await req.json();
+    //   console.log({ res });
+    //   setLoading(false);
+    //   if (!res?.success) {
+    //     toast.error(`Failed to Proceed to Checkout page`);
+    //     setTimeout(() => {
+    //       setLoading(false);
+    //     }, 2000);
+    //   } else {
+    //     toast.success("Proceeding to Checkout page");
+    //     setLoading(false);
+    //     setTimeout(() => {
+    //       router.push({
+    //         pathname: "/paymentPage",
+    //         query: {
+    //           firstName: values.firstName,
+    //           lastName: values.lastName,
+    //           contact: values.contact,
+    //         },
+    //       });
+    //     }, 3000);
+    //   }
+    // }
 
-    setValues({
-      first_name: "",
-      last_name: "",
-      email: "",
-      phone_number: "",
-      test_date: "",
-      preferred_time: "",
-      country: "",
-      address: "",
-      state: "",
-      city: ""
-    });
+    // setValues({
+    //   firstName: "",
+    //   lastName: "",
+    //   gender: "",
+    //   email: "",      
+    //   contact: "",
+    //   testDate: "",
+    //   timeOfTest: "",
+    //   nationality: "",
+    //   address: "",
+    //   state: "",
+    //   city: "",
+    // });
   };
+
+  // console.log("date", JSON.stringify(new Date (values.testDate).toLocaleDateString().replace(/\//g, '-')));
   return (
     <>
       {!visible ? (
@@ -83,8 +149,20 @@ function CheckOutFormModal({ visible = true, closeModal }) {
       ) : (
         <>
           <ToastContainer />
-          <div className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm flex justify-center items-center">
-            <div className="bg-white items-center w-[900px] pr-4 pl-4 rounded-md ">
+          {loading && (
+            <div className="mt-20">
+              <PuffLoader
+                color={color}
+                loading={loading}
+                cssOverride={override}
+                size={50}
+                aria-label="Loading Spinner"
+                data-testid="loader"
+              />
+            </div>
+          )}
+          <div className="fixed inset-0 bg-[rgba(0,0,0,0.4)] backdrop-blur-sm z-10 overflow-hidden pt-4">
+            <div className="bg-white absolute right-0 animate-in slide-in-from-right-96 items-center w-[700px] pr-4 pl-4 rounded-md transition duration-700">
               <div className="w-full flex justify-end top-20 right-5 relative">
                 <button
                   className="text-black px-2 border-2 border-black hover:border-[#7d018c] rounded-full"
@@ -99,18 +177,18 @@ function CheckOutFormModal({ visible = true, closeModal }) {
                   <div className="pb-4">
                     <label
                       className={"block font-latoBold text-sm pb-2"}
-                      htmlFor="first_name"
+                      htmlFor="firstName"
                     >
                       First Name *
                     </label>
                     <input
                       className="w-full bg-gray-100 p-2 rounded-md focus:border-[#7d018c] focus:ring-[#7d018c] text-xs"
                       type="text"
-                      name="first_name"
-                      // value={values.name}
-                      // onChange={(event) =>
-                      //   setValues({ ...values, name: event.target.value })
-                      // }
+                      name="firstName"
+                      value={values.firstName}
+                      onChange={(event) =>
+                        setValues({ ...values, firstName: event.target.value })
+                      }
                       placeholder="Enter First Name"
                     />
                   </div>
@@ -119,18 +197,18 @@ function CheckOutFormModal({ visible = true, closeModal }) {
                   <div className="pb-4">
                     <label
                       className={"block font-latoBold text-sm pb-2"}
-                      htmlFor="last_name"
+                      htmlFor="lastName"
                     >
                       Last Name *
                     </label>
                     <input
                       className="w-full bg-gray-100 p-2 rounded-md focus:border-[#7d018c] focus:ring-[#7d018c] text-xs"
                       type="text"
-                      name="last_name"
-                      // value={values.name}
-                      // onChange={(event) =>
-                      //   setValues({ ...values, name: event.target.value })
-                      // }
+                      name="lastName"
+                      value={values.lastName}
+                      onChange={(event) =>
+                        setValues({ ...values, lastName: event.target.value })
+                      }
                       placeholder="Enter Last Name"
                     />
                   </div>
@@ -147,52 +225,31 @@ function CheckOutFormModal({ visible = true, closeModal }) {
                       className="w-full bg-gray-100 p-2 rounded-md focus:border-[#7d018c] focus:ring-[#7d018c] text-xs"
                       type="text"
                       name="email"
-                      // value={values.email}
-                      // onChange={(event) =>
-                      //   setValues({ ...values, email: event.target.value })
-                      // }
+                      value={values.email}
+                      onChange={(event) =>
+                        setValues({ ...values, email: event.target.value })
+                      }
                       placeholder="Enter Email"
                     />
                   </div>
 
-                  {/* Phone Number input field */}
+                  {/* Contact input field */}
                   <div className="pb-4">
                     <label
                       className={`block font-latoBold text-sm pb-2`}
-                      htmlFor="phone_number"
+                      htmlFor="contact"
                     >
-                      Phone Number *
+                      Contact *
                     </label>
                     <input
                       className="w-full bg-gray-100 p-2 rounded-md focus:border-[#7d018c] focus:ring-[#7d018c] text-xs"
                       type="text"
-                      name="phone_number"
-                      // value={values.email}
-                      // onChange={(event) =>
-                      //   setValues({ ...values, email: event.target.value })
-                      // }
+                      name="contact"
+                      value={values.contact}
+                      onChange={(event) =>
+                        setValues({ ...values, contact: event.target.value })
+                      }
                       placeholder="Enter Phone Number"
-                    />
-                  </div>
-
-                  {/* Test Date Input field*/}
-                  <div className="pb-4">
-                    <label
-                      className={`block font-latoBold text-sm pb-2`}
-                      htmlFor="test_date"
-                    >
-                      Test Date
-                    </label>
-                    <input
-                      className="w-full bg-gray-200 p-2 rounded-md focus:border-[#7d018c] focus:ring-[#7d018c] text-xs"
-                      type="date"
-                      name="test_date"
-                      // value={values.employee_id}
-                      // onChange={(event) =>
-                      //   setValues({ ...values, employee_id: event.target.value })
-                      // }
-                      //   placeholder={amount}
-                      //   disabled
                     />
                   </div>
                 </div>
@@ -202,17 +259,17 @@ function CheckOutFormModal({ visible = true, closeModal }) {
                   <div className="pb-4">
                     <label
                       className={"block font-latoBold text-sm pb-2"}
-                      htmlFor="preferred_time"
+                      htmlFor="timeOfTest"
                     >
                       Preferred Time
                     </label>
                     <select
-                      name="preferred_time"
-                      value={values.preferred_time}
+                      name="timeOfTest"
+                      value={values.timeOfTest}
                       onChange={(event) =>
                         setValues({
                           ...values,
-                          preferred_time: event.target.value,
+                          timeOfTest: event.target.value,
                         })
                       }
                       className="w-full rounded-lg bg-gray-200 text-xs focus:border-[#7d018c] focus:ring-[#7d018c]"
@@ -226,23 +283,45 @@ function CheckOutFormModal({ visible = true, closeModal }) {
                     </select>
                   </div>
 
-                  {/* Country field */}
+                  {/* Gender field */}
                   <div className="pb-4">
                     <label
                       className={"block font-latoBold text-sm pb-2"}
-                      htmlFor="country"
+                      htmlFor="gender"
                     >
-                      Country
+                      Gender
                     </label>
                     <select
-                      name="country"
-                      value={values.country}
+                      name="gender"
+                      value={values.gender}
                       onChange={(event) =>
-                        setValues({ ...values, country: event.target.value })
+                        setValues({ ...values, gender: event.target.value })
                       }
                       className="w-full rounded-lg bg-gray-200 text-xs focus:border-[#7d018c] focus:ring-[#7d018c]"
                     >
-                      <option value="">Select Country</option>
+                      <option value="">Select Gender</option>
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
+                    </select>
+                  </div>
+
+                  {/* nationality field */}
+                  <div className="pb-4">
+                    <label
+                      className={"block font-latoBold text-sm pb-2"}
+                      htmlFor="nationality"
+                    >
+                      nationality
+                    </label>
+                    <select
+                      name="nationality"
+                      value={values.nationality}
+                      onChange={(event) =>
+                        setValues({ ...values, nationality: event.target.value })
+                      }
+                      className="w-full rounded-lg bg-gray-200 text-xs focus:border-[#7d018c] focus:ring-[#7d018c]"
+                    >
+                      <option value="">Select nationality</option>
                       <option value="Afghanistan">Afghanistan</option>
                       <option value="Albania">Albania</option>
                       <option value="Algeria">Algeria</option>
@@ -252,7 +331,7 @@ function CheckOutFormModal({ visible = true, closeModal }) {
                   </div>
 
                   {/* Address input field */}
-                  <div className="pb-4">
+                  {/* <div className="pb-4">
                     <label
                       className={`block font-latoBold text-sm pb-2`}
                       htmlFor="address"
@@ -269,10 +348,31 @@ function CheckOutFormModal({ visible = true, closeModal }) {
                       }
                       placeholder="Enter Address"
                     />
+                  </div> */}
+
+                  {/* Test Date Input field*/}
+                  <div className="pb-4">
+                    <label
+                      className={`block font-latoBold text-sm pb-2`}
+                      htmlFor="testDate"
+                    >
+                      Test Date
+                    </label>
+                    <input
+                      className="w-full bg-gray-200 p-2 rounded-md focus:border-[#7d018c] focus:ring-[#7d018c] text-xs"
+                      type="date"
+                      name="testDate"
+                      value={values.testDate}
+                      onChange={(event) =>
+                        setValues({ ...values, testDate: event.target.value })
+                      }
+                      //   placeholder={amount}
+                      //   disabled
+                    />
                   </div>
 
                   {/* State input field */}
-                  <div className="pb-4">
+                  {/* <div className="pb-4">
                     <label
                       className={`block font-latoBold text-sm pb-2`}
                       htmlFor="state"
@@ -289,10 +389,10 @@ function CheckOutFormModal({ visible = true, closeModal }) {
                       }
                       placeholder="Enter State"
                     />
-                  </div>
+                  </div> */}
 
                   {/* City input field */}
-                  <div className="pb-4">
+                  {/* <div className="pb-4">
                     <label
                       className={`block font-latoBold text-sm pb-2`}
                       htmlFor="city"
@@ -309,7 +409,7 @@ function CheckOutFormModal({ visible = true, closeModal }) {
                       }
                       placeholder="Enter City"
                     />
-                  </div>
+                  </div> */}
                   {/* Submit Button */}
                   <div className="pb-4">
                     <button

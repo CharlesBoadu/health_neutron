@@ -1,11 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, CSSProperties } from "react";
 import Image from "next/Image";
 import vaccine_services from "../public/vaccine_services.jpg";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useRouter } from "next/router";
+import PuffLoader from "react-spinners/PuffLoader";
+
+export const override = {
+  display: "block",
+  margin: "0 auto",
+  borderColor: "red",
+};
 
 function BookingForm({ name, amount }) {
+  const router = useRouter();
   const [loading, setLoading] = useState(false);
+  const [color, setColor] = useState("#7d018c");
   const [values, setValues] = useState({
     first_name: "",
     last_name: "",
@@ -21,22 +31,24 @@ function BookingForm({ name, amount }) {
 
   const handleSubmit = async (e) => {
     const req = await fetch(``, {
-      method: "POST",
-      // headers: {
-      //   "Content-Type": "application/json",
-      //   Authorization: `Bearer ${token}`,
-      // },
+      Method: "POST",
+      mode: "cors",
+      headers: {
+        Accept: "application/json",
+        Authorization:
+          "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZTc4MjRjYjU4NTYxYTczZTAxMDRlMzVkNTI1MjM5ODY0MmJlMzgwMDAzYjM4ZGVlNGE5MjE0MGVjNWE5MWEzNzM5ZjIzMDA0N2U5NWYwNWEiLCJpYXQiOjE2ODMwMjMwNTguOTE2MTg1LCJuYmYiOjE2ODMwMjMwNTguOTE2MTg5LCJleHAiOjE3MTQ2NDU0NTguODkzNTc5LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.ZLi9YhRFQ9KGzNJ9RJVLO5Am19tPxlJY0Q_tLNY9TvERxc4lpy5ok3zWDZnpK9Qb_pqqdcjfz0vBM3xUYgM-ITq9GpHtHEmfjDBmD90LH23ydOGwF9WljZM_RaNobubRkfF6wiIrnS3VSTJKtv6Qql3KUPfoAlYp18mx7yig3kvcCVJ9Nt11W5zBxVkWabTgFKhs_Qc-XqM2_5tU5O0yDsOxTKwKOBfCLCPI6peDPkiF2nLYsWNSGc1Jsaj6QnDZ0WB_boX-7l3ZgEFgF8zJSH3QQAXTmQQpqfjBHSSEOVcNFFCJfJLt8n_dBUEf6Y-opmnaVED92147loTNO7VNuzBZjbMHf8vI5nB-exRBTH80VN9NAGFHxA85RS4kK6kFHmlaBfYbHwZFWftfk3bHwXVdKfa3vGT8TLoQQO3dskDVT8Om53ScrR3RFg0Fu-i5pJoE0Np2MJuPDKQ5L-mITAHymN0aAe6dWRXiN3B7-Wc0qYGDkM3zFL95ekNdkPffgcG8wApTSsZhsyYy1kx-b1SI__IWqyPBd5NpHsrEM5ZRApFniVyJ-u8C_jQ4vwDHw61MHEUMZVpeXutWuvkGSt9NZM2VMSNDr1StCGasMODOnflhQdlXS0oHOAsmA4HjUPH7Cr0JhwvXBOgCdOl_vc2IkOVpYBQ83tKedW5FrTA", //  'Access-Control-Allow-Origin':'*'
+      },
       body: JSON.stringify({
-          first_name: values.first_name,
-          last_name: values.last_name,
-          email: values.email,
-          phone_number: values.phone_number,
-          amount: values.amount,
-          location: values.location,
-          package: values.package,
-          gender: values.gender,
-          visit_date: values.visit_date,
-          visit_time: values.visit_time
+        first_name: values.first_name,
+        last_name: values.last_name,
+        email: values.email,
+        phone_number: values.phone_number,
+        amount: values.amount,
+        location: values.location,
+        package: values.package,
+        gender: values.gender,
+        visit_date: values.visit_date,
+        visit_time: values.visit_time,
       }),
     });
     if (req.status != 200) {
@@ -46,7 +58,7 @@ function BookingForm({ name, amount }) {
       const res = await req.json();
       console.log({ res });
       setLoading(false);
-      if (res?.statusCode != "MT00") {
+      if (!res?.success) {
         toast.error(`Failed to Book`);
         setTimeout(() => {
           setLoading(false);
@@ -54,10 +66,9 @@ function BookingForm({ name, amount }) {
       } else {
         toast.success("Booking completed successfully");
         setLoading(false);
-        // setTimeout(() => {
-        //   setHome(true);
-        //   setUser(false);
-        // }, 3000);
+        setTimeout(() => {
+          router.push("/vaccines");
+        }, 3000);
       }
     }
 
@@ -79,6 +90,18 @@ function BookingForm({ name, amount }) {
   return (
     <>
       <ToastContainer />
+      {loading && (
+            <div className="mt-20">
+              <PuffLoader
+                color={color}
+                loading={loading}
+                cssOverride={override}
+                size={50}
+                aria-label="Loading Spinner"
+                data-testid="loader"
+              />
+            </div>
+          )}
       <div className="flex justify-center items-center font-montserrat">
         <div className="mr-5 ml-5 mb-10 mt-3 flex rounded-lg w-full font-latoRegular h-contain">
           <div className="flex-1 text-black p-5">

@@ -18,7 +18,6 @@ function cart() {
 
   const { newTotalPrice } = router.query;
 
-
   const totalPrice = () => {
     let total = 0;
     cartItem.forEach((item) => (total += parseFloat(item?.price)));
@@ -43,8 +42,8 @@ function cart() {
       <TopNav />
       <TopNavSecond />
       <div>
-        <div className="w-contain h-[30vh] m-4 bg-[#232f3e] flex items-center justify-center">
-          <span className="font-montserrat text-4xl text-white">
+        <div className="w-contain h-[30vh] m-4 bg-[#232f3e] flex items-center justify-center bg-gradient-to-r from-violet-500 to-fuchsia-500">
+          <span className="font-montserrat text-4xl text-white ">
             Shopping Cart
           </span>
         </div>

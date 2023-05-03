@@ -20,6 +20,7 @@ function CheckOut({ totalPrice }) {
       <CheckOutFormModal 
       visible={isOpened}
       closeModal={closeModal}
+      amount={totalPrice}
       />
       <div className="bg-gray-200 space-y-4 w-[300px] h-[300px] p-4 flex item-center justify-center flex-col font-montserrat mt-4 mb-10 mr-10">
         <div className="flex flex-row space-x-2">
