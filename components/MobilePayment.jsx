@@ -1,6 +1,6 @@
 import React from "react";
 
-function MobilePayment({ first_name, last_name, phone_number }) {
+function MobilePayment({ name, contact }) {
   return (
     <div className="mt-4 mx-auto">
       {/* {Name input field} */}
@@ -16,7 +16,7 @@ function MobilePayment({ first_name, last_name, phone_number }) {
           //   onChange={(event) =>
           //     setValues({ ...values, address: event.target.value })
           //   }
-          placeholder={`${first_name} ${last_name}`}
+          placeholder={name}
         />
       </div>
 
@@ -55,7 +55,7 @@ function MobilePayment({ first_name, last_name, phone_number }) {
           //   onChange={(event) =>
           //     setValues({ ...values, Mobile_number: event.target.value })
           //   }
-          placeholder={phone_number}
+          placeholder={contact}
         />
       </div>
 

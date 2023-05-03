@@ -3,37 +3,12 @@ import { useRouter } from "next/router";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PuffLoader from "react-spinners/PuffLoader";
-import { DateTime } from 'luxon';
-
 
 export const override = {
   display: "block",
   margin: "0 auto",
   borderColor: "red",
 };
-
-const formatDate = (date) => {
-  return DateTime.fromISO(date).toFormat('yyyy-MM-dd');
-};
-
-function getCurrentDatetime(dateValue) {
-  var date = new Date(dateValue);
-  var year = date.getFullYear();
-  var month = date.getMonth() + 1;
-  var day = date.getDate();
-
-  if (month < 10) {
-    month = "0" + month;
-  }
-  if (day < 10) {
-    day = "0" + day;
-  }
-
-  var currentDatetime =
-    year + "-" + month + "-" + day;
-
-  return currentDatetime;
-}
 
 function CheckOutFormModal({ visible = true, closeModal, amount }) {
   const router = useRouter();
@@ -42,7 +17,7 @@ function CheckOutFormModal({ visible = true, closeModal, amount }) {
   const [values, setValues] = useState({
     firstName: "",
     lastName: "",
-    gender:"",
+    gender: "",
     email: "",
     contact: "",
     testDate: "",
@@ -54,94 +29,85 @@ function CheckOutFormModal({ visible = true, closeModal, amount }) {
   });
 
   const handleSubmit = async () => {
-    const req = await fetch("https://sandbox.healthneutron.com/api/v1/lab/wlk-book", {
-      method: "POST",
-      // mode: "cors",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-        Authorization:
-          "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNTYwZmFiZmMzOTBlYmQ0M2FmMjc2ZjlmOTU3M2NjNTBjODAwZjk3MGU3N2FjZDM0N2E2ZTFlOGJiNjRkNDIwMDg4ZjEyZWY1ZjFlOWFmYmUiLCJpYXQiOjE2ODMxMjgxNTMuMjQ5MDE3LCJuYmYiOjE2ODMxMjgxNTMuMjQ5MDIxLCJleHAiOjE3MTQ3NTA1NTMuMjM2Nzg5LCJzdWIiOiI0OTQiLCJzY29wZXMiOltdfQ.pPOziLokbsT9pgSG13fuCIpbzSnxS5UFPwRaXc4A2NjbHQ6cBpg5J3zGbIJlxaYf9YHUThpiDCta7gTiJbP_YfulZMyO_k7_MwQEXreanV1WL2zayyhHUIS_cqx2e3RaEM0Mie-vrgEy8RXuJt6DGX6WpXTtxE9yqGAOBy_26hdKdpKE_R3H-nU6CAvrzGxUF6uAxKsl7z64l-hyhf3x8F7kbBL6BQeIlhGTVHvH_SnCWY3VXjgqB86HSiLP5X_ccL-UvmFLSMXuxCNMQBqrEEwCeQ6RAqsdgJZkzLwr_wC3bF3fGkPFf9qvn9V5raEmKRb6JE31QR2vUdXietTG-J5RnePAvmPGqZOUMn8irmh8SZ7CNNekPfjPwBGEXPMS0DdvzEbe5r4qeFzmQbkB4gLRZ5a-5wTYb_4WsGf5SWY-9tX4JuAXFNHuwmdQz_2iDsl173PmehxdRAkJyCss7wcnc6Tpq4UfoQw55G8ceT_Tw1gxDEdg2qdA70SbSBUvq9sX3Upj33VKnE8QjwF3rKSv5XeUFglP3udTBrPDHzhd83obKvcWEzBXzGe-2c-aF4tJ4jRyd64-TTcxQOp4JpfyixMRDiF0CZtTrGAK6x2zhPmZkkTQ1KGVfQSO4ReA79Fj14JKQKJeVhguju42l3y78ccaclYbgtTJccV64h0", //  'Access-Control-Allow-Origin':'*'
-      },
-      body: JSON.stringify({
-        // labId:"90",
-        // firstName:values.firstName,
-        // lastName:values.lastName,
-        // gender:values.gender,
-        // email:values.email,
-        // requesterToken:"n_a",
-        // consultationId:"8888",
-        // patientToken:"n_a",
-        // labDetails:"Well woman|790",
-        // labType:"FBC",
-        // facilitator:"HealthNeutron",
-        // sampleLocation:"n_a",
-        // testDate:formatDate(new Date (values.testDate)),
-        // dob:"n_a",
-        // timeOfTest:values.timeOfTest,
-        // landmark:"n_a",
-        // contact:values.contact,
-        // nationality:values.nationality,
-        // amount: amount,
-        // cart:"3"
-      }),
-    }).then(response => {console.log("Hey", response)})
-    console.log(`
-      FirstName: ${values.firstName},
-      LastName: ${values.lastName},
-      gender: ${values.gender},
-      email: ${values.email},
-      testDate: ${values.testDate},
-      timeOfTest: ${values.timeOfTest},
-      contact: ${values.contact},
-      nationality: ${values.nationality},
-      Amount: ${amount}
-    `)
-    // console.log("Request Status", req.status );
-    // if (req.status != 200) {
-    //   toast.error(`Error code: ${req.status}`);
-    //   setLoading(false);
-    // } else {
-    //   const res = await req.json();
-    //   console.log({ res });
-    //   setLoading(false);
-    //   if (!res?.success) {
-    //     toast.error(`Failed to Proceed to Checkout page`);
-    //     setTimeout(() => {
-    //       setLoading(false);
-    //     }, 2000);
-    //   } else {
-    //     toast.success("Proceeding to Checkout page");
-    //     setLoading(false);
-    //     setTimeout(() => {
-    //       router.push({
-    //         pathname: "/paymentPage",
-    //         query: {
-    //           firstName: values.firstName,
-    //           lastName: values.lastName,
-    //           contact: values.contact,
-    //         },
-    //       });
-    //     }, 3000);
-    //   }
-    // }
+    const req = await fetch(
+      "https://sandbox.healthneutron.com/api/v1/lab/wlk-book",
+      {
+        method: "POST",
+        // mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+          Authorization:
+            "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNTYwZmFiZmMzOTBlYmQ0M2FmMjc2ZjlmOTU3M2NjNTBjODAwZjk3MGU3N2FjZDM0N2E2ZTFlOGJiNjRkNDIwMDg4ZjEyZWY1ZjFlOWFmYmUiLCJpYXQiOjE2ODMxMjgxNTMuMjQ5MDE3LCJuYmYiOjE2ODMxMjgxNTMuMjQ5MDIxLCJleHAiOjE3MTQ3NTA1NTMuMjM2Nzg5LCJzdWIiOiI0OTQiLCJzY29wZXMiOltdfQ.pPOziLokbsT9pgSG13fuCIpbzSnxS5UFPwRaXc4A2NjbHQ6cBpg5J3zGbIJlxaYf9YHUThpiDCta7gTiJbP_YfulZMyO_k7_MwQEXreanV1WL2zayyhHUIS_cqx2e3RaEM0Mie-vrgEy8RXuJt6DGX6WpXTtxE9yqGAOBy_26hdKdpKE_R3H-nU6CAvrzGxUF6uAxKsl7z64l-hyhf3x8F7kbBL6BQeIlhGTVHvH_SnCWY3VXjgqB86HSiLP5X_ccL-UvmFLSMXuxCNMQBqrEEwCeQ6RAqsdgJZkzLwr_wC3bF3fGkPFf9qvn9V5raEmKRb6JE31QR2vUdXietTG-J5RnePAvmPGqZOUMn8irmh8SZ7CNNekPfjPwBGEXPMS0DdvzEbe5r4qeFzmQbkB4gLRZ5a-5wTYb_4WsGf5SWY-9tX4JuAXFNHuwmdQz_2iDsl173PmehxdRAkJyCss7wcnc6Tpq4UfoQw55G8ceT_Tw1gxDEdg2qdA70SbSBUvq9sX3Upj33VKnE8QjwF3rKSv5XeUFglP3udTBrPDHzhd83obKvcWEzBXzGe-2c-aF4tJ4jRyd64-TTcxQOp4JpfyixMRDiF0CZtTrGAK6x2zhPmZkkTQ1KGVfQSO4ReA79Fj14JKQKJeVhguju42l3y78ccaclYbgtTJccV64h0", //  'Access-Control-Allow-Origin':'*'
+        },
+        body: JSON.stringify({
+          labId: "90",
+          firstName: values.firstName,
+          lastName: values.lastName,
+          gender: values.gender,
+          email: values.email,
+          requesterToken: "n_a",
+          consultationId: "8888",
+          patientToken: "n_a",
+          labDetails: "Well woman|790",
+          labType: "FBC",
+          facilitator: "HealthNeutron",
+          sampleLocation: "n_a",
+          testDate: values.testDate,
+          dob: "2023-02-04",
+          timeOfTest: values.timeOfTest,
+          landmark: "n_a",
+          contact: values.contact,
+          nationality: values.nationality,
+          amount: amount,
+          cart: "3",
+        }),
+      }
+    );
+    if (req.status != 200) {
+      toast.error(`Error code: ${req.status}`);
+      setLoading(false);
+    } else {
+      const res = await req.json();
+      console.log({ res });
+      setLoading(false);
+      if (!res?.success) {
+        toast.error(`Failed to Proceed to Checkout page`);
+        setTimeout(() => {
+          setLoading(false);
+        }, 2000);
+      } else {
+        toast.success("Proceeding to Checkout page");
+        setLoading(false);
+        setTimeout(() => {
+          router.push({
+            pathname: "/paymentPage",
+            query: {
+              name: res?.data.name,
+              contact: values.contact,
+              amount: amount
+            },
+          });
+        }, 3000);
+      }
+    }
 
-    // setValues({
-    //   firstName: "",
-    //   lastName: "",
-    //   gender: "",
-    //   email: "",      
-    //   contact: "",
-    //   testDate: "",
-    //   timeOfTest: "",
-    //   nationality: "",
-    //   address: "",
-    //   state: "",
-    //   city: "",
-    // });
+    setValues({
+      firstName: "",
+      lastName: "",
+      gender: "",
+      email: "",
+      contact: "",
+      testDate: "",
+      timeOfTest: "",
+      nationality: "",
+      address: "",
+      state: "",
+      city: "",
+    });
   };
 
-  // console.log("date", JSON.stringify(new Date (values.testDate).toLocaleDateString().replace(/\//g, '-')));
+  // console.log("date", new Date(values.testDate));
   return (
     <>
       {!visible ? (
@@ -317,7 +283,10 @@ function CheckOutFormModal({ visible = true, closeModal, amount }) {
                       name="nationality"
                       value={values.nationality}
                       onChange={(event) =>
-                        setValues({ ...values, nationality: event.target.value })
+                        setValues({
+                          ...values,
+                          nationality: event.target.value,
+                        })
                       }
                       className="w-full rounded-lg bg-gray-200 text-xs focus:border-[#7d018c] focus:ring-[#7d018c]"
                     >

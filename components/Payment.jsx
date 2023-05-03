@@ -8,24 +8,24 @@ import { AiOutlineQuestionCircle } from "react-icons/ai";
 
 function Payment() {
   const [selectedHeading, setSelectedHeading] = useState(1);
-  const [name, setName] = useState("Mobile Payment");
+  const [titleName, setTitleName] = useState("Mobile Payment");
   const [mobilePayment, setMobilePayment] = useState(true);
   const [cardPayment, setCardPayment] = useState(false);
   const [payment, setPayment] = useState(true);
   const [imgSrc, setImgSrc] = useState("");
   const router = useRouter();
 
-  const { first_name, last_name, phone_number } = router.query;
+  const { name, contact, amount } = router.query;
 
 
   const togglePayment = (select) => {
     if (select === "mobile") {
       setMobilePayment(true);
-      setName("Mobile Payment");
+      setTitleName("Mobile Payment");
       setCardPayment(false);
     } else if (select === "card") {
       setCardPayment(true);
-      setName("Card Payment");
+      setTitleName("Card Payment");
       setMobilePayment(false);
     }
     setPayment(!payment);
@@ -34,6 +34,10 @@ function Payment() {
   const handleHeadingClick = (index) => {
     setSelectedHeading(index);
   };
+
+  function calcDiscount () {
+    return 1;
+  }
 
   return (
     <div className="flex justify-center mx-auto items-center font-montserrat w-1/2 my-auto">
@@ -47,20 +51,20 @@ function Payment() {
           />
         </div>
         <h1 className="text-2xl pd-2 text-white font-montserrat font-medium flex justify-center text-center h-full w-full">
-          {name}
+          {titleName}
         </h1>
         <div className="border-b-2 border-white w-3/4 mx-auto mt-3 text-sm pb-4">
           <div className="flex flex-row justify-between">
             <div className="text-white">Convenience Fee</div>
-            <div className="font-bold text-[#ffd814]">Price</div>
+            <div className="font-bold text-[#ffd814]">₵{amount}</div>
           </div>
           <div className="flex flex-row justify-between">
             <div className="text-white">Discount</div>
-            <div className="font-bold text-[#ffd814]">Price</div>
+            <div className="font-bold text-[#ffd814]">{1}</div>
           </div>
           <div className="flex flex-row justify-between">
             <div className="text-white">Total</div>
-            <div className="font-bold text-[#ffd814]">Price</div>
+            <div className="font-bold text-[#ffd814]">{amount + calcDiscount()}</div>
           </div>
         </div>
         <div className="mt-4 flex flex-row justify-between space-x-10">
@@ -103,8 +107,8 @@ function Payment() {
             Card Payment
           </div>
         </div>
-        {mobilePayment && <MobilePayment first_name={first_name} last_name={last_name} phone_number={phone_number}/>}
-        {cardPayment && <CardPayment />}
+        {mobilePayment && <MobilePayment name={name} contact={contact}/>}
+        {cardPayment && <CardPayment name={name}/>}
         {/* {payment ? <MobilePayment /> : <CardPayment />} */}
       </div>
     </div>

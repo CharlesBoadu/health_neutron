@@ -1,6 +1,6 @@
 import React from "react";
 
-function CardPayment() {
+function CardPayment({ name }) {
   return (
     <div className="mt-4 mx-auto">
       {/* {Card Number input field} */}
@@ -80,7 +80,7 @@ function CardPayment() {
           //   onChange={(event) =>
           //     setValues({ ...values, Mobile_number: event.target.value })
           //   }
-          placeholder="Enter name"
+          placeholder={name}
         />
       </div>
 
