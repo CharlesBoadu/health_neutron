@@ -1,7 +1,6 @@
 import React, { useEffect, useState, CSSProperties } from "react";
 import { useRouter } from "next/router";
 import CartSideNav from "./CartSideNav";
-import formData from "form-data";
 import FadeLoader from "react-spinners/FadeLoader";
 
 export const override = {

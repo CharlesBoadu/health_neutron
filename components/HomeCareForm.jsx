@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Homecare_services from "../public/Homecare_services.jpg";
 import Image from "next/Image";
 import { ToastContainer, toast } from "react-toastify";

@@ -97,7 +97,7 @@ function Sort() {
       <TopNavSecond />
       {/* <SideNav /> */}
       <CarouselSecond autoSlide={true} autoSlideInterval={5000}>
-        {[...slides.map((s) => <img src={s} />)]}
+        {[...slides.map((s, i) => <img src={s} key={i}/>)]}
       </CarouselSecond>
       {
       HBVitems && (

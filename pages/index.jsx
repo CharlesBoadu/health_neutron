@@ -13,6 +13,7 @@ import FeaturedCategoriesCardOne from "../components/FeaturedCategoriesCardOne";
 import FeaturedCategoriesCardTwo from "../components/FeaturedCategoriesCardTwo";
 import FeaturedCategories from "../components/FeaturedCategories";
 import CustomerReviewCard from "../components/CustomerReviewCard";
+import { Key } from "react-feather";
 
 const slides = [
   "/Health-Neutron-B2B-Web-banner20.jpg",
@@ -26,13 +27,13 @@ const slides = [
 ];
 
 const featured = [
-  <FeaturedCategoriesCardOne />,
-  <FeaturedCategoriesCardTwo />
+  <FeaturedCategoriesCardOne key={1}/>,
+  <FeaturedCategoriesCardTwo key={2}/>
 ]
 
 const customerReviews = [
-  <CustomerReviewCard />,
-  <CustomerReviewCard />
+  <CustomerReviewCard key={1}/>,
+  <CustomerReviewCard key={2}/>
 ]
 
 export default function Home() {
@@ -40,7 +41,7 @@ export default function Home() {
     <>
       <TopNav />
       <TopNavSecond />
-      <CarouselSecond autoSlide={true} autoSlideInterval={5000}>{[...slides.map((s) => <img src={s} />)]}</CarouselSecond>
+      <CarouselSecond autoSlide={true} autoSlideInterval={5000}>{[...slides.map((s, i) => <img src={s} key={i}/>)]}</CarouselSecond>
       <TopNavThird />
       <Carousel /> 
       {/* autoSlide={true} autoSlideInterval={5000}*/}

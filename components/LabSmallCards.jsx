@@ -1,34 +1,63 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 
 function LabSmallCards() {
+  const router = useRouter();
+
+  function handleNavigationToLabs() {
+    router.push("/labs");
+  }
+
   return (
     <>
-      <div className="flex flex-row justify-center items-center space-x-3 py-2 z-1">
+      <div className="flex flex-row justify-center items-center space-x-3 py-2 z-1 hover:cursor-pointer" onClick={handleNavigationToLabs}>
         <div className="flex flex-col">
           <div className="w-[150px] h-[100px] bg-gray-300">
-            <img src="/hepatitis_b.jpg" alt="Lab Image 1" className="object-cover h-full w-full"/>
+            <img
+              src="/HN-MOM&DAD(STA).jpg"
+              alt="Lab Image 1"
+              className="object-cover h-full w-full"
+            />
           </div>
-          <div className="text-sm text-gray-600">Hepatitis B</div>
+          <div className="text-sm text-gray-600 flex flex-col">
+            <div>Honor your Mom</div>
+            <div>{"&"} Dad (Standard)</div>
+          </div>
         </div>
         <div className="flex flex-col">
           <div className="w-[150px] h-[100px] bg-gray-300">
-            <img src="/psa_gtslvq.jpg" alt="Lab Image 2" className="object-cover h-full w-full"/>
+            <img
+              src="/PCR -Covid19.png"
+              alt="Lab Image 2"
+              className="object-cover h-full w-full"
+            />
           </div>
-          <div className="text-sm text-gray-600">PSA</div>
+          <div className="text-sm text-gray-600">Covid - Express</div>
         </div>
       </div>
-      <div className="flex flex-row justify-center items-center space-x-3 py-2">
+      <div className="flex flex-row justify-center items-center space-x-3 py-2 hover:cursor-pointer" onClick={handleNavigationToLabs}>
         <div className="flex flex-col">
           <div className="w-[150px] h-[100px] bg-gray-300">
-            <img src="/random-blood-sugar_rnnl38.jpg" alt="Lab Image 3" className="object-cover h-full w-full"/>
+            <img
+              src="/Covid - Standard.png"
+              alt="Lab Image 3"
+              className="object-cover h-full w-full"
+            />
           </div>
-          <div className="text-sm text-gray-600">Blood Sugar</div>
+          <div className="text-sm text-gray-600">Covid - Standard</div>
         </div>
         <div className="flex flex-col">
           <div className="w-[150px] h-[100px] bg-gray-300">
-            <img src="/renal (kidney).jpg" alt="Lab Image 4" className="object-cover h-full w-full"/>
+            <img
+              src="/HN-MOM&DAD{PREM.).jpg"
+              alt="Lab Image 4"
+              className="object-cover h-full w-full"
+            />
           </div>
-          <div className="text-sm text-gray-600">Renal Kidney</div>
+          <div className="text-sm text-gray-600">
+            <div>Honor your Mom</div>
+            <div>{"&"} Dad (Premium)</div>
+          </div>
         </div>
       </div>
     </>

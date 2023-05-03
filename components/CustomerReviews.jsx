@@ -55,6 +55,7 @@ function CustomerReviews({
               transition-all w-3 h-3 bg-[#7d018c] rounded-full
               ${curr === i ? "p-2" : "bg-opacity-50"}
               `}
+              key={i}
             />
           ))}
         </div>

@@ -180,7 +180,7 @@ function Item() {
           </div>
           <div className="space-y-1 text-xs">
             <div className="text-lg mb-2 font-montserrat font-bold">
-              {item?.items[0]?.price}
+            ₵{item?.items[0]?.price}
             </div>
             <div
               className="bg-[#ffd814] hover:bg-[#fa8900] cursor-pointer w-[200px] px-3 py-1 rounded-2xl font-montserrat text-center"

@@ -11,10 +11,6 @@ const SideNav = () => {
     { title: "Home Care", src: "Chat" },
     { title: "Vaccines", src: "User"},
     { title: "Blogs", src: "Calendar" },
-    // { title: "Search", src: "Search" },
-    // { title: "Analytics", src: "Chart" },
-    // { title: "Files ", src: "Folder", gap: true },
-    // { title: "Setting", src: "Setting" },
   ];
 
   function handleNavigation(title) {
@@ -77,7 +73,6 @@ const SideNav = () => {
                 index === 0 && "bg-light-white"
               } `}
             >
-              {/* <img src={`./src/assets/${Menu.src}.png`} /> */}
               <span className={`${!open && "hidden"} origin-left duration-200`} onClick={() => {
                 handleNavigation(Menu.title)
               }
@@ -88,9 +83,6 @@ const SideNav = () => {
           ))}
         </ul>
       </div>
-      {/* <div className="h-screen flex-1 p-7">
-        <h1 className="text-2xl font-semibold ">Home Page</h1>
-      </div> */}
     </div>
   );
 };

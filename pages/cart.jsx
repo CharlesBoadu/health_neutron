@@ -65,7 +65,7 @@ function cart() {
                 </div>
               </div>
             ) : (
-              cartItem.map((item) => <CartList key={item.id} data={item} totalPrice={totalPrice}/>)
+              cartItem.map((item) => <CartList key={item.bundle_id} data={item} totalPrice={totalPrice}/>)
             )}
           </div>
           <div className="flex">

@@ -28,7 +28,7 @@ function bookedItem() {
       <TopNav />
       <TopNavSecond />
       <CarouselSecond autoSlide={true} autoSlideInterval={5000}>
-        {[...slides.map((s) => <img src={s} />)]}
+        {[...slides.map((s, i) => <img src={s} key={i}/>)]}
       </CarouselSecond>
       <div>
         <div className="text-4xl font-extrabold font-montserrat text-gray-700 mt-10 mb-5 ml-10">
