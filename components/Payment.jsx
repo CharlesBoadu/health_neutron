@@ -39,6 +39,8 @@ function Payment() {
     return 1;
   }
 
+  let total = amount + calcDiscount();
+
   return (
     <div className="flex justify-center mx-auto items-center font-montserrat w-1/2 my-auto">
       <div className="flex-1 text-black flex items-center justify-center flex-col bg-[#7d018c] py-10 rounded-md">
@@ -64,7 +66,7 @@ function Payment() {
           </div>
           <div className="flex flex-row justify-between">
             <div className="text-white">Total</div>
-            <div className="font-bold text-[#ffd814]">{amount + calcDiscount()}</div>
+            <div className="font-bold text-[#ffd814]">{total}</div>
           </div>
         </div>
         <div className="mt-4 flex flex-row justify-between space-x-10">
@@ -107,8 +109,8 @@ function Payment() {
             Card Payment
           </div>
         </div>
-        {mobilePayment && <MobilePayment name={name} contact={contact}/>}
-        {cardPayment && <CardPayment name={name}/>}
+        {mobilePayment && <MobilePayment name={name} contact={contact} total={total}/>}
+        {cardPayment && <CardPayment name={name} total={total}/>}
         {/* {payment ? <MobilePayment /> : <CardPayment />} */}
       </div>
     </div>

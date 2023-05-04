@@ -1,6 +1,6 @@
 import React from "react";
 
-function MobilePayment({ name, contact }) {
+function MobilePayment({ name, contact, total }) {
   return (
     <div className="mt-4 mx-auto">
       {/* {Name input field} */}
@@ -60,8 +60,8 @@ function MobilePayment({ name, contact }) {
       </div>
 
       {/* {Payment Button} */}
-      <div className="w-full bg-[#7d018c] py-2 text-center text-white text-sm mt-4">
-        Pay ...
+      <div className="w-full bg-[#7d018c] py-2 text-center text-white text-sm mt-4 text-lg hover:cursor-pointer hover:bg-[#ffd814] hover:text-[#7d018c] font-bold text-lg">
+        Pay ₵{total}
       </div>
     </div>
   );

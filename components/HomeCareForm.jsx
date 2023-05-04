@@ -15,40 +15,73 @@ export const override = {
 function HomeCareForm() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+  const [packageTypes, setPackageTypes] = useState([]);
+  const [servicePrices, setServicePrices] = useState([]);
   const [color, setColor] = useState("#7d018c");
   const [values, setValues] = useState({
     service_type: "",
-    package_type: "",
-    first_name: "",
-    last_name: "",
+    package: "",
+    firstName: "",
+    lastName: "",
     email: "",
-    phone_number: "",
+    contact: "",
     location: "",
     gender: "",
-    visit_date: "",
-    visit_time: "",
+    visitDate: "",
+    visitTime: "",
   });
 
+  useEffect(() => {
+    const fetchAllPackageTypes = async () => {
+      try {
+        const response = await fetch("https://sandbox.healthneutron.com/api/v1/homeservice/price-list/by-category?key=doctor_type&partnerToken=", {
+          Method: "GET",
+            mode: "cors",
+            headers: {
+              Accept: "application/json",
+              Authorization:
+                "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZTc4MjRjYjU4NTYxYTczZTAxMDRlMzVkNTI1MjM5ODY0MmJlMzgwMDAzYjM4ZGVlNGE5MjE0MGVjNWE5MWEzNzM5ZjIzMDA0N2U5NWYwNWEiLCJpYXQiOjE2ODMwMjMwNTguOTE2MTg1LCJuYmYiOjE2ODMwMjMwNTguOTE2MTg5LCJleHAiOjE3MTQ2NDU0NTguODkzNTc5LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.ZLi9YhRFQ9KGzNJ9RJVLO5Am19tPxlJY0Q_tLNY9TvERxc4lpy5ok3zWDZnpK9Qb_pqqdcjfz0vBM3xUYgM-ITq9GpHtHEmfjDBmD90LH23ydOGwF9WljZM_RaNobubRkfF6wiIrnS3VSTJKtv6Qql3KUPfoAlYp18mx7yig3kvcCVJ9Nt11W5zBxVkWabTgFKhs_Qc-XqM2_5tU5O0yDsOxTKwKOBfCLCPI6peDPkiF2nLYsWNSGc1Jsaj6QnDZ0WB_boX-7l3ZgEFgF8zJSH3QQAXTmQQpqfjBHSSEOVcNFFCJfJLt8n_dBUEf6Y-opmnaVED92147loTNO7VNuzBZjbMHf8vI5nB-exRBTH80VN9NAGFHxA85RS4kK6kFHmlaBfYbHwZFWftfk3bHwXVdKfa3vGT8TLoQQO3dskDVT8Om53ScrR3RFg0Fu-i5pJoE0Np2MJuPDKQ5L-mITAHymN0aAe6dWRXiN3B7-Wc0qYGDkM3zFL95ekNdkPffgcG8wApTSsZhsyYy1kx-b1SI__IWqyPBd5NpHsrEM5ZRApFniVyJ-u8C_jQ4vwDHw61MHEUMZVpeXutWuvkGSt9NZM2VMSNDr1StCGasMODOnflhQdlXS0oHOAsmA4HjUPH7Cr0JhwvXBOgCdOl_vc2IkOVpYBQ83tKedW5FrTA", //  'Access-Control-Allow-Origin':'*'
+            },
+        });
+        const fetchReponse = await response.json();
+        setPackageTypes(fetchReponse?.data);
+        if (values.service_type == "General Practice") {
+          setServicePrices(packageTypes[0].price_list);
+        } else if (values.service_type == "Dietician") {
+          setServicePrices(packageTypes[1].price_list);
+        } else if (values.service_type == "Psychologist") {
+          setServicePrices(packageTypes[2].price_list);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    fetchAllPackageTypes();
+  }, [values.service_type]);
+
   const handleSubmit = async (e) => {
-    const req = await fetch(``, {
-      Method: "POST",
-      mode: "cors",
+    const req = await fetch(`https://sandbox.healthneutron.com/api/v1/service/book`, {
+      method: "POST",
+      // mode: "cors",
       headers: {
-        Accept: "application/json",
+        "Content-Type": "application/json",
         Authorization:
           "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZTc4MjRjYjU4NTYxYTczZTAxMDRlMzVkNTI1MjM5ODY0MmJlMzgwMDAzYjM4ZGVlNGE5MjE0MGVjNWE5MWEzNzM5ZjIzMDA0N2U5NWYwNWEiLCJpYXQiOjE2ODMwMjMwNTguOTE2MTg1LCJuYmYiOjE2ODMwMjMwNTguOTE2MTg5LCJleHAiOjE3MTQ2NDU0NTguODkzNTc5LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.ZLi9YhRFQ9KGzNJ9RJVLO5Am19tPxlJY0Q_tLNY9TvERxc4lpy5ok3zWDZnpK9Qb_pqqdcjfz0vBM3xUYgM-ITq9GpHtHEmfjDBmD90LH23ydOGwF9WljZM_RaNobubRkfF6wiIrnS3VSTJKtv6Qql3KUPfoAlYp18mx7yig3kvcCVJ9Nt11W5zBxVkWabTgFKhs_Qc-XqM2_5tU5O0yDsOxTKwKOBfCLCPI6peDPkiF2nLYsWNSGc1Jsaj6QnDZ0WB_boX-7l3ZgEFgF8zJSH3QQAXTmQQpqfjBHSSEOVcNFFCJfJLt8n_dBUEf6Y-opmnaVED92147loTNO7VNuzBZjbMHf8vI5nB-exRBTH80VN9NAGFHxA85RS4kK6kFHmlaBfYbHwZFWftfk3bHwXVdKfa3vGT8TLoQQO3dskDVT8Om53ScrR3RFg0Fu-i5pJoE0Np2MJuPDKQ5L-mITAHymN0aAe6dWRXiN3B7-Wc0qYGDkM3zFL95ekNdkPffgcG8wApTSsZhsyYy1kx-b1SI__IWqyPBd5NpHsrEM5ZRApFniVyJ-u8C_jQ4vwDHw61MHEUMZVpeXutWuvkGSt9NZM2VMSNDr1StCGasMODOnflhQdlXS0oHOAsmA4HjUPH7Cr0JhwvXBOgCdOl_vc2IkOVpYBQ83tKedW5FrTA", //  'Access-Control-Allow-Origin':'*'
       },
       body: JSON.stringify({
-        service_type: values.service_type,
-        package_type: values.package_type,
-        first_name: values.first_name,
-        last_name: values.last_name,
-        email: values.email,
-        phone_number: values.phone_number,
-        location: values.location,
+        firstName: values.firstName,
+        lastName: values.lastName,
         gender: values.gender,
-        visit_date: values.visit_date,
-        visit_time: values.visit_time,
+        package: values.package,
+        visitTime: values.visitTime,
+        visitDate: values.visitDate,
+        contact: values.contact,
+        requestType:"Walkin",
+        email: values.email,
+        location: values.location,
+        amount:values.package,
+        bookingType:3
       }),
     });
     if (req.status != 200) {
@@ -74,15 +107,15 @@ function HomeCareForm() {
 
     setValues({
       service_type: "",
-      package_type: "",
-      first_name: "",
-      last_name: "",
+      package: "",
+      firstName: "",
+      lastName: "",
       email: "",
-      phone_number: "",
+      contact: "",
       location: "",
       gender: "",
-      visit_date: "",
-      visit_time: "",
+      visitDate: "",
+      visitTime: "",
     });
   };
 
@@ -128,14 +161,13 @@ function HomeCareForm() {
                 onChange={(event) =>
                   setValues({ ...values, service_type: event.target.value })
                 }
+                placeholder="Select Dr. Type"
                 className="w-full rounded-lg bg-gray-200 text-xs focus:border-[#7d018c] focus:ring-[#7d018c]"
               >
                 <option value="">Select Dr. Type</option>
-                <option value="general_practice">General Practice</option>
-                <option value="dietician">Dietician</option>
-                <option value="psychologist">Psychologist</option>
-                <option value="nursing">Nursing</option>
-                <option value="physiotherapy">Physiotherapy</option>
+                {packageTypes.map((packageType, index) => (
+                  <option key={index}>{packageType.cat_name}</option>
+                ))}
               </select>
             </div>
 
@@ -143,19 +175,22 @@ function HomeCareForm() {
             <div className="pb-4">
               <label
                 className={"block font-latoBold text-sm pb-2"}
-                htmlFor="package_type"
+                htmlFor="package"
               >
                 Package Type *
               </label>
               <select
-                name="package_type"
-                value={values.package_type}
+                name="package"
+                value={values.package}
                 onChange={(event) =>
-                  setValues({ ...values, package_type: event.target.value })
+                  setValues({ ...values, package: event.target.value })
                 }
                 className="w-full rounded-lg bg-gray-200 text-xs focus:border-[#7d018c] focus:ring-[#7d018c]"
               >
                 <option value="">Select Package Type</option>
+                {servicePrices.map((data, index) => (
+                  <option key={index}>{data.name} - {data.price}</option>
+                ))}
                 {/* <option value="general_practice">General Practice</option>
                 <option value="dietician">Dietician</option>
                 <option value="psychologist">Psychologist</option>
@@ -168,17 +203,17 @@ function HomeCareForm() {
             <div className="pb-4">
               <label
                 className={"block font-latoBold text-sm pb-2"}
-                htmlFor="first_name"
+                htmlFor="firstName"
               >
                 First Name *
               </label>
               <input
                 className="w-full bg-gray-100 p-2 rounded-md focus:border-[#7d018c] focus:ring-[#7d018c] text-xs"
                 type="text"
-                name="first_name"
-                value={values.first_name}
+                name="firstName"
+                value={values.firstName}
                 onChange={(event) =>
-                  setValues({ ...values, first_name: event.target.value })
+                  setValues({ ...values, firstName: event.target.value })
                 }
                 placeholder="Enter First Name"
               />
@@ -188,17 +223,17 @@ function HomeCareForm() {
             <div className="pb-4">
               <label
                 className={"block font-latoBold text-sm pb-2"}
-                htmlFor="last_name"
+                htmlFor="lastName"
               >
                 Last Name *
               </label>
               <input
                 className="w-full bg-gray-100 p-2 rounded-md focus:border-[#7d018c] focus:ring-[#7d018c] text-xs"
                 type="text"
-                name="last_name"
-                value={values.last_name}
+                name="lastName"
+                value={values.lastName}
                 onChange={(event) =>
-                  setValues({ ...values, last_name: event.target.value })
+                  setValues({ ...values, lastName: event.target.value })
                 }
                 placeholder="Enter Last Name"
               />
@@ -230,17 +265,17 @@ function HomeCareForm() {
             <div className="pb-4">
               <label
                 className={`block font-latoBold text-sm pb-2`}
-                htmlFor="phone_number"
+                htmlFor="contact"
               >
                 Phone Number *
               </label>
               <input
                 className="w-full bg-gray-100 p-2 rounded-md focus:border-[#7d018c] focus:ring-[#7d018c] text-xs"
                 type="text"
-                name="phone_number"
-                value={values.phone_number}
+                name="contact"
+                value={values.contact}
                 onChange={(event) =>
-                  setValues({ ...values, phone_number: event.target.value })
+                  setValues({ ...values, contact: event.target.value })
                 }
                 placeholder="Enter Phone Number"
               />
@@ -292,17 +327,17 @@ function HomeCareForm() {
             <div className="pb-4">
               <label
                 className={"block font-latoBold text-sm pb-2"}
-                htmlFor="visit_date"
+                htmlFor="visitDate"
               >
                 Visit Date *
               </label>
               <input
                 className="w-full bg-gray-200 p-2 rounded-md focus:border-[#7d018c] focus:ring-[#7d018c] text-xs"
                 type="date"
-                name="visit_date"
-                value={values.visit_date}
+                name="visitDate"
+                value={values.visitDate}
                 onChange={(event) =>
-                  setValues({ ...values, visit_date: event.target.value })
+                  setValues({ ...values, visitDate: event.target.value })
                 }
                 //   placeholder="Select Visit Date"
               />
@@ -312,15 +347,15 @@ function HomeCareForm() {
             <div className="pb-4">
               <label
                 className={"block font-latoBold text-sm pb-2"}
-                htmlFor="visit_time"
+                htmlFor="visitTime"
               >
                 Visit Time
               </label>
               <select
-                name="visit_time"
-                value={values.visit_time}
+                name="visitTime"
+                value={values.visitTime}
                 onChange={(event) =>
-                  setValues({ ...values, visit_time: event.target.value })
+                  setValues({ ...values, visitTime: event.target.value })
                 }
                 className="w-full rounded-lg bg-gray-200 text-xs focus:border-[#7d018c] focus:ring-[#7d018c]"
               >

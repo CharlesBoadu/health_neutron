@@ -63,19 +63,19 @@ function CartList({ data, totalPrice }) {
             </div>
             <div className="flex flex-row space-x-10">
               <div className="flex flex-row space-x-2">
-                <div className="bg-white w-contain px-2 py-1 rounded-sm cursor-pointer shadow-sm"
+                {/* <div className="bg-white w-contain px-2 py-1 rounded-sm cursor-pointer shadow-sm"
                 onClick={handleIncrease}
                 >
                   <GrAdd size={15}/>
-                </div>
+                </div> */}
                 <div className="bg-white shadow-xs text-sm px-2 rounded-lg w-[100px] py-1">
                   Quantity: {"1"}
                 </div>
-                <div className="bg-white w-contain px-2 py-1 rounded-sm cursor-pointer shadow-sm"
+                {/* <div className="bg-white w-contain px-2 py-1 rounded-sm cursor-pointer shadow-sm"
                 onClick={handleDecrease}
                 >
                   <GrFormSubtract size={15}/>
-                </div>
+                </div> */}
               </div>
               <div className="flex flex-row space-x-2 cursor-pointer"
               onClick={handleDelete}

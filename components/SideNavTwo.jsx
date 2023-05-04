@@ -48,7 +48,7 @@ function SideNavTwo() {
 
   return (
     <div className="fixed inset-0 bg-[rgba(0,0,0,0.7)] z-10 overflow-hidden">
-      <div className="bg-white w-[250px] h-full absolute left-0 overflow-y-scroll animate-fade-in">
+      <div className="bg-white w-[250px] h-full absolute left-0 animate-in slide-in-from-left-72">
         <h1 className="bg-[#7d018c] py-2 text-left pl-10 text-white">All</h1>
         <div className="text-left flex flex-col space-y-4 ml-10 py-4">
           <div
