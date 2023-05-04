@@ -28,6 +28,7 @@ function TopNav() {
     search: "",
   });
   const [searchSelect, setSearchSelect] = useState("");
+  const [sorted, setSorted] = useState("");
 
   function handleNavigateToCart() {
     router.push("/cart");
@@ -60,11 +61,30 @@ function TopNav() {
   }
 
   useEffect(() => {
-    // console.log("Current search value: ", searchSelect)
+    console.log("Current search value: ", searchSelect)
   }, [searchSelect])
 
   function handleSearch () {
+    useEffect(() => {
+      const sortedFetch = async () => {
+        try {
+          const response = await fetch("", {
+            headers: {
+              Method: "GET",
+              mode: "cors",
+              Accept: "application/json",
+              Authorization: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZTc4MjRjYjU4NTYxYTczZTAxMDRlMzVkNTI1MjM5ODY0MmJlMzgwMDAzYjM4ZGVlNGE5MjE0MGVjNWE5MWEzNzM5ZjIzMDA0N2U5NWYwNWEiLCJpYXQiOjE2ODMwMjMwNTguOTE2MTg1LCJuYmYiOjE2ODMwMjMwNTguOTE2MTg5LCJleHAiOjE3MTQ2NDU0NTguODkzNTc5LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.ZLi9YhRFQ9KGzNJ9RJVLO5Am19tPxlJY0Q_tLNY9TvERxc4lpy5ok3zWDZnpK9Qb_pqqdcjfz0vBM3xUYgM-ITq9GpHtHEmfjDBmD90LH23ydOGwF9WljZM_RaNobubRkfF6wiIrnS3VSTJKtv6Qql3KUPfoAlYp18mx7yig3kvcCVJ9Nt11W5zBxVkWabTgFKhs_Qc-XqM2_5tU5O0yDsOxTKwKOBfCLCPI6peDPkiF2nLYsWNSGc1Jsaj6QnDZ0WB_boX-7l3ZgEFgF8zJSH3QQAXTmQQpqfjBHSSEOVcNFFCJfJLt8n_dBUEf6Y-opmnaVED92147loTNO7VNuzBZjbMHf8vI5nB-exRBTH80VN9NAGFHxA85RS4kK6kFHmlaBfYbHwZFWftfk3bHwXVdKfa3vGT8TLoQQO3dskDVT8Om53ScrR3RFg0Fu-i5pJoE0Np2MJuPDKQ5L-mITAHymN0aAe6dWRXiN3B7-Wc0qYGDkM3zFL95ekNdkPffgcG8wApTSsZhsyYy1kx-b1SI__IWqyPBd5NpHsrEM5ZRApFniVyJ-u8C_jQ4vwDHw61MHEUMZVpeXutWuvkGSt9NZM2VMSNDr1StCGasMODOnflhQdlXS0oHOAsmA4HjUPH7Cr0JhwvXBOgCdOl_vc2IkOVpYBQ83tKedW5FrTA"
+            },
+          });
+          const fetchResponse = await response.json();
+          setSorted(fetchResponse);
+        } catch (error) {
+          console.log(error);
+        }
+      }
 
+      sortedFetch();
+    }, [])
   }
   return (
     <div className="bg-[#7d018c] py-2 flex flex-row w-full space-x-4 font-montserrat px-2">
@@ -105,9 +125,11 @@ function TopNav() {
           </select>
         </div>
         <div>
-          <input type="text" className="lg:w-[700px] lg:w-[200px] rounded-lg z-2 pl-[110px] text-sm py-[10px]" placeholder="Search HealthNeutron"/>
+          <input type="text" className="lg:w-[700px] lg:w-[200px] rounded-lg z-2 pl-[110px] text-sm py-[10px] focus:border-[#7d018c] focus:ring-[#7d018c]" placeholder="Search HealthNeutron"/>
         </div>
-        <div className="flex w-[50px] bg-[#f3a847] ml-[-50px] justify-center items-center cursor-pointer">
+        <div className="flex w-[50px] bg-[#f3a847] ml-[-50px] justify-center items-center cursor-pointer"
+        onClick={handleSearch}
+        >
           <FiSearch size={25} />
         </div>
       </div>

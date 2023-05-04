@@ -3,7 +3,9 @@ import { useRouter } from "next/router";
 import Image from "next/Image";
 import MobilePayment from "./MobilePayment";
 import CardPayment from "./CardPayment";
-import vaccine_services from "../public/vaccine_services.jpg";
+import paymentImage from "../public/payment.jpg";
+import mobile_payment from "../public/6134225.jpg";
+import card_payment from "../public/card_payment.jpg"
 import { AiOutlineQuestionCircle } from "react-icons/ai";
 
 function Payment() {
@@ -15,17 +17,18 @@ function Payment() {
   const [imgSrc, setImgSrc] = useState("");
   const router = useRouter();
 
-  const { name, contact, amount } = router.query;
-
+  const { name, contact, amount, token, request_id } = router.query;
 
   const togglePayment = (select) => {
     if (select === "mobile") {
       setMobilePayment(true);
       setTitleName("Mobile Payment");
+      setImgSrc(mobile_payment);
       setCardPayment(false);
     } else if (select === "card") {
       setCardPayment(true);
       setTitleName("Card Payment");
+      setImgSrc(card_payment);
       setMobilePayment(false);
     }
     setPayment(!payment);
@@ -35,19 +38,14 @@ function Payment() {
     setSelectedHeading(index);
   };
 
-  function calcDiscount () {
-    return 1;
-  }
-
-  let total = amount + calcDiscount();
 
   return (
     <div className="flex justify-center mx-auto items-center font-montserrat w-1/2 my-auto">
       <div className="flex-1 text-black flex items-center justify-center flex-col bg-[#7d018c] py-10 rounded-md">
         <div className="rounded-2xl relative h-[30vh] w-3/4 mb-4 flex justify-center text-center object-contain">
           <Image
-            alt="AddUser form image"
-            src={vaccine_services}
+            alt="Payment Image"
+            src={payment ? paymentImage : imgSrc}
             fill
             className="object-cover rounded-2xl h-full w-full"
           />
@@ -58,15 +56,15 @@ function Payment() {
         <div className="border-b-2 border-white w-3/4 mx-auto mt-3 text-sm pb-4">
           <div className="flex flex-row justify-between">
             <div className="text-white">Convenience Fee</div>
-            <div className="font-bold text-[#ffd814]">₵{amount}</div>
+            <div className="font-medium text-[#ffd814]">₵{amount}</div>
           </div>
           <div className="flex flex-row justify-between">
             <div className="text-white">Discount</div>
-            <div className="font-bold text-[#ffd814]">{1}</div>
+            <div className="font-medium text-[#ffd814]">0%</div>
           </div>
           <div className="flex flex-row justify-between">
             <div className="text-white">Total</div>
-            <div className="font-bold text-[#ffd814]">{total}</div>
+            <div className="font-bold text-[#ffd814]">₵{amount}</div>
           </div>
         </div>
         <div className="mt-4 flex flex-row justify-between space-x-10">
@@ -109,7 +107,7 @@ function Payment() {
             Card Payment
           </div>
         </div>
-        {mobilePayment && <MobilePayment name={name} contact={contact} total={total}/>}
+        {mobilePayment && <MobilePayment name={name} contact={contact} amount={amount} token={token} request_id={request_id}/>}
         {cardPayment && <CardPayment name={name} total={total}/>}
         {/* {payment ? <MobilePayment /> : <CardPayment />} */}
       </div>

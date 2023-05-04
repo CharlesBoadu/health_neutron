@@ -77,7 +77,7 @@ function CheckOutFormModal({ visible = true, closeModal, amount }) {
           setLoading(false);
         }, 2000);
       } else {
-        toast.success("Proceeding to Checkout page");
+        toast.success("Proceeding to Payment page");
         setLoading(false);
         setTimeout(() => {
           router.push({
@@ -85,7 +85,9 @@ function CheckOutFormModal({ visible = true, closeModal, amount }) {
             query: {
               name: res?.data.name,
               contact: values.contact,
-              amount: amount
+              amount: amount,
+              token: res?.token,
+              request_id: res?.request_id
             },
           });
         }, 3000);
