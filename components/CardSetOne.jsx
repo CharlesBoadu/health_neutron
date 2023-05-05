@@ -6,7 +6,7 @@ function CardSetOne() {
     const router = useRouter();
 
   return (
-    <div className='flex flex-row bg-[#e5e7eb] mb-10 h-[60vh] space-x-6'>
+    <div className='flex flex-row bg-[#e5e7eb] mb-10 h-[60vh] space-x-6 md:w-full w-[1000px]'>
         <div className='flex items-center justify-center w-full  m-10 h-[40vh] font-montserrat space-x-8'>
             <div className='flex-1 bg-white h-full flex items-center justify-center'>
                 Advertisement of Website Goes here...

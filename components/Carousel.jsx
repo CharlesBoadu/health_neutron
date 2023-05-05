@@ -20,7 +20,7 @@ export default function Carousel({
     return () => clearInterval(slideInterval)
   }, [])
   return (
-      <div className="overflow-hidden relative z-100 h-[80vh] bg-gray-200">
+      <div className="overflow-hidden relative z-100 md:h-[80vh] h-[100vh] bg-gray-200 md:w-full w-[1000px]">
       <div
         className="flex transition-transform ease-out duration-500"
         style={{ transform: `translateX(-${curr * 100}%)` }}

@@ -87,7 +87,7 @@ function TopNav() {
     }, [])
   }
   return (
-    <div className="bg-[#7d018c] md:py-2 py-2 md:flex flex md:flex-row flex-row md:w-full md:space-x-4 space-x-4 font-montserrat md:px-2 px-2 w-[1000px]">
+    <div className="bg-[#7d018c] md:py-2 py-2 md:flex flex md:flex-row md:w-full md:space-x-4 space-x-4 font-montserrat md:px-2 px-2 w-[1000px]">
       <div
         className="flex md:w-[300px] w-[200px] text-white pl-2 cursor-pointer"
         onClick={handleNavigationToHome}
