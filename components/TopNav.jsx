@@ -87,23 +87,19 @@ function TopNav() {
     }, [])
   }
   return (
-    <div className="bg-[#7d018c] py-2 flex flex-row w-full space-x-4 font-montserrat px-2">
+    <div className="bg-[#7d018c] md:py-2 py-2 md:flex flex md:flex-row flex-row md:w-full md:space-x-4 space-x-4 font-montserrat md:px-2 px-2 w-[1000px]">
       <div
-        className="flex w-[300px] text-white pl-2 cursor-pointer"
+        className="flex md:w-[300px] w-[200px] text-white pl-2 cursor-pointer"
         onClick={handleNavigationToHome}
       >
         <img src="/logo_white.png" alt="Logo" width={200} />
       </div>
-      <div className="flex-1 w-[600px] flex flex-row">
+      <div className="flex-1 md:w-[600px] w-[200px] flex flex-row">
         <div className="flex w-[50px] z-0  px-2 mr-[-62px] rounded-sm justify-center items-center cursor-pointer"
         onClick={handleSelect}
         >
-          {/* <div>All</div>
-          <div>
-             <IoMdArrowDropdown />
-          </div> */}
           <select
-            className="font-semibold text-sm block w-[150px] pr-8 py-[9px] bg-[#e3e6e6] border border-gray-200 active:border-gray-300 outline-none rounded-sm cursor-pointer"
+            className="font-semibold text-sm block md:w-[150px] w-[70px] md:pr-8 pr-2 py-[9px] bg-[#e3e6e6] border border-gray-200 active:border-gray-300 outline-none rounded-sm cursor-pointer"
             //   required={true}
             onChange={(e) => {
               setSearchValue({
@@ -125,7 +121,7 @@ function TopNav() {
           </select>
         </div>
         <div>
-          <input type="text" className="lg:w-[700px] lg:w-[200px] rounded-lg z-2 pl-[110px] text-sm py-[10px] focus:border-[#7d018c] focus:ring-[#7d018c]" placeholder="Search HealthNeutron"/>
+          <input type="text" className="md:w-[700px] w-[500px] rounded-lg z-2 md:pl-[110px] pl-[110px] text-sm py-[10px] focus:border-[#7d018c] focus:ring-[#7d018c]" placeholder="Search HealthNeutron"/>
         </div>
         <div className="flex w-[50px] bg-[#f3a847] ml-[-50px] justify-center items-center cursor-pointer"
         onClick={handleSearch}
@@ -133,7 +129,7 @@ function TopNav() {
           <FiSearch size={25} />
         </div>
       </div>
-      <div className="flex flex-row mt-3 space-x-4 w-[150px]">
+      <div className="flex flex-row mt-3 md:space-x-4 space-x-4 md:w-[150px] w-[150px]">
         <div className="cursor-pointer" onClick={HandleNavigateToFacebook}>
           <FiFacebook size={18} color="white" />
         </div>

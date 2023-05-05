@@ -11,6 +11,11 @@ function Success() {
     router.push("/");
   }
 
+  const now = new Date();
+  const options = { dateStyle: 'long' };
+  const paymentDate = now.toLocaleDateString('en-US', options).replace(/\//g, '-');
+  const paymentTime = now.toLocaleTimeString();
+
   return (
     <div className="flex justify-center items-center w-full h-[100vh] flex-row justify-evenly">
       <div className="flex flex-col items-center justify-center">
@@ -26,23 +31,31 @@ function Success() {
         </div>
         <div className="font-montserrat border-[#7d018c] border-b-2 font-semibold">Payment Details</div>
         <div>
-            <table className="font-montserrat mt-4 text-sm">
+            <table className="font-montserrat mt-4 text-sm mb-4">
                 <tbody>
                     <tr>
-                        <td className="font-semibold">ITEM BOUGHT</td>
-                        <td>item</td>
+                        <td>Item Purchased</td>
+                        <td className="font-semibold">item</td>
                     </tr>
                     <tr>
-                        <td className="pr-20 font-semibold">PAYMENT DATE</td>
-                        <td>Date</td>
+                        <td>Amount Paid</td>
+                        <td className="font-semibold">amount</td>
                     </tr>
                     <tr>
-                        <td className="font-semibold">PAYMENT CODE</td>
-                        <td>code</td>
+                        <td className="pr-20">Payment Date</td>
+                        <td className="font-semibold">{paymentDate}</td>
                     </tr>
                     <tr>
-                        <td className="font-semibold">PAYMENT METHOD</td>
-                        <td>method</td>
+                        <td className="">Payment Time</td>
+                        <td className="font-semibold">{paymentTime}</td>
+                    </tr>
+                    <tr>
+                        <td className="">Payment Code</td>
+                        <td className="font-semibold">code</td>
+                    </tr>
+                    <tr>
+                        <td className="">Payment Method</td>
+                        <td className="font-semibold">Mobile Payment</td>
                     </tr>
                 </tbody>
             </table>
@@ -70,7 +83,7 @@ function Success() {
           Continue shopping
         </div>
       </div>
-      <div className="flex justify-center items-center bg-gray-200 h-full w-[70vh] transform skew-y-12 shadow-lg">
+      <div className="flex justify-center items-center bg-gray-200 h-full w-[70vh] transform skew-y-12 shadow-lg rounded-lg">
         <img
           src="/card_payment.jpg"
           alt="successful payment Image"
