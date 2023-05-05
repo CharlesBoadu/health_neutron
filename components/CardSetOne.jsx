@@ -6,19 +6,20 @@ function CardSetOne() {
     const router = useRouter();
 
   return (
-    <div className='flex flex-row bg-[#e5e7eb] mb-10 h-[60vh] space-x-6 md:w-full w-[1000px]'>
-        <div className='flex items-center justify-center w-full  m-10 h-[40vh] font-montserrat space-x-8'>
-            <div className='flex-1 bg-white h-full flex items-center justify-center'>
+    <div className='flex md:flex-row bg-[#e5e7eb] mb-10 md:h-[60vh] h-[220vh] md:space-x-6 md:w-full w-[1000px]'>
+        <div className='flex items-center justify-center w-full md:flex-row flex-col m-10 h-[40vh] font-montserrat space-x-8 md:space-y-0 space-y-10'>
+            <div className='flex-1 bg-white md:h-full md:py-0 py-52 md:w-[50vh] w-[900px] flex items-center justify-center'>
                 Advertisement of Website Goes here...
             </div>
-            <div className='flex flex-col w-[300px] h-full rounded-lg shadow-lg bg-gray-300'>
+            <div className='flex flex-col md:w-[300px] w-[800px] h-full rounded-lg shadow-lg bg-gray-300'
+            onClick={() => {
+                router.push("https://healthneutron.com/blogs/", undefined, { target: '_blank' })
+            }}
+            >
                 <div className='rounded-lg'>
                     <img src="/Healthneutron Preventive Journey.jpg" alt="Blog Image" />
                 </div>
-                <div className='mx-auto bg-[#62276a] text-white rounded-sm mt-[-120px] shadow-lg px-3 text-sm py-1 hover:cursor-pointer hover:bg-[#f7ca00] hover:text-[#62276a]'
-                onClick={() => {
-                    router.push("https://healthneutron.com/blogs/", undefined, { target: '_blank' })
-                }}
+                <div className='mx-auto bg-[#62276a] text-white rounded-sm md:mt-[-120px] mt-[-300px] shadow-lg md:px-3 px-6 md:text-sm text-4xl md:py-1 py-4 hover:cursor-pointer hover:bg-[#f7ca00] hover:text-[#62276a]'
                 >
                     Read Blog
                 </div>
