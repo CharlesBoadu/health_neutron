@@ -23,21 +23,21 @@ function Card() {
   return (
     <>
       {/* <CarouselSecond /> */}
-      <div className="md:flex md:flex-row items-center justify-evenly pt-[90px] z-1 flex flex-col">
-        <div className="bg-white md:w-[400px] md:h-[380px] w-[800px] h-[500px]">
-          <div className="ml-10 text-lg font-montserrat font-bold mt-2">Labs</div>
+      <div className="md:flex md:flex-row items-center justify-evenly pt-[90px] z-1 flex flex-col md:space-y-0 space-y-28">
+        <div className="bg-white md:w-[400px] md:h-[380px] w-[800px] h-[700px]">
+          <div className="ml-10 md:text-lg text-4xl font-montserrat font-bold md:mt-2 mt-4 md:mb-0 mb-4">Labs</div>
           <LabSmallCards />
-          <p className="text-blue-400 ml-10 cursor-pointer" onClick={handleNavigationToLabs}>See more</p>
+          <p className="text-blue-400 ml-10 cursor-pointer md:text-base text-3xl" onClick={handleNavigationToLabs}>See more</p>
         </div>
-        <div className="bg-white md:w-[400px] md:h-[380px] w-[300px] h-[300px]">
-        <div className="ml-10 text-lg font-montserrat font-bold mt-2">Home Care</div>
+        <div className="bg-white md:w-[400px] md:h-[380px] w-[800px] h-[620px]">
+        <div className="ml-10 md:text-lg text-4xl font-montserrat font-bold md:mt-2 mt-4 md:mb-0 mb-4">Home Care</div>
           <HomecareSmallCards />
-          <p className="text-blue-400 ml-10 cursor-pointer" onClick={handleNavigationToHomeCare}>See more</p>
+          <p className="text-blue-400 ml-10 cursor-pointer md:text-base text-3xl md:mt-0 mt-4" onClick={handleNavigationToHomeCare}>See more</p>
         </div>
-        <div className="bg-white md:w-[400px] md:h-[380px] w-[300px] h-[300px]">
-        <div className="ml-10 text-lg font-montserrat font-bold mt-2">Vaccines</div>
+        <div className="bg-white md:w-[400px] md:h-[380px] w-[800px] h-[620px]">
+        <div className="ml-10 md:text-lg text-4xl font-montserrat font-bold md:mt-2 mt-4 md:mb-0 mb-4">Vaccines</div>
           <VaccinesSmallCards />
-          <p className="text-blue-400 ml-10 cursor-pointer" onClick={handleNavigationToVaccines}>See more</p>
+          <p className="text-blue-400 ml-10 cursor-pointer md:text-base text-3xl md:mt-0 mt-4" onClick={handleNavigationToVaccines}>See more</p>
         </div>
         {/* <div className="bg-white w-[300px] h-[380px]"></div> */}
       </div>

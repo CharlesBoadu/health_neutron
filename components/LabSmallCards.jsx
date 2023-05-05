@@ -10,51 +10,51 @@ function LabSmallCards() {
 
   return (
     <>
-      <div className="flex flex-row justify-center items-center space-x-3 py-2 z-1 hover:cursor-pointer" onClick={handleNavigationToLabs}>
+      <div className="flex flex-row justify-center items-center md:space-x-3 space-x-10 py-2 z-1 hover:cursor-pointer" onClick={handleNavigationToLabs}>
         <div className="flex flex-col">
-          <div className="w-[150px] h-[100px] bg-gray-300">
+          <div className="md:w-[150px] md:h-[100px] w-[300px] h-[180px] bg-gray-300">
             <img
               src="/HN-MOM&DAD(STA).jpg"
               alt="Lab Image 1"
               className="object-cover h-full w-full"
             />
           </div>
-          <div className="text-sm text-gray-600 flex flex-col">
+          <div className="md:text-sm text-2xl text-gray-600 flex flex-col">
             <div>Honor your Mom</div>
             <div>{"&"} Dad (Standard)</div>
           </div>
         </div>
         <div className="flex flex-col">
-          <div className="w-[150px] h-[100px] bg-gray-300">
+          <div className="md:w-[150px] md:h-[100px] w-[300px] h-[180px] bg-gray-300">
             <img
               src="/PCR -Covid19.png"
               alt="Lab Image 2"
               className="object-cover h-full w-full"
             />
           </div>
-          <div className="text-sm text-gray-600">Covid - Express</div>
+          <div className="md:text-sm text-2xl text-gray-600">Covid - Express</div>
         </div>
       </div>
-      <div className="flex flex-row justify-center items-center space-x-3 py-2 hover:cursor-pointer" onClick={handleNavigationToLabs}>
+      <div className="flex flex-row justify-center items-center md:space-x-3 space-x-10 py-2 hover:cursor-pointer" onClick={handleNavigationToLabs}>
         <div className="flex flex-col">
-          <div className="w-[150px] h-[100px] bg-gray-300">
+          <div className="md:w-[150px] md:h-[100px] w-[300px] h-[180px] bg-gray-300">
             <img
               src="/Covid - Standard.png"
               alt="Lab Image 3"
               className="object-cover h-full w-full"
             />
           </div>
-          <div className="text-sm text-gray-600">Covid - Standard</div>
+          <div className="md:text-sm text-2xl text-gray-600">Covid - Standard</div>
         </div>
         <div className="flex flex-col">
-          <div className="w-[150px] h-[100px] bg-gray-300">
+          <div className="md:w-[150px] md:h-[100px] w-[300px] h-[180px] bg-gray-300">
             <img
               src="/HN-MOM&DAD{PREM.).jpg"
               alt="Lab Image 4"
               className="object-cover h-full w-full"
             />
           </div>
-          <div className="text-sm text-gray-600">
+          <div className="md:text-sm text-2xl text-gray-600">
             <div>Honor your Mom</div>
             <div>{"&"} Dad (Premium)</div>
           </div>
