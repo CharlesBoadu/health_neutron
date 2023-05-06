@@ -19,7 +19,7 @@ function LabSmallCards() {
               className="object-cover h-full w-full"
             />
           </div>
-          <div className="md:text-sm text-4xl text-gray-600 flex flex-col">
+          <div className="md:text-sm text-3xl text-gray-600 flex flex-col font-montserrat">
             <div>Honor your Mom</div>
             <div>{"&"} Dad (Standard)</div>
           </div>
@@ -32,7 +32,7 @@ function LabSmallCards() {
               className="object-cover h-full w-full"
             />
           </div>
-          <div className="md:text-sm text-4xl text-gray-600">Covid - Express</div>
+          <div className="md:text-sm text-3xl text-gray-600 font-montserrat">Covid - Express</div>
         </div>
       </div>
       <div className="flex flex-row justify-center items-center md:space-x-3 space-x-10 py-2 hover:cursor-pointer" onClick={handleNavigationToLabs}>
@@ -44,7 +44,7 @@ function LabSmallCards() {
               className="object-cover h-full w-full"
             />
           </div>
-          <div className="md:text-sm text-4xl text-gray-600">Covid - Standard</div>
+          <div className="md:text-sm text-3xl text-gray-600 font-montserrat">Covid - Standard</div>
         </div>
         <div className="flex flex-col">
           <div className="md:w-[150px] md:h-[100px] w-[380px] h-[250px] bg-gray-300">
@@ -54,7 +54,7 @@ function LabSmallCards() {
               className="object-cover h-full w-full"
             />
           </div>
-          <div className="md:text-sm text-4xl text-gray-600">
+          <div className="md:text-sm text-3xl text-gray-600 font-montserrat">
             <div>Honor your Mom</div>
             <div>{"&"} Dad (Premium)</div>
           </div>

@@ -3,7 +3,7 @@ import { BsFillTelephoneFill } from "react-icons/bs";
 
 function TopNavThird() {
   return (
-    <div className="md:w-full py-3 bg-white flex justify-end font-montserrat space-x-10 pr-5 w-[1000px] md:p-4 p-8">
+    <div className="md:w-full py-3 bg-white flex justify-end font-montserrat space-x-10 pr-5 w-screen md:p-4 p-8">
       <div className="flex flex-col">
         <div className="md:text-lg text-3xl font-extrabold text-gray-600">
           Convenient . Customer centric . Confidential

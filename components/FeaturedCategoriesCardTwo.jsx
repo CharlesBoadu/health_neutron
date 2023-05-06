@@ -2,8 +2,8 @@ import React from 'react'
 
 function FeaturedCategoriesCardTwo() {
   return (
-    <div className='flex flex-row space-x-8 justify-evenly  mr-[80px] ml-[80px]'>
-        <div className='h-[30vh] w-[350px] rounded-lg bg-gray-200 flex flex-col justify-between shadow-xl'>
+    <div className='flex flex-row space-x-8 justify-evenly  mr-[80px] md:ml-[80px] ml-[-35px]'>
+        <div className='md:h-[30vh] md:w-[350px] w-[280px] h-[20vh] rounded-lg bg-gray-200 flex flex-col justify-between shadow-xl'>
             <div>
                 <img src="/comprehensive_labs.jpg" alt="HEP B Image" />
             </div>
@@ -11,7 +11,7 @@ function FeaturedCategoriesCardTwo() {
                 Comprehensive Labs
             </div>
         </div>
-        <div className='h-[30vh] w-[350px] rounded-lg bg-gray-200 flex flex-col justify-between shadow-xl'>
+        <div className='md:h-[30vh] md:w-[350px] w-[280px] h-[20vh] rounded-lg bg-gray-200 flex flex-col justify-between shadow-xl'>
             <div>
                 <img src="/coronavirus-vaccine-composition-lab.jpg" alt="HEP B Image" />
             </div>
@@ -19,7 +19,7 @@ function FeaturedCategoriesCardTwo() {
                 Covid 19
             </div>
         </div>
-        <div className='h-[30vh] w-[350px] rounded-lg bg-gray-200 flex flex-col justify-between shadow-xl'>
+        <div className='md:h-[30vh] md:w-[350px] w-[280px] h-[20vh] rounded-lg bg-gray-200 flex flex-col justify-between shadow-xl'>
             <div>
                 <img src="/nurse-examining-senior-man-bed-bedroom.jpg" alt="HEP B Image" />
             </div>

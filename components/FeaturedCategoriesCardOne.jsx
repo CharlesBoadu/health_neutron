@@ -12,9 +12,9 @@ function FeaturedCategoriesCardOne() {
   }
 
   return (
-    <div className="flex flex-row space-x-8 justify-evenly mr-[80px] ml-[80px]">
+    <div className="flex flex-row space-x-8 justify-evenly mr-[80px] md:ml-[80px] ml-[-35px]">
       <div
-        className="h-[30vh] w-[350px] rounded-lg bg-gray-200 flex flex-col justify-between shadow-xl hover:cursor-pointer"
+        className="md:h-[30vh] md:w-[350px] w-[280px] h-[20vh] rounded-lg bg-gray-200 flex flex-col justify-between shadow-xl hover:cursor-pointer"
         onClick={() => {
           handleSort("Hepatitis");
         }}
@@ -26,7 +26,7 @@ function FeaturedCategoriesCardOne() {
           Hepatitis B
         </div>
       </div>
-      <div className="h-[30vh] w-[350px] rounded-lg bg-gray-200 flex flex-col justify-between shadow-xl hover:cursor-pointer"
+      <div className="md:h-[30vh] md:w-[350px] w-[280px] h-[20vh] rounded-lg bg-gray-200 flex flex-col justify-between shadow-xl hover:cursor-pointer"
       onClick={() => {
         handleSort("Hypertension");
       }}
@@ -38,7 +38,7 @@ function FeaturedCategoriesCardOne() {
           Hypertension
         </div>
       </div>
-      <div className="h-[30vh] w-[350px] rounded-lg bg-gray-200 flex flex-col justify-between shadow-xl hover:cursor-pointer"
+      <div className="md:h-[30vh] md:w-[350px] w-[280px] h-[20vh] rounded-lg bg-gray-200 flex flex-col justify-between shadow-xl hover:cursor-pointer"
       onClick={() => {
         handleSort("Diabetes");
       }}

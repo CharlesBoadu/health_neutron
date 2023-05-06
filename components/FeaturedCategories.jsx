@@ -19,8 +19,8 @@ function FeaturedCategories({
     return () => clearInterval(slideInterval);
   }, []);
   return (
-    <div className="overflow-hidden relative z-100 h-[60vh] m-10">
-      <div className="font-montserrat text-2xl font-extrabold bg-white mb-[-30px]">
+    <div className="overflow-hidden relative z-100 h-[65vh] md:w-full md:p-10">
+      <div className="md:font-montserrat md:text-2xl text-7xl font-extrabold bg-white mb-[-30px]">
         Featured Categories
       </div>
       <div
@@ -29,7 +29,7 @@ function FeaturedCategories({
       >
         {slides}
       </div>
-      <div className="absolute w-full flex items-center mt-[-180px] justify-between p-4 z-1">
+      {/* <div className="absolute flex md:w-full justify-between mt-[-180px] p-4 z-1 hidden sm:block">
         <button
           onClick={prev}
           className="p-1 rounded-full shadow bg-white/80 text-gray-800 hover:bg-white"
@@ -42,7 +42,7 @@ function FeaturedCategories({
         >
           <ChevronRight size={40} />
         </button>
-      </div>
+      </div> */}
 
       {/* <div className="absolute bottom-4 right-0 left-0">
         <div className="flex items-center justify-center gap-2">

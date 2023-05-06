@@ -33,7 +33,7 @@ const featured = [
 
 const customerReviews = [
   <CustomerReviewCard key={1}/>,
-  <CustomerReviewCard key={2}/>
+  // <CustomerReviewCard key={2}/>
 ]
 
 export default function Home() {
