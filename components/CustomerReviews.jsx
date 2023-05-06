@@ -22,8 +22,8 @@ function CustomerReviews({
     setCurr((curr) => (curr === slides.length - 1 ? 0 : curr + 1));
 
   return (
-    <div className="overflow-hidden relative z-100 md:h-[60vh] h-[300vh] md:m-10 m-20 bg-[#e5e7eb]">
-      <div className="md:font-montserrat md:text-2xl text-7xl font-extrabold bg-white md:mb-[-30px] mb-[-50px] pb-5">
+    <div className="overflow-hidden relative z-100 md:h-[60vh] h-[180vh] md:m-10 m-8 bg-[#e5e7eb]">
+      <div className="font-montserrat md:text-4xl text-2xl font-extrabold bg-white md:mb-[-30px] pb-5">
         Customer Reviews
       </div>
       <div

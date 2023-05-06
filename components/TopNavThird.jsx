@@ -3,20 +3,20 @@ import { BsFillTelephoneFill } from "react-icons/bs";
 
 function TopNavThird() {
   return (
-    <div className="md:w-full py-3 bg-white flex justify-end font-montserrat space-x-10 pr-5 w-screen md:p-4 p-8">
-      <div className="flex flex-col">
-        <div className="md:text-lg text-3xl font-extrabold text-gray-600">
+    <div className="w-full py-3 bg-white flex justify-end font-montserrat md:space-x-10 space-x-8 md:pr-5 p-4">
+      <div className="flex flex-col md:mt-0 mt-4">
+        <div className="md:text-xl text-xs font-extrabold text-gray-600">
           Convenient . Customer centric . Confidential
         </div>
-        <div className="md:text-sm text-2xl">
+        <div className="md:text-base text-xs">
           eliminating & preventing the causes of underlying health conditions
         </div>
       </div>
-      <div className="flex flex-row d:mt-2 mt-3 md:space-x-2 space-x-4">
+      <div className="flex md:flex-row flex-col mt-2 md:space-x-2 md:space-y-0 space-y-2">
         <div>
-            <BsFillTelephoneFill color="#7d018c" size={20} className="md:h-[20px] w-[20px] h-[40px] w-[40px]"/>
+            <BsFillTelephoneFill color="#7d018c" size={20} className="md:mt-1"/>
         </div>
-        <div className="md:text-base text-3xl">
+        <div className="md:text-lg text-xs">
         +233 59 236 0072
         </div>
       </div>

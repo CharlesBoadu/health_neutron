@@ -20,19 +20,19 @@ export default function CarouselSecond({
     return () => clearInterval(slideInterval)
   }, [])
   return (
-      <div className="overflow-hidden relative z-100 md:h-[40vh] h-[35vh] md:w-full w-screen">
+      <div className="overflow-hidden relative z-100 md:h-[40vh] h-[10vh] md:w-full w-screen">
       <div
         className="flex transition-transform ease-out duration-500 border-b-0"
         style={{ transform: `translateX(-${curr * 100}%)` }}
       >
         {slides}
       </div>
-      <div className="absolute inset-0 flex items-center justify-between p-4">
+      <div className="md:absolute md:inset-0 md:flex md:items-center md:justify-between p-4 hidden sm:block">
         <button
           onClick={prev}
           className="p-1 rounded-full shadow bg-white/80 text-gray-800 hover:bg-white"
         >
-          <ChevronLeft size={40} />
+          <ChevronLeft size={40}/>
         </button>
         <button
           onClick={next}

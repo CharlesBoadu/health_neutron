@@ -89,13 +89,13 @@ function TopNav() {
   return (
     <div className="bg-[#7d018c] md:py-2 py-2 md:flex flex md:flex-row md:w-full md:space-x-4 space-x-4 font-montserrat md:px-2 px-2 w-screen">
       <div
-        className="flex md:w-[300px] w-[200px] text-white pl-2 cursor-pointer"
+        className="flex md:w-[300px] w-[150px] text-white pl-2 cursor-pointer"
         onClick={handleNavigationToHome}
       >
-        <img src="/logo_white.png" alt="Logo" width={200} />
+        <img src="/logo_white.png" alt="Logo" width={200} className="md:w-[200px] w-50"/>
       </div>
       <div className="flex-1 md:w-[600px] w-[200px] flex flex-row">
-        <div className="flex w-[50px] z-0  px-2 mr-[-62px] rounded-sm justify-center items-center cursor-pointer"
+        <div className="md:flex md:w-[50px] md:z-0  md:px-2 md:mr-[-62px] md:rounded-sm md:justify-center md:items-center md:cursor-pointer hidden sm:block"
         onClick={handleSelect}
         >
           <select
@@ -121,15 +121,15 @@ function TopNav() {
           </select>
         </div>
         <div>
-          {/* <input type="text" className="md:w-[700px] w-[500px] rounded-lg z-2 md:pl-[110px] pl-[110px] text-sm py-[10px] focus:border-[#7d018c] focus:ring-[#7d018c]" placeholder="Search HealthNeutron"/> */}
+          <input type="text" className="md:w-[700px] w-full rounded-lg z-2 md:pl-[110px] pl-[20px] md:text-sm text-xs md:py-[10px] focus:border-[#7d018c] focus:ring-[#7d018c]" placeholder="Search HealthNeutron"/>
         </div>
-        <div className="flex w-[50px] bg-[#f3a847] ml-[-50px] justify-center items-center cursor-pointer"
+        <div className="md:flex md:w-[50px] bg-[#f3a847] md:ml-[-50px] md:justify-center md:items-center md:cursor-pointer hidden sm:block"
         onClick={handleSearch}
         >
-          <FiSearch size={25} />
+          <FiSearch size={25} className="md:w-[25px] w-[20px]"/>
         </div>
       </div>
-      <div className="flex flex-row mt-3 md:space-x-4 space-x-4 md:w-[150px] w-[150px]">
+      <div className="md:flex md:flex-row md:mt-3 md:space-x-4 md:w-[150px] hidden sm:block">
         <div className="cursor-pointer" onClick={HandleNavigateToFacebook}>
           <FiFacebook size={18} color="white" />
         </div>
@@ -144,7 +144,7 @@ function TopNav() {
         </div>
       </div>
       <div
-        className="flex flex-row w-[100px] text-white cursor-pointer"
+        className="md:flex md:flex-row md:w-[100px] md:text-white md:cursor-pointer hidden sm:block"
         onClick={handleNavigateToCart}
       >
         <div>
