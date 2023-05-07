@@ -22,12 +22,12 @@ function CustomerReviews({
     setCurr((curr) => (curr === slides.length - 1 ? 0 : curr + 1));
 
   return (
-    <div className="overflow-hidden relative z-100 md:h-[60vh] h-[180vh] md:m-10 m-8 bg-[#e5e7eb]">
-      <div className="font-montserrat md:text-4xl text-2xl font-extrabold bg-white md:mb-[-30px] pb-5">
+    <div className="md:overflow-hidden md:relative md:z-100 md:h-[60vh] md:m-10 md:bg-[#e5e7eb]">
+      <div className="font-montserrat md:text-4xl text-2xl font-extrabold bg-white md:mb-[-30px] md:mt-0 mt-10 md:ml-0 ml-5 pb-5">
         Customer Reviews
       </div>
       <div
-        className="flex transition-transform ease-out duration-500 border-b-0 h-[50vh] items-center z-10"
+        className="md:flex md:transition-transform md:ease-out md:duration-500 md:border-b-0 md:h-[50vh] md:items-center md:z-10 hidden sm:block"
         style={{ transform: `translateX(-${curr * 100}%)` }}
       >
         {slides}

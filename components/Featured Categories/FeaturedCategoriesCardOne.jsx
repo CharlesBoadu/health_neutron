@@ -12,9 +12,9 @@ function FeaturedCategoriesCardOne() {
   }
 
   return (
-    <div className="flex flex-row space-x-8 justify-evenly mr-[80px] md:ml-[80px] ml-[-35px]">
+    <div className="flex items-center justify-center">
       <div
-        className="md:h-[30vh] md:w-[350px] w-[280px] h-[20vh] rounded-lg bg-gray-200 flex flex-col justify-between shadow-xl hover:cursor-pointer"
+        className="h-[40vh] w-[350px] rounded-lg bg-gray-200 shadow-xl hover:cursor-pointer"
         onClick={() => {
           handleSort("Hepatitis");
         }}
@@ -26,7 +26,7 @@ function FeaturedCategoriesCardOne() {
           Hepatitis B
         </div>
       </div>
-      <div className="md:h-[30vh] md:w-[350px] w-[280px] h-[20vh] rounded-lg bg-gray-200 flex flex-col justify-between shadow-xl hover:cursor-pointer"
+      {/* <div className="h-[40vh] w-[350px] rounded-lg bg-gray-200 flex flex-col justify-between shadow-xl hover:cursor-pointer"
       onClick={() => {
         handleSort("Hypertension");
       }}
@@ -38,7 +38,7 @@ function FeaturedCategoriesCardOne() {
           Hypertension
         </div>
       </div>
-      <div className="md:h-[30vh] md:w-[350px] w-[280px] h-[20vh] rounded-lg bg-gray-200 flex flex-col justify-between shadow-xl hover:cursor-pointer"
+      <div className="h-[40vh] w-[350px] rounded-lg bg-gray-200 flex flex-col justify-between shadow-xl hover:cursor-pointer"
       onClick={() => {
         handleSort("Diabetes");
       }}
@@ -49,7 +49,7 @@ function FeaturedCategoriesCardOne() {
         <div className="bg-[#7d018c] text-white py-2 font-montserrat text-center font-semibold rounded-sm">
           Diabetes
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

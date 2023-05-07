@@ -19,12 +19,12 @@ function FeaturedCategories({
     return () => clearInterval(slideInterval);
   }, []);
   return (
-    <div className="overflow-hidden relative z-100 h-[65vh] md:w-full md:p-10">
-      <div className="md:font-montserrat md:text-2xl text-7xl font-extrabold bg-white mb-[-30px]">
+    <div className="overflow-hidden relative z-10 hidden sm:block">
+      <div className="font-montserrat md:text-4xl text-2xl font-extrabold md:p-10 p-10 mb-[15px] bg-white">
         Featured Categories
       </div>
       <div
-        className="flex transition-transform ease-out duration-500 border-b-0 h-[50vh] items-center z-10"
+        className="flex transition-transform ease-out duration-500 border-b-0 items-center z-10"
         style={{ transform: `translateX(-${curr * 100}%)` }}
       >
         {slides}
