@@ -27,10 +27,10 @@ function homecare() {
           {[...slides.map((s, i) => <img src={s} key={i}/>)]}
         </CarouselSecond>
         <div>
-          <div className="text-4xl font-extrabold font-montserrat text-gray-700 mt-10 mb-5 ml-10">
+          <div className="md:text-4xl text-2xl font-extrabold font-montserrat text-gray-700 mt-10 mb-5 ml-10">
             HOMECARE SERVICES...
           </div>
-          <div className="text-sm font-montserrat text-gray-500 mb-10 ml-10 mr-10">
+          <div className="text-sm font-montserrat text-gray-500 md:mb-10 mb-10 ml-10 mr-10">
             We provide quality home care for the aged, the physically
             challenged, children, the sick and patients recovering from surgery
             and other medical procedures.

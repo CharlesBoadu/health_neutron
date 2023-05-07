@@ -77,12 +77,12 @@ function VaccineCards() {
         //   key={index}
         className="bg-white w-[250px] h-[400px] cursor-pointer ml-10 font-montserrat"
       > */}
-        <div className="flex flex-row m-8 space-x-10 justify-center items-center font-montserrat">
+        <div className="flex md:flex-row flex-col m-8 md:space-x-10 md:space-y-0 space-y-10 justify-center items-center font-montserrat">
           {allVaccines.map((vaccine, index) => {
             return (
                 <div
                   key={index}
-                  className="bg-white w-[200px] h-[350px] cursor-pointer"
+                  className="bg-white md:w-[200px] md:h-[350px] cursor-pointer"
                   onClick={() => {
                     HandleBooking(vaccine);
                   }}
