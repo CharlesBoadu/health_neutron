@@ -12,7 +12,7 @@ function FeaturedCategoriesCardOne() {
   }
 
   return (
-    <div className="flex items-center justify-center">
+    <div className="flex items-center justify-center ml-[200px] space-x-10 mr-[200px]">
       <div
         className="h-[40vh] w-[350px] rounded-lg bg-gray-200 shadow-xl hover:cursor-pointer"
         onClick={() => {
@@ -26,7 +26,7 @@ function FeaturedCategoriesCardOne() {
           Hepatitis B
         </div>
       </div>
-      {/* <div className="h-[40vh] w-[350px] rounded-lg bg-gray-200 flex flex-col justify-between shadow-xl hover:cursor-pointer"
+      <div className="h-[40vh] w-[350px] rounded-lg bg-gray-200 flex flex-col justify-between shadow-xl hover:cursor-pointer"
       onClick={() => {
         handleSort("Hypertension");
       }}
@@ -49,7 +49,7 @@ function FeaturedCategoriesCardOne() {
         <div className="bg-[#7d018c] text-white py-2 font-montserrat text-center font-semibold rounded-sm">
           Diabetes
         </div>
-      </div> */}
+      </div>
     </div>
   );
 }

@@ -29,11 +29,11 @@ const slides = [
 ];
 
 const featured = [
-  // <FeaturedCategoriesCardOne key={1}/>,
-  // <FeaturedCategoriesCardTwo key={2}/>
-  "/Hepatitis-B-Test-(HBsAg).jpg",
-  "/hypertension.jpg",
-  "/diabetis.jpg"
+  <FeaturedCategoriesCardOne key={1}/>,
+  <FeaturedCategoriesCardTwo key={2}/>
+  // "/Hepatitis-B-Test-(HBsAg).jpg",
+  // "/hypertension.jpg",
+  // "/diabetis.jpg"
 ]
 
 const customerReviews = [
@@ -56,8 +56,8 @@ export default function Home() {
       <FeaturedCategories 
       autoSlide={true} autoSlideInterval={5000}
       >
-      {/* {[...featured.map((s) => s)]} */}
-      {[...featured.map((s, i) => <img src={s} key={i}/>)]}
+      {[...featured.map((s) => s)]}
+      {/* {[...featured.map((s) => <img src={s} key={i}/>)]} */}
       </FeaturedCategories>
       <FeaturedCategoriesSm />
       <CustomerReviews>
