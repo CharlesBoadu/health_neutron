@@ -12,7 +12,7 @@ function labs() {
       <TopNavSecond />
       <div>
         <div className="w-contain md:h-[40vh] h-[20vh] m-4 bg-[#232f3e] flex items-center justify-center bg-gradient-to-r from-violet-500 to-fuchsia-500">
-          <span className="font-montserrat text-4xl text-white">
+          <span className="font-montserrat md:text-4xl text-2xl text-white">
             Essentials for Labs
           </span>
         </div>

@@ -42,16 +42,16 @@ function cart() {
       <TopNav />
       <TopNavSecond />
       <div>
-        <div className="w-contain h-[30vh] m-4 bg-[#232f3e] flex items-center justify-center bg-gradient-to-r from-violet-500 to-fuchsia-500">
-          <span className="font-montserrat text-4xl text-white ">
+        <div className="w-contain md:h-[30vh] h-[20vh] m-4 bg-[#232f3e] flex items-center justify-center bg-gradient-to-r from-violet-500 to-fuchsia-500">
+          <span className="font-montserrat md:text-4xl text-2xl text-white ">
             Shopping Cart
           </span>
         </div>
-        <div className="flex flex-row font-montserrat">
+        <div className="flex md:flex-row flex-col font-montserrat">
           <div className="flex-1">
             {cartItem.length <= 0 ? (
               <div className="flex flex-col items-center justify-center mt-32">
-                <div className="text-center text-4xl">
+                <div className="text-center md:text-4xl text-2xl">
                     Your Cart Is Empty
                 </div>
                 <div className="flex items-center flex-row space-x-2 mt-3 cursor-pointer shadow-sm" onClick={handleContinue}>
@@ -67,7 +67,7 @@ function cart() {
               cartItem.map((item) => <CartList key={item.bundle_id} data={item} totalPrice={totalPrice}/>)
             )}
           </div>
-          <div className="flex">
+          <div className="flex mx-auto">
             <CheckOut totalPrice={totalPrice()} />
           </div>
         </div>
