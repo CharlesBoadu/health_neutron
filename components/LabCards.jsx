@@ -99,12 +99,12 @@ function LabCards() {
       />
       </div>
     )}
-      <div className="flex flex-row m-8 space-x-10 justify-center items-center font-montserrat">
+      <div className="flex md:flex-row flex-col m-8 md:space-x-10 md:space-y-0 space-y-10 justify-center items-center font-montserrat">
         {labItems.map((item, index) => {
           return (
             <div
               key={index}
-              className="bg-white w-[200px] h-[350px] cursor-pointer"
+              className="bg-white md:w-[200px] md:h-[350px] cursor-pointer"
               onClick={() => {
                 handleNavigateToItem(item);
               }}
