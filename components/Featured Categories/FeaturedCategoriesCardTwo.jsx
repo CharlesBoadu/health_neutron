@@ -13,9 +13,9 @@ function FeaturedCategoriesCardTwo() {
   }
 
   return (
-    <div className="flex items-center justify-center w-full h-full ml-[200px] space-x-10 mr-[200px]">
+    <div className="flex items-center justify-center w-full h-full ml-[200px] space-x-10">
       <div
-        className="h-[40vh] w-[350px] w-full rounded-lg bg-gray-200 shadow-xl hover:cursor-pointer"
+        className="h-[50vh] w-[50vh] w-full rounded-lg bg-gray-200 shadow-xl hover:cursor-pointer"
         onClick={() => {
           handleSort("Hepatitis");
         }}
@@ -27,7 +27,7 @@ function FeaturedCategoriesCardTwo() {
           Comprehensive Labs
         </div>
       </div>
-      <div className="h-[40vh] w-[350px] rounded-lg bg-gray-200 flex flex-col justify-between shadow-xl hover:cursor-pointer"
+      <div className="h-[50vh] w-[50vh] rounded-lg bg-gray-200 flex flex-col justify-between shadow-xl hover:cursor-pointer"
       onClick={() => {
         handleSort("comprehensive_labs");
       }}
@@ -39,7 +39,7 @@ function FeaturedCategoriesCardTwo() {
           Covid 19
         </div>
       </div>
-      <div className="h-[40vh] w-[350px] rounded-lg bg-gray-200 flex flex-col justify-between shadow-xl hover:cursor-pointer"
+      <div className="h-[50vh] w-[50vh] rounded-lg bg-gray-200 flex flex-col justify-between shadow-xl hover:cursor-pointer"
       onClick={() => {
         handleSort("covid19");
       }}

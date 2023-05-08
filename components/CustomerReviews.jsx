@@ -27,7 +27,7 @@ function CustomerReviews({
         Customer Reviews
       </div>
       <div
-        className="md:flex md:transition-transform md:ease-out md:duration-500 md:border-b-0 md:h-[50vh] md:items-center md:z-10 hidden sm:block"
+        className="md:flex md:transition-transform md:ease-out md:duration-500 md:border-b-0 md:h-[50vh] md:items-center md:justify-center md:z-10 hidden sm:block"
         style={{ transform: `translateX(-${curr * 100}%)` }}
       >
         {slides}

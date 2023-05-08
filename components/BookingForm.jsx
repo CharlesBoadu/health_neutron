@@ -107,7 +107,7 @@ function BookingForm({ name, amount }) {
         </div>
       )}
       <div className="flex justify-center items-center font-montserrat hidden sm:block">
-        <div className="mr-5 ml-5 mb-10 mt-3 flex rounded-lg w-full font-latoRegular h-contain">
+        <div className="mb-10 mt-3 flex rounded-lg w-full font-latoRegular h-contain">
           <div className="flex-1 text-black p-5">
             <div className="rounded-2xl relative h-full w-full mb-4 flex justify-center text-center object-cover">
               <Image

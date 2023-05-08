@@ -15,7 +15,7 @@ import FeaturedCategories from "../components/Featured Categories/FeaturedCatego
 import FeaturedCategoriesSm from "../components/FeaturedCategoriesSm";
 import CustomerReviewCard from "../components/CustomerReviewCard";
 import CustomerReviewSm from "../components/CustomerReviewSm";
-import { Key } from "react-feather";
+import FeaturedCategoriesMain from "../components/Featured Categories/FeaturedCategoriesMain";
 
 const slides = [
   "/Health-Neutron-B2B-Web-banner20.jpg",
@@ -29,11 +29,22 @@ const slides = [
 ];
 
 const featured = [
-  <FeaturedCategoriesCardOne key={1}/>,
-  <FeaturedCategoriesCardTwo key={2}/>
-  // "/Hepatitis-B-Test-(HBsAg).jpg",
-  // "/hypertension.jpg",
-  // "/diabetis.jpg"
+  // <FeaturedCategoriesCardOne key={1}/>,
+  // <FeaturedCategoriesCardTwo key={2}/>
+  ["/Hepatitis-B-Test-(HBsAg).jpg",
+  "/hypertension.jpg",
+  "/diabetis.jpg"
+  ],
+  [
+    "/Hepatitis-B-Test-(HBsAg).jpg",
+    "/hypertension.jpg",
+  "/diabetis.jpg"
+  ],
+  [
+    "/hypertension.jpg",
+    "/Hepatitis-B-Test-(HBsAg).jpg",
+    "/diabetis.jpg",
+  ],
 ]
 
 const customerReviews = [
@@ -53,12 +64,30 @@ export default function Home() {
         {/* {[...slides.map((s) => <img src={s} />)]} */}
       {/* </Carousel> */}
       <CardSetOne />
-      <FeaturedCategories 
-      autoSlide={true} autoSlideInterval={5000}
+      {/* <FeaturedCategories 
+      autoSlide={true} 
+      autoSlideInterval={5000}
       >
       {[...featured.map((s) => s)]}
-      {/* {[...featured.map((s) => <img src={s} key={i}/>)]} */}
-      </FeaturedCategories>
+      {[...featured.map((s, i) => 
+        <div
+        className="w-[50vh] h-[50vh] rounded-lg m-4 hover:cursor-pointer"
+        onClick={() => {
+          // handleSort("Hepatitis");
+          console.log("I have been clicked", i)
+        }}
+        key={i}
+      >
+        <div>
+          <img src={s[i]} alt="HEP B Image" />
+        </div>
+        <div className="bg-[#7d018c] text-white py-2 font-montserrat text-center font-semibold rounded-sm">
+          Hepatitis B
+        </div>
+      </div>
+        )]}
+      </FeaturedCategories> */}
+      <FeaturedCategoriesMain />
       <FeaturedCategoriesSm />
       <CustomerReviews>
       {[...customerReviews.map((s) => s)]}

@@ -11,7 +11,7 @@ function CardSetOne() {
             <div className='flex-1 bg-white md:h-full w-full md:py-0 py-32 flex items-center justify-center'>
                 Advertisement of Website Goes here...
             </div>
-            <div className='flex flex-col md:w-[300px] w-[80%] h-full rounded-lg md:shadow-lg md:bg-gray-300'
+            <div className='flex flex-col md:w-[300px] w-[80%] h-full rounded-lg'
             onClick={() => {
                 router.push("https://healthneutron.com/blogs/", undefined, { target: '_blank' })
             }}

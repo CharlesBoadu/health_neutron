@@ -24,7 +24,7 @@ function FeaturedCategories({
         Featured Categories
       </div>
       <div
-        className="flex transition-transform ease-out duration-500 border-b-0 items-center z-10"
+        className="flex transition-transform ease-out duration-500 border-b-0 w-contain items-center justify-center mx-auto items-center z-10"
         style={{ transform: `translateX(-${curr * 100}%)` }}
       >
         {slides}

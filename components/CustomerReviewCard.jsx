@@ -4,7 +4,7 @@ import { TbTilde } from "react-icons/tb";
 
 function CustomerReviewCard() {
   return (
-    <div className="flex md:flex-row flex-col md:space-x-8 md:space-y-0 space-y-20 justify-evenly mr-[80px] md:ml-[180px] ml-[50px] md:mt-[40px] mt-[1500px]">
+    <div className="flex md:flex-row flex-col md:space-x-8 md:space-y-0 space-y-20 justify-evenly mr-[80px] md:ml-[100px] ml-[50px] md:mt-[50px] mt-[1500px]">
       <div className="md:h-[30vh] md:w-[350px] w-[200px] ml-[-20px] rounded-lg bg-white flex flex-col justify-between shadow-xl hover:cursor-pointer">
         <div className="md:m-4 m-8 font-montserrat text-sm py-2 md:leading-6 leading-loose">
           <div className="mb-1">

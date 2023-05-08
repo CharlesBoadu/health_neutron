@@ -19,7 +19,7 @@ function FeaturedCategoriesSm() {
       </div>
       <div className="flex md:flex-row flex-col md:space-y-0 space-y-[60px] md:space-x-4 mr-10 ml-10 animate-in slide-in-from-right-96 duration-750">
         <div
-          className="md:w-[20%] md:h-[200px] w-full rounded-lg hover:cursor-pointer"
+          className="w-[80%] mx-auto rounded-lg hover:cursor-pointer"
           onClick={() => {
             handleSort("Hepatitis");
           }}
@@ -32,7 +32,7 @@ function FeaturedCategoriesSm() {
           </div>
         </div>
         <div
-          className="md:w-[20%] w-full rounded-lg shadow-sm hover:cursor-pointer"
+          className="w-[80%] mx-auto rounded-lg shadow-sm hover:cursor-pointer"
           onClick={() => {
             handleSort("Hepatitis");
           }}
@@ -41,7 +41,7 @@ function FeaturedCategoriesSm() {
             <img
               src="/hypertension.jpg"
               alt="Hypertension"
-              className="object-cover w-full h-full"
+              // className="object-cover w-[80%] mx-auto h-full"
             />
           </div>
           <div className="bg-[#7d018c] text-white py-2 font-montserrat text-center font-semibold rounded-sm">
@@ -49,7 +49,7 @@ function FeaturedCategoriesSm() {
           </div>
         </div>
         <div
-          className="md:w-[20%] w-full rounded-lg hover:cursor-pointer"
+          className="w-[80%] mx-auto rounded-lg hover:cursor-pointer"
           onClick={() => {
             handleSort("Hepatitis");
           }}
@@ -62,7 +62,7 @@ function FeaturedCategoriesSm() {
           </div>
         </div>
         <div
-          className="md:w-[20%] w-full rounded-lg hover:cursor-pointer"
+          className="w-[80%] mx-auto rounded-lg hover:cursor-pointer"
           onClick={() => {
             handleSort("Hepatitis");
           }}
@@ -75,7 +75,7 @@ function FeaturedCategoriesSm() {
           </div>
         </div>
         <div
-          className="md:w-[20%] w-full rounded-lg hover:cursor-pointer"
+          className="w-[80%] mx-auto rounded-lg hover:cursor-pointer"
           onClick={() => {
             handleSort("Hepatitis");
           }}
@@ -91,7 +91,7 @@ function FeaturedCategoriesSm() {
           </div>
         </div>
         <div
-          className="md:w-[20%] w-full rounded-lg hover:cursor-pointer"
+          className="w-[80%] mx-auto rounded-lg hover:cursor-pointer"
           onClick={() => {
             handleSort("Hepatitis");
           }}
