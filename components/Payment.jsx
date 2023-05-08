@@ -40,9 +40,38 @@ function Payment() {
 
 
   return (
-    <div className="flex justify-center mx-auto items-center font-montserrat w-1/2 my-auto">
-      <div className="flex-1 text-black flex items-center justify-center flex-col bg-[#7d018c] py-10 rounded-md">
-        <div className="rounded-2xl relative h-[30vh] w-3/4 mb-4 flex justify-center text-center object-contain">
+    <div className="flex justify-center mx-auto items-center font-montserrat md:w-1/2 my-auto md:flex-row flex-col">
+      <h2 className="font-bold text-xl mb-2 block md:hidden">Select Payment method</h2>
+      <div className="flex flex-row space-x-8 mt-2 mb-4 hover:cursor-pointer block md:hidden">
+          <div
+            onClick={() => {
+              togglePayment("mobile");
+              handleHeadingClick(1);
+            }}
+            className={`text-base font-semibold ${
+              selectedHeading === 1
+                ? "text-[#7d018c] border-b-2 border-b-[#7d018c]"
+                : ""
+            }`}
+          >
+            Mobile Payment
+          </div>
+          <div
+            onClick={() => {
+              togglePayment("card");
+              handleHeadingClick(2);
+            }}
+            className={`text-base font-semibold ${
+              selectedHeading === 2
+                ? "text-[#7d018c] border-b-2 border-b-[#7d018c]"
+                : ""
+            }`}
+          >
+            Card Payment
+          </div>
+        </div>
+      <div className="flex-1 text-black flex items-center justify-center flex-col bg-[#7d018c] w-[90%] py-10 rounded-md">
+        <div className="rounded-2xl relative md:h-[30vh] h-[20vh] w-3/4 mb-4 flex justify-center text-center object-contain">
           <Image
             alt="Payment Image"
             src={payment ? paymentImage : imgSrc}
@@ -50,7 +79,7 @@ function Payment() {
             className="object-cover rounded-2xl h-full w-full"
           />
         </div>
-        <h1 className="text-2xl pd-2 text-white font-montserrat font-medium flex justify-center text-center h-full w-full">
+        <h1 className="md:text-2xl text-lg pd-2 text-white font-montserrat font-medium flex justify-center text-center h-full w-full">
           {titleName}
         </h1>
         <div className="border-b-2 border-white w-3/4 mx-auto mt-3 text-sm pb-4">
@@ -77,9 +106,9 @@ function Payment() {
             </div>
         </div>
       </div>
-      <div className="flex-1 m-5">
-        <h2 className="font-bold text-xl">Select Payment method</h2>
-        <div className="flex flex-row space-x-8 mt-4 hover:cursor-pointer">
+      <div className="flex-1 m-5 w-[80%]">
+        <h2 className="font-bold text-xl hidden sm:block">Select Payment method</h2>
+        <div className="md:flex md:flex-row md:space-x-8 md:mt-4 md:hover:cursor-pointer hidden sm:block">
           <div
             onClick={() => {
               togglePayment("mobile");
@@ -108,7 +137,7 @@ function Payment() {
           </div>
         </div>
         {mobilePayment && <MobilePayment name={name} contact={contact} amount={amount} token={token} request_id={request_id}/>}
-        {cardPayment && <CardPayment name={name} total={total}/>}
+        {cardPayment && <CardPayment name={name} amount={amount}/>}
         {/* {payment ? <MobilePayment /> : <CardPayment />} */}
       </div>
     </div>
