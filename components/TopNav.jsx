@@ -140,12 +140,12 @@ function TopNav() {
           </div>
           <input
             type="text"
-            className="md:w-[700px] w-full rounded-lg z-2 md:pl-[110px] md:text-sm text-xs md:py-[10px] focus:border-[#7d018c] focus:ring-[#7d018c] hidden sm:block"
+            className="md:w-[95%] w-full rounded-lg z-2 md:pl-[110px] md:text-sm text-xs md:py-[10px] focus:border-[#7d018c] focus:ring-[#7d018c] hidden sm:block"
             placeholder="Search HealthNeutron"
           />
         </div>
         <div
-          className="md:flex md:w-[50px] bg-[#f3a847] md:ml-[-50px] md:justify-center md:items-center md:cursor-pointer hidden sm:block"
+          className="md:flex md:w-[50px] bg-[#f3a847] md:ml-[-8%] md:justify-center md:items-center md:cursor-pointer hidden sm:block"
           onClick={handleSearch}
         >
           <FiSearch size={25} className="md:w-[25px] w-[20px]" />

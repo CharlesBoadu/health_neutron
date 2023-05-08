@@ -82,7 +82,7 @@ function VaccineCards() {
             return (
                 <div
                   key={index}
-                  className="bg-white md:w-[200px] md:h-[350px] w-[90%] h-[90%] cursor-pointer"
+                  className="bg-white md:w-[50%] md:h-[50%] w-[90%] h-[90%] cursor-pointer"
                   onClick={() => {
                     HandleBooking(vaccine);
                   }}

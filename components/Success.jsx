@@ -133,7 +133,7 @@ function Success() {
             </table>
         </div>
         <div
-          className="rounded-lg bg-[#7d018c] hover:cursor-pointer text-center text-white md:w-contain w-[90%] px-4 py-2 shadow-lg font-montserrat mt-2"
+          className="rounded-lg bg-[#7d018c] hover:cursor-pointer text-center text-white md:w-contain w-[95%] px-4 py-2 shadow-lg font-montserrat mt-2"
           onClick={handleNavigationToHome}
         >
           Continue shopping

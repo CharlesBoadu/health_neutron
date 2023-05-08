@@ -49,8 +49,8 @@ function CartList({ data, totalPrice }) {
   return (
     <>
       {deleteState && (
-        <div className="flex md:flex-row flex-col bg-gray-200 md:w-[950px] w-[90%] h-contain mx-auto m-4 font-montserrat md:ml-5 md:mr-5 mb-10">
-          <div className="flex-1 md:w-[200px] w-full">
+        <div className="flex md:flex-row flex-col bg-gray-200 md:w-[90%] w-[90%] h-contain mx-auto m-4 font-montserrat md:ml-5 md:mr-5 mb-10">
+          <div className="flex-1 md:w-[50%] h-[50%] w-full">
             <img src={data.image_url} alt="" />
           </div>
           <div className="md:w-[600px] flex md:flex-row flex-col md:m-4 md:mt-10 mt-5 m-2 border-t-2 border-gray-400">
