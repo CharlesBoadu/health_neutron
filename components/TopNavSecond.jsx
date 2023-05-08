@@ -67,8 +67,13 @@ function TopNavSecond() {
         <div className="flex flex-row space-x-8">
           <div>
             <GoThreeBars
-                className="absolute cursor-pointer md:w-7 w-10 border-dark-purple md:mt-[1.5px] mt-[1px]"
+                className="hidden sm:block absolute cursor-pointer w-7 border-dark-purple mt-[1.5px]"
                 color="white"
+              />
+            <GoThreeBars
+                className="block md:hidden absolute cursor-pointer w-10 border-dark-purple mt-[1px] ml-2"
+                color="white"
+                size={35}
               />
           </div>
           <div className="text-white cursor-pointer text-sm hidden sm:block">
@@ -103,11 +108,11 @@ function TopNavSecond() {
           onClick={handleNavigateToCart}
         >
           <div>
-            <div className="font-montserrat font-bold ml-2 mr-2 mb-[-8px] mt-[-15px] text-[#fa8900]">
+            <div className="font-montserrat font-bold ml-3 mr-2 mb-[-8px] mt-[-15px] text-[#fa8900]">
               {cartItem.length}
             </div>
             <div>
-              <BsCart4 size={20} />
+              <BsCart4 size={35} className="mr-2"/>
             </div>
           </div>
           {/* <div className="mt-4">cart</div> */}

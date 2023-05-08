@@ -42,7 +42,7 @@ function cart() {
       <TopNav />
       <TopNavSecond />
       <div>
-        <div className="w-contain md:h-[30vh] h-[20vh] m-4 bg-[#232f3e] flex items-center justify-center bg-gradient-to-r from-violet-500 to-fuchsia-500">
+        <div className="w-contain md:h-[30vh] h-[30vh] md:m-4 bg-[#232f3e] flex items-center justify-center bg-gradient-to-r from-violet-500 to-fuchsia-500">
           <span className="font-montserrat md:text-4xl text-2xl text-white ">
             Shopping Cart
           </span>
@@ -50,7 +50,7 @@ function cart() {
         <div className="flex md:flex-row flex-col font-montserrat">
           <div className="flex-1">
             {cartItem.length <= 0 ? (
-              <div className="flex flex-col items-center justify-center mt-32">
+              <div className="flex flex-col items-center justify-center md:mt-32 mt-16">
                 <div className="text-center md:text-4xl text-2xl">
                     Your Cart Is Empty
                 </div>

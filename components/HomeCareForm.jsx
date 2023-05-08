@@ -394,7 +394,7 @@ function HomeCareForm() {
           className="object-cover rounded-2xl h-full w-full"
         />
       </div>
-      <div className="mr-10 ml-10 mx-auto block md:hidden">
+      <div className="mr-10 ml-10 mx-auto block md:hidden font-montserrat">
         {/* Service Type field */}
         <div className="pb-4">
           <label
@@ -506,7 +506,7 @@ function HomeCareForm() {
           />
         </div>
       </div>
-      <div className="mr-10 ml-10 mx-auto block md:hidden">
+      <div className="mr-10 ml-10 mx-auto block md:hidden font-montserrat">
         {/* Phone Number input field */}
         <div className="pb-4">
           <label

@@ -104,7 +104,7 @@ function LabCards() {
           return (
             <div
               key={index}
-              className="bg-white md:w-[200px] md:h-[350px] cursor-pointer"
+              className="bg-white md:w-[200px] md:h-[350px] w-[90%] h-[90%] cursor-pointer"
               onClick={() => {
                 handleNavigateToItem(item);
               }}

@@ -24,7 +24,7 @@ function ShoppingCartControls({ controlState }) {
   return (
     <>
       {controlState && (
-        <div className="flex flex-row justify-between w-[500px]">
+        <div className="flex flex-row justify-between md:w-[500px]">
           <div
             className="flex flex-row mb-2 space-x-2 font-montserrat items-center justify-center hover:cursor-pointer shadow-xl w-[250px] text-[#7d018c] ml-5 rounded-lg py-2 px-2 hover:bg-[#7d018c] hover:text-white"
             onClick={handleContinueShopping}
@@ -36,12 +36,12 @@ function ShoppingCartControls({ controlState }) {
                 className="hover:text-[#ffd814]"
               />
             </div>
-            <div className="font-medium ">Continue Shopping</div>
+            <div className="font-medium md:text-base text-sm">Continue Shopping</div>
           </div>
-          <div className="flex flex-row mb-2 space-x-2 font-montserrat items-center justify-center hover:cursor-pointer shadow-xl w-[250px] text-[#7d018c] ml-5 rounded-lg py-2 px-2 hover:bg-[#7d018c] hover:text-white"
+          <div className="flex flex-row mb-2 md:space-x-2 font-montserrat items-center justify-center hover:cursor-pointer shadow-xl w-[250px] text-[#7d018c] md:ml-5 mr-5 rounded-lg py-2 px-2 hover:bg-[#7d018c] hover:text-white"
           onClick={handleClearCart}
           >
-            <div className="font-medium">Clear Shopping Cart</div>
+            <div className="md:font-medium md:text-base text-sm">Clear Shopping Cart</div>
             <div>
               <MdOutlineDeleteOutline
                 color="#ffd814"

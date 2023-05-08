@@ -167,11 +167,11 @@ function Item() {
       </div>
     ) : (
       <>
-      <div className="flex flex-row bg-gray-200 w-[1000px] h-full mx-auto m-4 items-center justify-center space-x-8">
+      <div className="flex md:flex-row flex-col bg-gray-200 md:w-[1000px] w-[90%] h-full mx-auto m-4 items-center justify-center space-x-8">
         <div className="flex-1 w-full h-full">
           <img src={item?.image_url} alt="Lab Item Image" />
         </div>
-        <div className="flex flex-col w-[600px] space-y-3">
+        <div className="flex flex-col md:w-[600px] space-y-3 pb-5">
           <div className="text-lg font-bold font-montserrat">
             {item?.bundle_name}
           </div>

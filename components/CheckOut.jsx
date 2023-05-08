@@ -22,7 +22,7 @@ function CheckOut({ totalPrice }) {
       closeModal={closeModal}
       amount={totalPrice}
       />
-      <div className="bg-gray-200 space-y-4 md:w-[300px] md:h-[300px] p-4 flex item-center justify-center flex-col font-montserrat md:mt-4 mt-10 mb-10 md:mr-10">
+      <div className="bg-gray-200 space-y-4 md:w-[300px] md:h-[300px] w-[100%] mx-auto p-4 flex item-center justify-center flex-col font-montserrat md:mt-4 mt-10 mb-10 md:mr-10">
         <div className="flex flex-row space-x-2">
           <div className="text-lg mt-1">SubTotal:</div>
           <div className="text-2xl font-bold">₵{totalPrice}</div>
