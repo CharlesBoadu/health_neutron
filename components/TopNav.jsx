@@ -131,10 +131,10 @@ function TopNav() {
           <div className="block md:hidden flex flex-row">
             <input
               type="text"
-              className="w-full rounded-lg z-1 text-xs focus:border-[#7d018c] focus:ring-[#7d018c]"
+              className="w-full rounded-lg z-1 text-xs focus:border-[#7d018c] focus:ring-[#7d018c] pr-6 truncate"
               placeholder="Search HealthNeutron"
             />
-            <div className="ml-[-25px] mt-[8px]">
+            <div className="ml-[-12%] mt-[8px]">
               <FiSearch />
             </div>
           </div>

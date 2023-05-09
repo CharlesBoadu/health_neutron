@@ -1,17 +1,28 @@
 import React from "react";
+import { useRouter } from "next/router";
 
 function FeaturedCategoriesMain() {
+
+  const router = useRouter();
+
+  function handleSort(name) {
+    router.push({
+      pathname: `/Sorted/${name}`,
+      query: {name: `${name}`},
+    });
+  }
+
   return (
     <div className="hidden sm:block">
-      <div className="font-montserrat md:text-4xl text-2xl font-extrabold md:p-10 p-10 mb-[15px] bg-white">
+      <div className="font-montserrat text-4xl font-extrabold p-10 mb-[15px] bg-white">
         Featured Categories
       </div>
       <div className="flex flex-row items-center justify-center">
         <div
-          className="w-[50vh] h-[50vh] rounded-lg m-4 hover:cursor-pointer"
+          className="w-[50vh] h-[40vh] rounded-lg m-4 hover:cursor-pointer"
           onClick={() => {
-            // handleSort("Hepatitis");
-            console.log("I have been clicked");
+            handleSort("Hepatitis");
+            console.log("Hepatitis");
           }}
         >
           <div>
@@ -22,10 +33,11 @@ function FeaturedCategoriesMain() {
           </div>
         </div>
         <div
-          className="w-[50vh] h-[50vh] rounded-lg m-4 hover:cursor-pointer"
-        //   onClick={() => {
-        //     handleSort("Hypertension");
-        //   }}
+          className="w-[50vh] h-[40vh] rounded-lg m-4 hover:cursor-pointer"
+          onClick={() => {
+            handleSort("Hypertension");
+            console.log("Hypertension");
+          }}
         >
           <div>
             <img src="/hypertension.jpg" alt="Hypertension Image" />
@@ -35,10 +47,11 @@ function FeaturedCategoriesMain() {
           </div>
         </div>
         <div
-          className="w-[50vh] h-[50vh] rounded-lg m-4 hover:cursor-pointer"
-        //   onClick={() => {
-        //     handleSort("Diabetes");
-        //   }}
+          className="w-[50vh] h-[40vh] rounded-lg m-4 hover:cursor-pointer"
+          onClick={() => {
+            handleSort("Diabetes");
+            console.log("Diabetes");
+          }}
         >
           <div>
             <img src="/diabetis.jpg" alt="Diabetes Image" />
@@ -50,10 +63,10 @@ function FeaturedCategoriesMain() {
       </div>
       <div className="flex flex-row items-center justify-center">
         <div
-          className="w-[50vh] h-[50vh] rounded-lg m-4 hover:cursor-pointer"
+          className="w-[50vh] h-[40vh] rounded-lg m-4 hover:cursor-pointer"
           onClick={() => {
-            // handleSort("Hepatitis");
-            console.log("I have been clicked");
+            handleSort("comprehensive_labs");
+            console.log("Comprehensive Labs");
           }}
         >
           <div>
@@ -64,10 +77,11 @@ function FeaturedCategoriesMain() {
           </div>
         </div>
         <div
-          className="w-[50vh] h-[50vh] rounded-lg m-4 hover:cursor-pointer"
-        //   onClick={() => {
-        //     handleSort("Hypertension");
-        //   }}
+          className="w-[50vh] h-[40vh] rounded-lg m-4 hover:cursor-pointer"
+          onClick={() => {
+            handleSort("covid_19");
+            console.log("covid");
+          }}
         >
           <div>
             <img src="/coronavirus-vaccine-composition-lab.jpg" alt="Hypertension Image" />
@@ -77,10 +91,11 @@ function FeaturedCategoriesMain() {
           </div>
         </div>
         <div
-          className="w-[50vh] h-[50vh] rounded-lg m-4 hover:cursor-pointer"
-        //   onClick={() => {
-        //     handleSort("Diabetes");
-        //   }}
+          className="w-[50vh] h-[40vh] rounded-lg m-4 hover:cursor-pointer"
+          onClick={() => {
+            handleSort("homecare");
+            console.log("Homecare");
+          }}
         >
           <div>
             <img src="/nurse-examining-senior-man-bed-bedroom.jpg" alt="Diabetes Image" />

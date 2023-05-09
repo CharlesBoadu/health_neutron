@@ -24,37 +24,37 @@ function Card() {
     <>
       {/* <CarouselSecond /> */}
       <div className="md:flex md:flex-row items-center justify-evenly pt-[90px] z-1 flex flex-col md:space-y-0 space-y-28">
-        <div className="bg-white w-full md:h-[380px] h-[300px] mr-10 ml-10">
-          <div className="md:ml-10 ml-5 text-lg md:font-montserrat font-bold">
+        <div className="bg-white w-full md:h-[380px] h-[315px] mr-10 ml-10">
+          <div className="md:ml-7 ml-5 text-lg md:font-montserrat font-bold">
             Labs
           </div>
           <LabSmallCards />
           <p
-            className="text-blue-400 md:ml-10 ml-5 cursor-pointer text-base md:font-montserrat"
+            className="text-blue-400 md:ml-7 ml-5 cursor-pointer text-base md:font-montserrat"
             onClick={handleNavigationToLabs}
           >
             See more
           </p>
         </div>
         <div className="bg-white w-full md:h-[380px] h-[300px] mr-10 ml-10">
-          <div className="md:ml-10 ml-5 text-lg md:font-montserrat font-bold md:mt-2 mt-4">
+          <div className="md:ml-7 ml-5 text-lg md:font-montserrat font-bold md:mt-2 mt-4">
             Home Care
           </div>
           <HomecareSmallCards />
           <p
-            className="text-blue-400 md:ml-10 ml-5 cursor-pointer text-base md:font-montserrat"
+            className="text-blue-400 md:ml-7 ml-5 cursor-pointer text-base md:font-montserrat"
             onClick={handleNavigationToHomeCare}
           >
             See more
           </p>
         </div>
         <div className="bg-white w-full md:h-[380px] h-[300px] mr-10 ml-10">
-          <div className="md:ml-10 ml-5 text-lg md:font-montserrat font-bold md:mt-2 mt-4">
+          <div className="md:ml-7 ml-5 text-lg md:font-montserrat font-bold md:mt-2 mt-4">
             Vaccines
           </div>
           <VaccinesSmallCards />
           <p
-            className="text-blue-400 md:ml-10 ml-5 cursor-pointer text-base md:font-montserrat"
+            className="text-blue-400 md:ml-7 ml-5 cursor-pointer text-base md:font-montserrat"
             onClick={handleNavigationToVaccines}
           >
             See more
