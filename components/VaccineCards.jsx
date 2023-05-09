@@ -15,10 +15,10 @@ function VaccineCards() {
   const [color, setColor] = useState("#7d018c");
 
   function HandleBooking(item) {
-    const { id, name, amount } = item;
+    const { id, name, price } = item;
     router.push({
       pathname: `/Booking/${id}`,
-      query: { name: `${name}`, amount: `${amount}` },
+      query: { name: `${name}`, amount: `${price}` },
     });
   }
 
@@ -96,7 +96,7 @@ function VaccineCards() {
                       ₵{vaccine.price}
                     </div>
                     <div
-                      className="bg-[#7d018c] mx-auto w-[70px] rounded-xl text-white py-1 text-center mt-2 "
+                      className="bg-[#7d018c] mx-auto w-[70%] rounded-xl text-white py-2 text-center mt-2 "
                       onClick={() => {
                         HandleBooking(vaccine);
                       }}

@@ -1,4 +1,4 @@
-import React, { useState, CSSProperties } from "react";
+import React, { useState, CSSProperties, useEffect } from "react";
 import { useRouter } from "next/router";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -14,6 +14,7 @@ function CheckOutFormModal({ visible = true, closeModal, amount }) {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [color, setColor] = useState("#7d018c");
+  const [allCountries, setAllCountries] = useState([]);
   const [values, setValues] = useState({
     firstName: "",
     lastName: "",
@@ -109,7 +110,172 @@ function CheckOutFormModal({ visible = true, closeModal, amount }) {
     });
   };
 
-  // console.log("date", new Date(values.testDate));
+  const countries = [
+    "Afghanistan",
+    "Albania",
+    "Algeria",
+    "Andorra",
+    "Angola",
+    "Antigua and Barbuda",
+    "Argentina",
+    "Armenia",
+    "Australia",
+    "Austria",
+    "Azerbaijan",
+    "Bahamas",
+    "Bahrain",
+    "Bangladesh",
+    "Barbados",
+    "Belarus",
+    "Belgium",
+    "Belize",
+    "Benin",
+    "Bhutan",
+    "Bolivia (Plurinational State of)",
+    "Bosnia and Herzegovina",
+    "Botswana",
+    "Brazil",
+    "Brunei Darussalam",
+    "Bulgaria",
+    "Burkina Faso",
+    "Burundi",
+    "Cabo Verde",
+    "Cambodia",
+    "Cameroon",
+    "Canada",
+    "Central African Republic",
+    "Chad",
+    "Chile",
+    "China",
+    "Colombia",
+    "Comoros",
+    "Congo",
+    "Costa Rica",
+    "Côte d'Ivoire",
+    "Croatia",
+    "Cuba",
+    "Cyprus",
+    "Czech Republic",
+    "Democratic People's Republic of Korea",
+    "Democratic Republic of the Congo",
+    "Denmark",
+    "Djibouti",
+    "Dominica",
+    "Dominican Republic",
+    "Ecuador",
+    "Egypt",
+    "El Salvador",
+    "Equatorial Guinea",
+    "Eritrea",
+    "Estonia",
+    "Eswatini",
+    "Ethiopia",
+    "Fiji",
+    "Finland",
+    "France",
+    "Gabon",
+    "Gambia",
+    "Georgia",
+    "Germany",
+    "Ghana",
+    "Greece",
+    "Grenada",
+    "Guatemala",
+    "Guinea",
+    "Guinea-Bissau",
+    "Guyana",
+    "Haiti",
+    "Honduras",
+    "Hungary",
+    "Iceland",
+    "India",
+    "Indonesia",
+    "Iran (Islamic Republic of)",
+    "Iraq",
+    "Ireland",
+    "Israel",
+    "Italy",
+    "Jamaica",
+    "Japan",
+    "Jordan",
+    "Kazakhstan",
+    "Kenya",
+    "Kiribati",
+    "Kuwait",
+    "Kyrgyzstan",
+    "Lao People's Democratic Republic",
+    "Latvia",
+    "Lebanon",
+    "Lesotho",
+    "Liberia",
+    "Libya",
+    "Liechtenstein",
+    "Lithuania",
+    "Luxembourg",
+    "Madagascar",
+    "Malawi",
+    "Malaysia",
+    "Maldives",
+    "Mali",
+    "Malta",
+    "Marshall Islands",
+    "Mauritania",
+    "Mauritius",
+    "Mexico",
+    "Micronesia (Federated States of)",
+    "Monaco",
+    "Mongolia",
+    "Montenegro",
+    "Morocco",
+    "Mozambique",
+    "Myanmar",
+    "Namibia",
+    "Nauru",
+    "Nepal",
+    "Netherlands",
+    "New Zealand",
+    "Nicaragua",
+    "Niger",
+    "Nigeria",
+    "North Macedonia",
+    "Norway",
+    "Oman",
+    "Pakistan",
+    "Palau",
+    "Panama",
+    "Papua New Guinea",
+    "Paraguay",
+    "Peru",
+    "Philippines",
+    "Poland",
+    "Portugal",
+    "Qatar",
+    "Republic of Korea",
+    "Republic of Moldova",
+    "Romania",
+    "Russian Federation",
+    "Rwanda",
+    "Saint Kitts and Nevis",
+    "Saint Lucia",
+    "Saint Vincent and the Grenadines",
+    "Samoa",
+  ];
+
+  // useEffect(() => {
+  //   const fetchAllCountries = async () => {
+  //     try {
+  //       const req = await fetch("https://restcountries.com/v3.1/all");
+  //       const fetchResponse = await req.json();
+  //       setAllCountries(fetchResponse?.data);
+  //       console.log("hello", allCountries);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   }
+
+  //   fetchAllCountries();
+  // }, [])
+
   return (
     <>
       {!visible ? (
@@ -279,7 +445,7 @@ function CheckOutFormModal({ visible = true, closeModal, amount }) {
                       className={"block font-latoBold text-sm pb-2"}
                       htmlFor="nationality"
                     >
-                      nationality
+                      Nationality
                     </label>
                     <select
                       name="nationality"
@@ -293,11 +459,9 @@ function CheckOutFormModal({ visible = true, closeModal, amount }) {
                       className="w-full rounded-lg bg-gray-200 text-xs focus:border-[#7d018c] focus:ring-[#7d018c]"
                     >
                       <option value="">Select nationality</option>
-                      <option value="Afghanistan">Afghanistan</option>
-                      <option value="Albania">Albania</option>
-                      <option value="Algeria">Algeria</option>
-                      <option value="Andorra">Andorra</option>
-                      <option value="Angola">Angola</option>
+                      {countries.map((country, index) => (
+                      <option key={index}>{country}</option>
+                    ))}
                     </select>
                   </div>
 
@@ -552,7 +716,7 @@ function CheckOutFormModal({ visible = true, closeModal, amount }) {
                     className={"block font-latoBold text-sm pb-2"}
                     htmlFor="nationality"
                   >
-                    nationality
+                    Nationality
                   </label>
                   <select
                     name="nationality"
@@ -566,11 +730,9 @@ function CheckOutFormModal({ visible = true, closeModal, amount }) {
                     className="w-full rounded-lg bg-gray-200 text-xs focus:border-[#7d018c] focus:ring-[#7d018c]"
                   >
                     <option value="">Select nationality</option>
-                    <option value="Afghanistan">Afghanistan</option>
-                    <option value="Albania">Albania</option>
-                    <option value="Algeria">Algeria</option>
-                    <option value="Andorra">Andorra</option>
-                    <option value="Angola">Angola</option>
+                    {allCountries.map((country, index) => (
+                      <option key={index}>{country}</option>
+                    ))}
                   </select>
                 </div>
 
