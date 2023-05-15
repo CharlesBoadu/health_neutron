@@ -1,6 +1,6 @@
 import React from "react";
 
-function CardPayment({ name, total }) {
+function CardPayment({ name, amount }) {
   return (
     <div className="mt-4 mx-auto">
       {/* {Card Number input field} */}
@@ -86,7 +86,7 @@ function CardPayment({ name, total }) {
 
       {/* {Payment Button} */}
       <div className="w-full bg-[#7d018c] py-2 text-center text-white text-sm mt-4 hover:cursor-pointer hover:bg-[#ffd814] hover:text-[#7d018c] font-bold text-lg">
-        Pay ₵{total}
+        Pay ₵{amount}.00
       </div>
     </div>
   );

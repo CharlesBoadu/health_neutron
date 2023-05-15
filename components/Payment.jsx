@@ -7,17 +7,32 @@ import paymentImage from "../public/payment.jpg";
 import mobile_payment from "../public/6134225.jpg";
 import card_payment from "../public/card_payment.jpg";
 import { AiOutlineQuestionCircle } from "react-icons/ai";
+import { cartState } from "../atoms/cartState";
+import { useRecoilState, useRecoilValue } from "recoil";
+
 
 function Payment() {
   const [selectedHeading, setSelectedHeading] = useState(1);
   const [titleName, setTitleName] = useState("Mobile Payment");
+  const [cartItem, setCartItem] = useRecoilState(cartState);
   const [mobilePayment, setMobilePayment] = useState(true);
   const [cardPayment, setCardPayment] = useState(false);
   const [payment, setPayment] = useState(true);
   const [imgSrc, setImgSrc] = useState("");
   const router = useRouter();
 
-  const { name, contact, amount, token, request_id } = router.query;
+  const { name, contact, token, request_id } = router.query;
+
+  const returnTotal = () => {
+    let total = 0;
+    cartItem.map((item, index) => {
+      total += parseFloat(item.price);
+    })
+
+    return total;
+  }
+  console.log("Hell0", cartItem);
+  console.log("Total Price", returnTotal());
 
   const togglePayment = (select) => {
     if (select === "mobile") {
@@ -94,7 +109,7 @@ function Payment() {
         <div className="border-b-2 border-white w-3/4 mx-auto mt-3 text-sm pb-4">
           <div className="flex flex-row justify-between">
             <div className="text-white">Convenience Fee</div>
-            <div className="font-medium text-[#ffd814]">₵{amount}</div>
+            <div className="font-medium text-[#ffd814]">₵{returnTotal()}.00</div>
           </div>
           <div className="flex flex-row justify-between">
             <div className="text-white">Discount</div>
@@ -102,7 +117,7 @@ function Payment() {
           </div>
           <div className="flex flex-row justify-between">
             <div className="text-white">Total</div>
-            <div className="font-bold text-[#ffd814]">₵{amount}</div>
+            <div className="font-bold text-[#ffd814]">₵{returnTotal()}.00</div>
           </div>
         </div>
         <div className="mt-4 flex flex-row justify-between space-x-10">
@@ -151,12 +166,12 @@ function Payment() {
           <MobilePayment
             name={name}
             contact={contact}
-            amount={amount}
+            amount={returnTotal()}
             token={token}
             request_id={request_id}
           />
         )}
-        {cardPayment && <CardPayment name={name} amount={amount} />}
+        {cardPayment && <CardPayment name={name} amount={returnTotal()} />}
         {/* {payment ? <MobilePayment /> : <CardPayment />} */}
       </div>
     </div>

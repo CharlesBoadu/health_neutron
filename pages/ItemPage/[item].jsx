@@ -153,7 +153,7 @@ function Item() {
 
   return (
     <>
-      <ToastContainer />
+      <ToastContainer position="bottom-right"/>
       <TopNav />
       <TopNavSecond />
       {loading ? (

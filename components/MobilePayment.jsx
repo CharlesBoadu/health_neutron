@@ -132,7 +132,7 @@ function MobilePayment({ name, contact, amount, token, request_id }) {
         className="w-full bg-[#7d018c] py-2 text-center text-white text-sm mt-4 text-lg hover:cursor-pointer hover:bg-[#ffd814] hover:text-[#7d018c] font-bold text-lg"
         onClick={handleSubmit}
       >
-        Pay ₵{amount}
+        Pay ₵{amount}.00
       </div>
     </div>
     </>
