@@ -1,7 +1,6 @@
 import React from "react";
 import { useRouter } from "next/router";
-import { FiFacebook, FiTwitter, FiInstagram } from "react-icons/fi";
-import { FaPinterest } from "react-icons/fa";
+import { FiFacebook, FiTwitter, FiInstagram, FiLinkedin } from "react-icons/fi";
 
 function Footer() {
     const router = useRouter();
@@ -30,7 +29,7 @@ function Footer() {
         router.push("https://www.instagram.com/accounts/login/?next=%2Fhealth_neutron%2F")
     }
     
-    function HandleNavigateToPinterest () {
+    function HandleNavigateToLinkedIn () {
         router.push("")
     }
   return (
@@ -60,8 +59,8 @@ function Footer() {
             <div className="cursor-pointer" onClick={HandleNavigateToInstagram}>
                 <FiInstagram size={20} color="white" className="md:h-6 md:w-7 h-8 w-8"/>
             </div>
-            <div className="cursor-pointer" onClick={HandleNavigateToPinterest}>
-                <FaPinterest size={20} color="white" className="md:h-6 md:w-7 h-8 w-8"/>
+            <div className="cursor-pointer" onClick={HandleNavigateToLinkedIn}>
+                <FiLinkedin size={20} color="white" className="md:h-6 md:w-7 h-8 w-8"/>
             </div>
         </div>
       </div>
@@ -77,12 +76,11 @@ function Footer() {
         <div className="flex text-white flex-col">
           <div className="font-bold md:text-lg text-sm mb-5">SERVICES</div>
           <div className="flex flex-col md:space-y-2 space-y-2 md:text-base text-xs font-montserrat">
-            <span>Endocrinology : diabetes</span>
-            <span>Urology & Oncology</span>
-            <span>Cardiology</span>
-            <span>Gastroenterology</span>
-            <span>Nephrology</span>
-            <span>Obs & Gynae</span>
+            <span>Homecare</span>
+            <span>Mobile Pharmacy</span>
+            <span>Online consultations</span>
+            <span>Mobile Labs</span>
+            <span>Health Talks and training</span>
           </div>
         </div>
         <div className="flex text-white flex-col">
@@ -90,6 +88,7 @@ function Footer() {
           <div className="flex flex-col md:space-y-2 space-y-2 md:text-base text-xs font-montserrat">
               <span>Technology House,</span>
               <span>East Legon, Accra,</span>
+              <span>Adjacent ABSA Bank,</span>
               <span>Ghana +233 59 236 0072</span>
               <span>Info@healthneutron.com</span>
           </div>

@@ -5,7 +5,7 @@ import { BiSupport } from "react-icons/bi";
 
 function SupportServices() {
   return (
-    <div className="flex md:flex-row flex-col md:justify-evenly md:space-y-0 items-center justify-center space-y-8 py-20 bg-[#e3e6e6] font-montserrat p-8">
+    <div className="flex md:flex-row flex-col md:justify-evenly md:space-y-0 items-center justify-center space-y-8 py-20 font-montserrat p-8">
       <div className="flex flex-row md:w-[380px] space-x-3">
         <div>
             <BiSupport color="7d018c" size={50}/>

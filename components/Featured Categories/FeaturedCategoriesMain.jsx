@@ -26,7 +26,7 @@ function FeaturedCategoriesMain() {
           }}
         >
           <div>
-            <img src="/hypertension.jpg" alt="HEP B Image" />
+            <img src="/Hepatitis-B-Test-(HBsAg).jpg" alt="HEP B Image" />
           </div>
           <div className="bg-[#7d018c] text-white py-2 font-montserrat text-center font-semibold rounded-sm">
             Hepatitis B
