@@ -1,14 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
 function FeaturedCategoriesMain() {
-
   const router = useRouter();
 
-  function handleSort(name) {
+  function handleSort(id) {
     router.push({
-      pathname: `/Sorted/${name}`,
-      query: {name: `${name}`},
+      pathname: `/Sorted/${id}`,
+      query: {id: `${id}`},
     });
   }
 
@@ -21,8 +20,7 @@ function FeaturedCategoriesMain() {
         <div
           className="w-[50vh] h-[40vh] rounded-lg m-4 hover:cursor-pointer"
           onClick={() => {
-            handleSort("Hepatitis");
-            console.log("Hepatitis");
+            handleSort(5);
           }}
         >
           <div>
@@ -35,8 +33,7 @@ function FeaturedCategoriesMain() {
         <div
           className="w-[50vh] h-[40vh] rounded-lg m-4 hover:cursor-pointer"
           onClick={() => {
-            handleSort("Hypertension");
-            console.log("Hypertension");
+            handleSort(6);
           }}
         >
           <div>
@@ -49,8 +46,7 @@ function FeaturedCategoriesMain() {
         <div
           className="w-[50vh] h-[40vh] rounded-lg m-4 hover:cursor-pointer"
           onClick={() => {
-            handleSort("Diabetes");
-            console.log("Diabetes");
+            handleSort(7);
           }}
         >
           <div>
@@ -65,8 +61,7 @@ function FeaturedCategoriesMain() {
         <div
           className="w-[50vh] h-[40vh] rounded-lg m-4 hover:cursor-pointer"
           onClick={() => {
-            handleSort("comprehensive_labs");
-            console.log("Comprehensive Labs");
+            handleSort(8);
           }}
         >
           <div>
@@ -79,8 +74,7 @@ function FeaturedCategoriesMain() {
         <div
           className="w-[50vh] h-[40vh] rounded-lg m-4 hover:cursor-pointer"
           onClick={() => {
-            handleSort("covid_19");
-            console.log("covid");
+            handleSort(9);
           }}
         >
           <div>
@@ -93,8 +87,7 @@ function FeaturedCategoriesMain() {
         <div
           className="w-[50vh] h-[40vh] rounded-lg m-4 hover:cursor-pointer"
           onClick={() => {
-            handleSort("homecare");
-            console.log("Homecare");
+            handleSort(10);
           }}
         >
           <div>

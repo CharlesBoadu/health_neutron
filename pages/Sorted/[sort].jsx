@@ -8,42 +8,14 @@ import { cartState } from "../../atoms/CartState";
 import Footer from "../../components/Footer";
 import FooterSecond from "../../components/FooterSecond";
 import { useRouter } from "next/router";
+import { bearerToken } from "../../bearerToken";
+import PropagateLoader from "react-spinners/PropagateLoader";
 
-const hbvItems = [
-  {
-    id: 1,
-    name: "HEPATITIS B TEST HBSBAG",
-    price: "1480.00",
-    src: "/hepatitis-b_tvvx7k.jpg",
-  },
-  {
-    id: 2,
-    name: "HEPATITIS B VIRAL LOAD",
-    price: "142.00",
-    src: "/hepatitis-b-viral-load_rhlvce.jpg",
-  },
-];
-
-const hypertensionItems = [
-    {
-        id: 3,
-        name: "PSA",
-        price: "244.00",
-        src: "/psa_gtslvq.jpg",
-      },
-      {
-        id: 4,
-        name: "RENAL KIDNEY PROFILE",
-        price: "300.00",
-        src: "/RENAL (KIDNEY).jpg",
-      },
-      {
-        id: 5,
-        name: "END OF YEAR FAMILY LIFE PACKAGE",
-        price: "750.00",
-        src: "/End of year.jpg",
-      },
-];
+export const override = {
+  display: "block",
+  margin: "0 auto",
+  borderColor: "red",
+};
 
 const slides = [
   "/Health-Neutron-B2B-Web-banner20.jpg",
@@ -59,10 +31,40 @@ const slides = [
 function Sort() {
   const router = useRouter();
 
-  const { name } = router.query;
+  const { id } = router.query;
   const [cartItem, setCartItem] = useRecoilState(cartState);
-  const [HBVitems, setHBVItems] = useState(false);
-  const [hypertension, setHypertension] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [sortedItems, setSortedItems] = useState([]);
+  const [color, setColor] = useState("#7d018c");
+
+
+  useEffect(() => {
+    setLoading(true)
+    const fetchAllSortedItems = async () => {
+      try {
+        const response = await fetch(
+          `https://sandbox.healthneutron.com/api/v1/fetch/labs/bundles?slug=&type=&searchKey=&parentSlugId=${id}`,
+          {
+            Method: "GET",
+            mode: "cors",
+            headers: {
+              Accept: "application/json",
+              Authorization:
+                `Bearer ${bearerToken.token}`, //  'Access-Control-Allow-Origin':'*'
+            },
+          }
+        );
+  
+        const fetchReponse = await response.json();
+        setSortedItems(fetchReponse?.data);
+        setLoading(false);
+      } catch (error) {
+        console.log(error);
+      }
+  
+    };
+    fetchAllSortedItems();
+  }, [])
 
 
   const addItemsToCart = () => {
@@ -81,15 +83,15 @@ function Sort() {
     toast.success(`${items[itemId - 1].name} added to cart`);
   };
 
-  useEffect(() => {
-      if ( name === 'Hepatitis B') {
-        setHBVItems(true);
-        setHypertension(false);
-      } else if (name === 'Hypertension') {
-        setHBVItems(false);
-        setHypertension(true);
-      }
-  }, [])
+  // useEffect(() => {
+  //     if ( name === 'Hepatitis B') {
+  //       setHBVItems(true);
+  //       setHypertension(false);
+  //     } else if (name === 'Hypertension') {
+  //       setHBVItems(false);
+  //       setHypertension(true);
+  //     }
+  // }, [])
 
   return (
     <>
@@ -99,19 +101,29 @@ function Sort() {
       <CarouselSecond autoSlide={true} autoSlideInterval={5000}>
         {[...slides.map((s, i) => <img src={s} key={i}/>)]}
       </CarouselSecond>
-      {
-      HBVitems && (
+      {loading && (
+        <div className="mt-20 flex justify-center items-center">
+          <PropagateLoader
+            color={color}
+            loading={loading}
+            cssOverride={override}
+            size={20}
+            aria-label="Loading Spinner"
+            data-testid="loader"
+          />
+        </div>
+      )}
       <div className="flex flex-row m-10 space-x-10 justify-center items-center font-montserrat">
-        {hbvItems.map((item, index) => {
+        {sortedItems.map((item, index) => {
           return (
             <div
               key={index}
-              className="bg-white w-[200px] h-[350px] cursor-pointer"
+              className="bg-white w-[30%] h-[30%] cursor-pointer"
             >
-              <img src={item.src} alt="Lab Image" />
+              <img src={item?.image_url} alt="Lab Image" />
               <div className="space-y-2">
                 <div className=" text-center text-base font-medium mt-2">
-                  {item.name.toUpperCase()}
+                  {item?.bundle_name?.toUpperCase()}
                 </div>
                 <div className="text-lg font-semibold text-center text-[#7d018c]">
                   ₵{item.price}
@@ -125,11 +137,10 @@ function Sort() {
               </div>
             </div>
           );
-        })}
+        })
+        }
       </div>
-      )
-      }
-      {
+      {/* {
       hypertension && (
       <div className="flex flex-row m-10 space-x-10 justify-center items-center font-montserrat">
         {hypertensionItems.map((item, index) => {
@@ -158,7 +169,7 @@ function Sort() {
         })}
       </div>
       )
-      }
+      } */}
       <Footer />
       <FooterSecond />
     </>
