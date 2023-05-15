@@ -11,6 +11,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { BsArrowLeftShort } from "react-icons/bs";
 import PulseLoader from "react-spinners/PulseLoader";
 import { bearerToken } from "../../bearerToken";
+import DescriptionComponent from "../../components/DescriptionComponent";
 
 
 export const override = {
@@ -168,23 +169,24 @@ function Item() {
       </div>
     ) : (
       <>
-      <div className="flex md:flex-row flex-col bg-gray-200 md:w-[1000px] w-[90%] h-full mx-auto m-4 items-center justify-center space-x-8">
+      <div className="flex md:flex-row flex-col md:w-[90%] w-[90%] h-full mx-auto m-4 items-center justify-center space-x-8">
         <div className="flex-1 w-full h-full">
           <img src={item?.image_url} alt="Lab Item Image" />
         </div>
-        <div className="flex flex-col md:w-[600px] space-y-3 pb-5">
+        <div className="flex flex-col md:w-[60%] bg-gray-200 space-y-3 pb-5 px-10 py-5">
           <div className="text-lg font-bold font-montserrat">
             {item?.bundle_name}
           </div>
           <div className="font-montserrat text-sm pr-4">
-            {item?.description}
+            {/* {item?.description} */}
+            <DescriptionComponent description={item?.description}/>
           </div>
           <div className="space-y-1 text-xs">
             <div className="text-lg mb-2 font-montserrat font-bold">
             ₵{item?.items[0]?.price}
             </div>
             <div
-              className="bg-[#ffd814] hover:bg-[#fa8900] cursor-pointer w-[200px] px-3 md:py-1 py-2 rounded-2xl font-montserrat text-center"
+              className="bg-[#ffd814] hover:bg-[#fa8900] cursor-pointer w-[200px] px-3 md:py-2 py-2 rounded-2xl font-montserrat text-center"
               onClick={addItemsToCart}
             >
               Add to Cart

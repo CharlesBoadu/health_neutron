@@ -3,6 +3,7 @@ import CheckOut from "./CheckOut";
 import { AiOutlineDelete } from "react-icons/ai";
 import { GrAdd, GrFormSubtract } from "react-icons/gr";
 import { useRouter } from "next/router";
+import DescriptionComponent from "./DescriptionComponent";
 
 function CartList({ data, totalPrice }) {
   const [updatedItem, setUpdatedItem] = useState("");
@@ -49,20 +50,23 @@ function CartList({ data, totalPrice }) {
   return (
     <>
       {deleteState && (
-        <div className="flex md:flex-row flex-col bg-gray-200 md:w-[90%] w-[90%] h-contain mx-auto m-4 font-montserrat md:ml-5 md:mr-5 mb-10">
+        <div className="flex md:flex-row flex-col md:w-[90%] w-[90%] h-contain mx-auto m-4 font-montserrat md:ml-5 md:pb-[5%] md:mr-5 mb-10">
           <div className="flex-1 md:w-[50%] h-[50%] w-full">
-            <img src={data.image_url} alt="" />
+            <img src={data?.image_url} alt="cart Image" />
           </div>
-          <div className="md:w-[600px] flex md:flex-row flex-col md:m-4 md:mt-10 mt-5 m-2 border-t-2 border-gray-400">
+          <div className="md:w-[600px] bg-gray-200 flex md:flex-row flex-col md:mr-4 md:mb-4 md:ml-4 border-gray-400 px-6 py-3">
             <div className="flex-1 md:space-y-10 space-y-5">
               <div className="space-y-1">
-                <div className="text-xl">{data.bundle_name}</div>
-                <div className="text-xs">{data.description}</div>
+                <div className="text-xl mb-[2%]">{data?.bundle_name}</div>
+                <div className="border-t-2 border-black/40 hidden sm:block"></div>
+                <div className="text-xs pt-[2%]">
+                  <DescriptionComponent description={data?.description}/>  
+                </div>
               </div>
               <div className="block md:hidden">
                 <div className="flex flex-row justify-between">
                   <div className="mt-1">Price</div>
-                  <div className="font-extrabold text-lg">₵{data.price}</div>
+                  <div className="font-extrabold text-lg">₵{data?.price}</div>
                 </div>
               </div>
               <div className="flex flex-row md:space-x-10 md:justify-start justify-between">
@@ -72,16 +76,16 @@ function CartList({ data, totalPrice }) {
                 >
                   <GrAdd size={15}/>
                 </div> */}
-                  <div className="bg-white shadow-xs text-sm px-2 rounded-lg w-[100px] py-1">
+                  {/* <div className="bg-white shadow-xs text-sm px-2 rounded-lg w-[100px] py-1">
                     Quantity: {"1"}
-                  </div>
+                  </div> */}
                   {/* <div className="bg-white w-contain px-2 py-1 rounded-sm cursor-pointer shadow-sm"
                 onClick={handleDecrease}
                 >
                   <GrFormSubtract size={15}/>
                 </div> */}
                 </div>
-                <div
+                {/* <div
                   className="flex flex-row md:space-x-2 space-x-1 cursor-pointer"
                   onClick={handleDelete}
                 >
@@ -92,13 +96,14 @@ function CartList({ data, totalPrice }) {
                   <div className="block md:hidden">
                     <AiOutlineDelete size={25} color="red" className="mt-1 " />
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
             <div className="flex hidden sm:block">
-              <div className="mt-[-30px] space-y-3">
-                <div>Price</div>
-                <div className="font-extrabold text-2xl">₵{data.price}</div>
+              <div className="">
+                {/* <div>Price</div> */}
+                <div className="font-extrabold text-2xl mb-[8%] text-red-500">₵{data.price}</div>
+                <div className="border-t-2 border-black/40 hidden sm:block"></div>
               </div>
             </div>
           </div>

@@ -14,7 +14,7 @@ function Footer() {
     }
     
     function handleNavigationToBusinessPortal() {
-      window.open("https://healthneutron.com/", '_blank');
+      window.open("https://business.healthneutron.com/", '_blank');
     }
 
     function HandleNavigateToFacebook () {
