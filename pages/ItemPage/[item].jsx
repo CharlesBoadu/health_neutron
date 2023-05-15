@@ -186,7 +186,7 @@ function Item() {
             ₵{item?.items[0]?.price}
             </div>
             <div
-              className="bg-[#ffd814] hover:bg-[#fa8900] cursor-pointer w-[200px] px-3 md:py-2 py-2 rounded-2xl font-montserrat text-center"
+              className="bg-[#d805cd] hover:bg-[#fa8900] cursor-pointer w-[200px] px-3 md:py-2 py-2 rounded-2xl font-montserrat text-center"
               onClick={addItemsToCart}
             >
               Add to Cart

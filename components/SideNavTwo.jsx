@@ -3,10 +3,10 @@ import { useRouter } from "next/router";
 import { AiOutlineRight } from "react-icons/ai";
 
 const Menus = [
-  { title: "Hepatitis B" },
-  { title: "Hypertension" },
-  { title: "Diabetes" },
-  { title: "Comprehensive Lab" },
+  { title: "Hepatitis B", id: 5 },
+  { title: "Hypertension", id: 6 },
+  { title: "Diabetes", id: 7 },
+  { title: "Comprehensive Lab", id: 8 },
 ];
 
 function SideNavTwo() {
@@ -39,10 +39,10 @@ function SideNavTwo() {
     setShowSubLabs(true);
   }
 
-  function handleSort(name) {
+  function handleSort(id) {
     router.push({
-      pathname: `/Sorted/${name}`,
-      query: {name: `${name}`},
+      pathname: `/Sorted/${id}`,
+      query: {id: `${id}`},
     });
   }
 
@@ -98,7 +98,7 @@ function SideNavTwo() {
                           !open && "hidden"
                         } origin-left duration-200`}
                         onClick={() => {
-                          handleSort(Menu.title);
+                          handleSort(Menu.id);
                         }}
                       >
                         <div className="flex flex-row justify-between space-x-4">

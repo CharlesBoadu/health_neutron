@@ -2,14 +2,25 @@ import React from 'react';
 import { useRouter } from "next/router";
 
 function CardSetOne() {
+// const router = useRouter();
+// const [curr, setCurr] = useState(0)
 
-    const router = useRouter();
+//   const prev = () =>
+//     setCurr((curr) => (curr === 0 ? slides.length - 1 : curr - 1))
+//   const next = () =>
+//     setCurr((curr) => (curr === slides.length - 1 ? 0 : curr + 1))
 
+//   useEffect(() => {
+//     if (!autoSlide) return
+//     const slideInterval = setInterval(next, autoSlideInterval)
+//     return () => clearInterval(slideInterval)
+//   }, [])
   return (
     <div className='flex md:flex-row flex-col w-full h-contain bg-[#e5e7eb] mb-10 md:h-[60vh] md:space-x-6'>
         <div className='flex items-center justify-center w-full md:flex-row flex-col md:m-10 m-0 md:h-[40vh] h-contain font-montserrat md:space-x-8 md:space-y-0 space-y-10'>
             <div className='flex-1 bg-white md:h-full w-full md:py-0 py-32 flex items-center justify-center'>
                 Advertisement of Website Goes here...
+                
             </div>
             <div className='flex flex-col md:w-[300px] w-[80%] h-full rounded-lg'
             onClick={() => {
