@@ -54,10 +54,10 @@ function MobilePayment({ name, contact, amount, token, request_id }) {
           setLoading(false);
         }, 2000);
       } else {
-        toast.success("Check your phone to confirm payment");
+        toast.success("Awaiting Confirmation");
         setLoading(false);
         setTimeout(() => {
-          router.push("/");
+          router.push("/pendingPayment");
         }, 3000);
       }
     }

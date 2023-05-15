@@ -71,7 +71,7 @@ function CheckOutFormModal({ visible = true, closeModal, amount }) {
       setLoading(false);
     } else {
       const res = await req.json();
-      console.log({ res });
+      console.log("Ayaya", { res });
       setLoading(false);
       if (!res?.success) {
         toast.error(`Failed to Proceed to Checkout page`);
@@ -85,10 +85,10 @@ function CheckOutFormModal({ visible = true, closeModal, amount }) {
           router.push({
             pathname: "/paymentPage",
             query: {
-              name: res?.data.name,
+              name: res?.data?.name,
               contact: values.contact,
-              token: res?.token,
-              request_id: res?.request_id,
+              token: res?.data?.token,
+              request_id: res?.data?.request_id,
             },
           });
         }, 3000);

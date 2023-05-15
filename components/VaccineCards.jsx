@@ -49,6 +49,8 @@ function VaccineCards() {
     fetchAllVaccines();
   }, []);
 
+
+
   return (
     <div>
       {loading && (
@@ -63,12 +65,12 @@ function VaccineCards() {
           />
         </div>
       )}
-      <div className="flex md:flex-row flex-col m-8 md:space-x-10 md:space-y-0 space-y-10 justify-center items-center font-montserrat">
+      <div className="flex md:flex-row flex-col m-8 md:space-x-10 md:space-y-0 space-y-10 justify-center items-center font-montserrat flex-wrap">
         {allVaccines.map((vaccine, index) => {
           return (
             <div
               key={index}
-              className="bg-white md:w-[50%] md:h-[50%] w-[90%] h-[90%] cursor-pointer"
+              className="bg-white md:w-1/4 md:h-[50%] w-[90%] h-[90%] cursor-pointer mb-10"
               onClick={() => {
                 HandleBooking(vaccine);
               }}
@@ -82,7 +84,7 @@ function VaccineCards() {
                   ₵{vaccine.price}
                 </div>
                 <div
-                  className="bg-[#7d018c] mx-auto w-[70%] rounded-xl text-white py-2 text-center mt-2 "
+                  className="bg-[#7d018c] mx-auto w-[50%] rounded-xl text-white py-2 text-center mt-2 "
                   onClick={() => {
                     HandleBooking(vaccine);
                   }}

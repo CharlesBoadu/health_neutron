@@ -128,7 +128,7 @@ function Item() {
       });
     }
 
-    toast.success(`${item.bundle_name} added to cart`);
+    toast.success(`${item?.bundle_name} added to cart`);
   };
 
   //Handle Remove from cart

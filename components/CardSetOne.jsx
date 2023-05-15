@@ -1,42 +1,74 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 
-function CardSetOne() {
-// const router = useRouter();
-// const [curr, setCurr] = useState(0)
+function CardSetOne({
+  children: slides,
+  autoSlide = false,
+  autoSlideInterval = 3000,
+}) {
+  const router = useRouter();
+  const [curr, setCurr] = useState(0);
 
-//   const prev = () =>
-//     setCurr((curr) => (curr === 0 ? slides.length - 1 : curr - 1))
-//   const next = () =>
-//     setCurr((curr) => (curr === slides.length - 1 ? 0 : curr + 1))
+  const prev = () =>
+    setCurr((curr) => (curr === 0 ? slides.length - 1 : curr - 1));
+  const next = () =>
+    setCurr((curr) => (curr === slides.length - 1 ? 0 : curr + 1));
 
-//   useEffect(() => {
-//     if (!autoSlide) return
-//     const slideInterval = setInterval(next, autoSlideInterval)
-//     return () => clearInterval(slideInterval)
-//   }, [])
+    useEffect(() => {
+      if (!autoSlide) return;
+      const slideInterval = setInterval(next, autoSlideInterval);
+      return () => clearInterval(slideInterval);
+    }, []);
   return (
-    <div className='flex md:flex-row flex-col w-full h-contain bg-[#e5e7eb] mb-10 md:h-[60vh] md:space-x-6'>
-        <div className='flex items-center justify-center w-full md:flex-row flex-col md:m-10 m-0 md:h-[40vh] h-contain font-montserrat md:space-x-8 md:space-y-0 space-y-10'>
-            <div className='flex-1 bg-white md:h-full w-full md:py-0 py-32 flex items-center justify-center'>
-                Advertisement of Website Goes here...
-                
-            </div>
-            <div className='flex flex-col md:w-[300px] w-[80%] h-full rounded-lg'
-            onClick={() => {
-                router.push("https://healthneutron.com/blogs/", undefined, { target: '_blank' })
-            }}
+    <div className="flex md:flex-row flex-col w-full h-contain bg-[#e5e7eb] mb-10 md:h-[60vh] md:space-x-6">
+      <div className="flex items-center justify-center w-full md:flex-row flex-col md:m-10 m-0 md:h-[40vh] h-contain font-montserrat md:space-x-8 md:space-y-0 space-y-10">
+        <div className="flex-1 md:h-full w-full md:py-0 py-32 flex items-center justify-center">
+          <div className="flex-1 text-center bg-white h-[150%] mr-5 overflow-hidden relative">
+            <div
+              className="flex transition-transform ease-out duration-500 border-b-0"
+              style={{ transform: `translateX(-${curr * 100}%)` }}
             >
-                <div className='rounded-lg'>
-                    <img src="/Healthneutron Preventive Journey.jpg" alt="Blog Image" />
-                </div>
-                <div className='mx-auto bg-[#62276a] text-white rounded-sm md:mt-[-120px] mt-2 md:shadow-lg md:px-3 px-10 md:text-sm md:py-1 py-2 hover:cursor-pointer hover:bg-[#f7ca00] hover:text-[#62276a] md:mb-0 mb-10'
-                >
-                    Read Blog
-                </div>
+              {slides}
             </div>
+            <div className="absolute bottom-4 right-0 left-0">
+              <div className="flex items-center justify-center gap-2">
+                {slides.map((_, i) => (
+                  <div
+                    className={`
+              transition-all w-3 h-3 bg-[#62276a] rounded-full
+              ${curr === i ? "p-2" : "bg-opacity-50"}
+              `}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+          <div className="flex aspect-w-16 aspect-h-9 w-[45%] bg-gray-200">
+            <iframe
+              class="w-full h-full aspect-video"
+              src="https://www.youtube.com/embed/RRT3Fz7SRKw"
+              title="Youtube Video"
+              allowFullScreen
+            ></iframe>
+          </div>
         </div>
-        {/* <div className='bg-white w-[300px] h-[400px] p-5 space-y-2'>
+        <div
+          className="flex flex-col md:w-[300px] w-[80%] h-full rounded-lg"
+          onClick={() => {
+            router.push("https://healthneutron.com/blogs/", undefined, {
+              target: "_blank",
+            });
+          }}
+        >
+          <div className="rounded-lg">
+            <img src="/Healthneutron Preventive Journey.jpg" alt="Blog Image" />
+          </div>
+          <div className="mx-auto bg-[#62276a] text-white rounded-sm md:mt-[-120px] mt-2 md:shadow-lg md:px-3 px-10 md:text-sm md:py-1 py-2 hover:cursor-pointer hover:bg-[#f7ca00] hover:text-[#62276a] md:mb-0 mb-10">
+            Read Blog
+          </div>
+        </div>
+      </div>
+      {/* <div className='bg-white w-[300px] h-[400px] p-5 space-y-2'>
             <div className='flex text-black font-montserrat font-bold text-lg'>
                 Heading 1
             </div>
@@ -89,7 +121,7 @@ function CardSetOne() {
             </div>
         </div> */}
     </div>
-  )
+  );
 }
 
-export default CardSetOne
+export default CardSetOne;
