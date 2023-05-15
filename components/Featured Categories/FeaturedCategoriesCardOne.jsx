@@ -32,7 +32,7 @@ function FeaturedCategoriesCardOne() {
       }}
       >
         <div>
-          <img src="/hypertension.jpg" alt="Hypertension Image" />
+          <img src="/HEPTest_New.jpg" alt="Hypertension Image" />
         </div>
         <div className="bg-[#7d018c] text-white py-2 font-montserrat text-center font-semibold rounded-sm">
           Hypertension

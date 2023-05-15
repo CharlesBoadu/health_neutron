@@ -26,7 +26,7 @@ function FeaturedCategoriesMain() {
           }}
         >
           <div>
-            <img src="/Hepatitis-B-Test-(HBsAg).jpg" alt="HEP B Image" />
+            <img src="/HEPTest_New.jpg" alt="HEP B Image" />
           </div>
           <div className="bg-[#7d018c] text-white py-2 font-montserrat text-center font-semibold rounded-sm">
             Hepatitis B
@@ -40,7 +40,7 @@ function FeaturedCategoriesMain() {
           }}
         >
           <div>
-            <img src="/hypertension.jpg" alt="Hypertension Image" />
+            <img src="/HypNew.jpg" alt="Hypertension Image" />
           </div>
           <div className="bg-[#7d018c] text-white py-2 font-montserrat text-center font-semibold rounded-sm">
             Hypertension
@@ -70,7 +70,7 @@ function FeaturedCategoriesMain() {
           }}
         >
           <div>
-            <img src="/comprehensive_labs.jpg" alt="HEP B Image" />
+            <img src="/CompLab.jpg" alt="HEP B Image" />
           </div>
           <div className="bg-[#7d018c] text-white py-2 font-montserrat text-center font-semibold rounded-sm">
             Comprehensive Labs
@@ -84,7 +84,7 @@ function FeaturedCategoriesMain() {
           }}
         >
           <div>
-            <img src="/coronavirus-vaccine-composition-lab.jpg" alt="Hypertension Image" />
+            <img src="/covidNew.jpg" alt="Hypertension Image" />
           </div>
           <div className="bg-[#7d018c] text-white py-2 font-montserrat text-center font-semibold rounded-sm">
             Covid 19
@@ -98,7 +98,7 @@ function FeaturedCategoriesMain() {
           }}
         >
           <div>
-            <img src="/nurse-examining-senior-man-bed-bedroom.jpg" alt="Diabetes Image" />
+            <img src="/homeCare.jpg" alt="Diabetes Image" />
           </div>
           <div className="bg-[#7d018c] text-white py-2 font-montserrat text-center font-semibold rounded-sm">
             Homecare
