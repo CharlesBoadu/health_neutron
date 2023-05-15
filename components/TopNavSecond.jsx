@@ -36,7 +36,7 @@ function TopNavSecond() {
   }
 
   function handleNavigateToBlogs () {
-    router.push("https://healthneutron.com/blogs/", undefined, { target: '_blank' });
+    window.open("https://healthneutron.com/blogs/", '_blank');
   }
 
   function handleOpenSideNav () {

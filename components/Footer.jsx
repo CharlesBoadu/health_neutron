@@ -6,32 +6,33 @@ function Footer() {
     const router = useRouter();
 
     function handleNavigationToBlog() {
-        router.push("/blogs");
+      window.open("https://healthneutron.com/blogs/", '_blank');
     }
     
     function handleNavigationToWebsite() {
-        router.push("https://healthneutron.com/");
+      window.open("https://healthneutron.com/", '_blank');
     }
     
     function handleNavigationToBusinessPortal() {
-        router.push("/blogs");
+      window.open("https://healthneutron.com/", '_blank');
     }
 
     function HandleNavigateToFacebook () {
-        router.push("https://web.facebook.com/healthneutron/?_rdc=2&_rdr")
+        window.open("https://web.facebook.com/healthneutron/?_rdc=2&_rdr", '_blank');
     }
     
     function HandleNavigateToTwitter () {
-        router.push("https://twitter.com/healthneutron")
+        window.open("https://twitter.com/healthneutron", '_blank');      
     }
     
     function HandleNavigateToInstagram () {
-        router.push("https://www.instagram.com/accounts/login/?next=%2Fhealth_neutron%2F")
+      window.open("https://www.instagram.com/accounts/login/?next=%2Fhealth_neutron%2F", '_blank');      
     }
     
     function HandleNavigateToLinkedIn () {
-        router.push("")
+      window.open("https://www.instagram.com/accounts/login/?next=%2Fhealth_neutron%2F", '_blank');      
     }
+
   return (
     <div className="md:w-full w-screen bg-[#232f3e] md:font-montserrat flex md:flex-row flex-col md:space-x-8 space-y-4 md:text-sm text-xl p-8">
       <div className="flex-1">

@@ -39,21 +39,20 @@ function TopNav() {
   }
 
   function HandleNavigateToFacebook() {
-    router.push("https://web.facebook.com/healthneutron/?_rdc=2&_rdr");
+    window.open("https://web.facebook.com/healthneutron/?_rdc=2&_rdr", '_blank');
   }
 
   function HandleNavigateToTwitter() {
-    router.push("https://twitter.com/healthneutron");
+    window.open("https://twitter.com/healthneutron", '_blank');
+    
   }
 
   function HandleNavigateToInstagram() {
-    router.push(
-      "https://www.instagram.com/accounts/login/?next=%2Fhealth_neutron%2F"
-    );
+    window.open("https://www.instagram.com/accounts/login/?next=%2Fhealth_neutron%2F", '_blank');
   }
 
   function HandleNavigateToLinkedIn() {
-    router.push("https://linkedin.com/healthneutron");
+    window.open("https://linkedin.com/healthneutron", '_blank');
   }
 
   function handleSelect(e) {
