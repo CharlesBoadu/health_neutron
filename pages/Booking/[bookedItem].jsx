@@ -27,10 +27,15 @@ function bookedItem() {
     <div>
       <TopNav />
       <TopNavSecond />
-      <CarouselSecond autoSlide={true} autoSlideInterval={5000}>
+      {/* <CarouselSecond autoSlide={true} autoSlideInterval={5000}>
         {[...slides.map((s, i) => <img src={s} key={i}/>)]}
-      </CarouselSecond>
-      <div>
+      </CarouselSecond> */}
+      <div className="w-contain md:h-[40vh] h-[30vh] bg-[#232f3e] flex items-center justify-center bg-gradient-to-r from-violet-500 to-fuchsia-500">
+          <span className="font-montserrat md:text-[50px] text-3xl text-white text-center">
+          Choose life so you and your loved ones will live.
+          </span>
+      </div>
+      {/* <div>
         <div className="md:text-4xl text-2xl font-extrabold font-montserrat text-gray-700 mt-10 mb-5 ml-10">
           VACCINE SERVICES...
         </div>
@@ -41,7 +46,7 @@ function bookedItem() {
           treating them. Once your immune system knows how to fight a disease,
           it can often protect you for many years.
         </div>
-      </div>
+      </div> */}
       <BookingForm name={name} amount={amount} />
       <Footer />
       <FooterSecond />

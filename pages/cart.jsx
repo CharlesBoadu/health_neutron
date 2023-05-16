@@ -16,7 +16,6 @@ function cart() {
   const [controlState, setControlState] = useState(false);
   const router = useRouter();
 
-  console.log("Howdy", cartItem);
   const { newTotalPrice } = router.query;
 
   const totalPrice = () => {

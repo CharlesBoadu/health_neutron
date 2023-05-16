@@ -90,7 +90,7 @@ function Item() {
     const fetchLabItems = async () => {
       try {
         const response = await fetch(
-          "https://sandbox.healthneutron.com/api/v1/fetch/labs/bundles?slug=single_featured&type=&assignedGroup=",
+          "https://api.healthneutron.com/api/v1/fetch/labs/bundles?slug=single_featured&type=&assignedGroup=",
           {
             Method: "GET",
             mode: "cors",

@@ -23,18 +23,23 @@ function homecare() {
       <TopNav />
       <TopNavSecond />
       <div>
-        <CarouselSecond autoSlide={true} autoSlideInterval={5000}>
+        {/* <CarouselSecond autoSlide={true} autoSlideInterval={5000}>
           {[...slides.map((s, i) => <img src={s} key={i}/>)]}
-        </CarouselSecond>
+        </CarouselSecond> */}
+        <div className="w-contain md:h-[40vh] h-[30vh] bg-[#232f3e] flex items-center justify-center bg-gradient-to-r from-violet-500 to-fuchsia-500">
+          <span className="font-montserrat md:text-[55px] text-3xl text-white text-center">
+          We support you to take care of your loved ones.
+          </span>
+        </div>
         <div>
-          <div className="md:text-4xl text-2xl font-extrabold font-montserrat text-gray-700 mt-10 mb-5 ml-10">
+          {/* <div className="md:text-4xl text-2xl font-extrabold font-montserrat text-gray-700 mt-10 mb-5 ml-10">
             HOMECARE SERVICES...
-          </div>
-          <div className="text-sm font-montserrat text-gray-500 md:mb-10 mb-10 ml-10 mr-10">
+          </div> */}
+          {/* <div className="text-sm font-montserrat text-gray-500 md:mb-10 mb-10 ml-10 mr-10">
             We provide quality home care for the aged, the physically
             challenged, children, the sick and patients recovering from surgery
             and other medical procedures.
-          </div>
+          </div> */}
         </div>
         <HomeCareForm />
       </div>

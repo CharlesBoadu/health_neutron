@@ -60,32 +60,31 @@ function TopNav() {
   }
 
   useEffect(() => {
-    console.log("Current search value: ", searchSelect);
   }, [searchSelect]);
 
-  function handleSearch() {
-    useEffect(() => {
-      const sortedFetch = async () => {
-        try {
-          const response = await fetch("", {
-            headers: {
-              Method: "GET",
-              mode: "cors",
-              Accept: "application/json",
-              Authorization:
-              `Bearer ${bearerToken.token}`,
-            },
-          });
-          const fetchResponse = await response.json();
-          setSorted(fetchResponse);
-        } catch (error) {
-          console.log(error);
-        }
-      };
+  // function handleSearch() {
+  //   useEffect(() => {
+  //     const sortedFetch = async () => {
+  //       try {
+  //         const response = await fetch("", {
+  //           headers: {
+  //             Method: "GET",
+  //             mode: "cors",
+  //             Accept: "application/json",
+  //             Authorization:
+  //             `Bearer ${bearerToken.token}`,
+  //           },
+  //         });
+  //         const fetchResponse = await response.json();
+  //         setSorted(fetchResponse);
+  //       } catch (error) {
+  //         console.log(error);
+  //       }
+  //     };
 
-      sortedFetch();
-    }, []);
-  }
+  //     sortedFetch();
+  //   }, []);
+  // }
   return (
     <div className="bg-[#7d018c] md:py-2 py-2 flex md:flex-row md:w-full space-x-4 font-montserrat px-2">
       <div
@@ -145,7 +144,7 @@ function TopNav() {
         </div>
         <div
           className="md:flex md:w-[50px] bg-[#f3a847] md:ml-[-8%] md:justify-center md:items-center md:cursor-pointer hidden sm:block"
-          onClick={handleSearch}
+          // onClick={handleSearch}
         >
           <FiSearch size={25} className="md:w-[25px] w-[20px]" />
         </div>

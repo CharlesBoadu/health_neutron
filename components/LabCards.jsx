@@ -30,7 +30,7 @@ function LabCards() {
     const fetchAllLabItems = async () => {
       try {
         const response = await fetch(
-          "https://sandbox.healthneutron.com/api/v1/fetch/labs/bundles?slug=single_featured&type=&assignedGroup=",
+          "https://api.healthneutron.com/api/v1/fetch/labs/bundles?slug=single_featured&type=&assignedGroup=",
           {
             Method: "GET",
             mode: "cors",
@@ -65,12 +65,12 @@ function LabCards() {
           />
         </div>
       )}
-      <div className="flex md:flex-row flex-col m-8 md:space-x-10 md:space-y-0 space-y-10 justify-center items-center font-montserrat flex-wrap">
+      <div className="flex md:flex-row flex-col m-8 md:space-x-10 md:space-y-10 space-y-10 justify-center items-center font-montserrat flex-wrap">
         {labItems.map((item, index) => {
           return (
             <div
               key={index}
-              className={`bg-white w-1/4 md:w-[25%] h-[50%] cursor-pointer`}
+              className={`bg-white w-1/4 md:w-[25%] w-[80%] h-[50%] cursor-pointer`}
               onClick={() => {
                 handleNavigateToItem(item);
               }}

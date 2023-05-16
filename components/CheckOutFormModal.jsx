@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PuffLoader from "react-spinners/PuffLoader";
-
+import { bearerToken } from "../bearerToken";
 
 export const override = {
   display: "block",
@@ -32,7 +32,7 @@ function CheckOutFormModal({ visible = true, closeModal, amount }) {
 
   const handleSubmit = async () => {
     const req = await fetch(
-      "https://sandbox.healthneutron.com/api/v1/lab/wlk-book",
+      "https://api.healthneutron.com/api/v1/lab/wlk-book",
       {
         method: "POST",
         // mode: "cors",
@@ -40,7 +40,7 @@ function CheckOutFormModal({ visible = true, closeModal, amount }) {
           "Content-Type": "application/json",
           Accept: "application/json",
           Authorization:
-            "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMDE5ZTY4NjVmMmRmNzRmM2IxOWE1ODE3MWM4ZjQwMmIwNmM3YmFjYWE0MDNiMGU3NGFlN2M1M2YyYzY0ZGM1ODMyYWM5ZjVmNDk1ZDA0ZGUiLCJpYXQiOjE2ODQxNDI4MjIuOTAyNywibmJmIjoxNjg0MTQyODIyLjkwMjcwMiwiZXhwIjoxNzE1NzY1MjIyLjg5Mjk3Nywic3ViIjoiMjUzIiwic2NvcGVzIjpbXX0.fmZSU8HlvS-9T_xoiEBIsHqkAcJM2-VPPqfUhgSdl06EIH3vgL3dY02wiPutowbsg2s9BAmLUPyuniiiGwy2SNxBvc_3lkNhDHDGymRAqfOG-xTt9bmmV904voLzDYptoplEHs25oeKyFzLJX2j-frjDYxmBF5MPJ8GgpRU1q_Y6JgNkVE8x8ogCNWlSphkkN1Bxo6fZGekshi8tNOyj5Ono7GJGCQrZNeCO0kyq25Rv8f38oRZFtRtG2FZSPva_q9DKYNtuhVwyFFJoz_xJ_wQ1BQKLrNBrMoxoyMi6eoUwAvT_smx-iQoL6HBQQuKsUJfhXk3xsChtFD7IynoYgDRX0KRdgNF_y3upcvlt8graieV_Tk6L7mKY02UBPujE8qOLouBWFoC0EcfvPzozqbEodwjc3mMnfNkACtwZDR4WbkU1h2qapXKfPCPQD3gadJUX4TnUsgSkYLT5R1mE5I_K9pq58H38wgl_f9_f4g2YYjH-esPDdnDsXBwnhZnyLFzLJ62L2V74J0bcM2q-WADtUNBRveacZErJk-JG_9s6xAPMT2_588H5jG3dYDYUryBnG7NRdUj-ey7zJgWD_gpVsN5rapnnZq2ChycCtG9yc1Gs8qoJ6lcbvxqd_u2hM3bwAdeKVNVKkJD5YxLZPQG5o4M2TviaJTR6h_uIPkM", //  'Access-Control-Allow-Origin':'*'
+            `Bearer ${bearerToken.token}`, //  'Access-Control-Allow-Origin':'*'
         },
         body: JSON.stringify({
           labId: "90",

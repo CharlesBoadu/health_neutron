@@ -36,7 +36,7 @@ function HomeCareForm() {
     const fetchAllPackageTypes = async () => {
       try {
         const response = await fetch(
-          "https://sandbox.healthneutron.com/api/v1/homeservice/price-list/by-category?key=doctor_type&partnerToken=",
+          "https://api.healthneutron.com/api/v1/homeservice/price-list/by-category?key=doctor_type&partnerToken=",
           {
             Method: "GET",
             mode: "cors",

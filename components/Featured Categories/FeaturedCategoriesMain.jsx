@@ -84,7 +84,7 @@ function FeaturedCategoriesMain() {
             Covid 19
           </div>
         </div>
-        <div
+        {/* <div
           className="w-[50vh] h-[40vh] rounded-lg m-4 hover:cursor-pointer"
           onClick={() => {
             handleSort(10);
@@ -96,7 +96,7 @@ function FeaturedCategoriesMain() {
           <div className="bg-[#7d018c] text-white py-2 font-montserrat text-center font-semibold rounded-sm">
             Homecare
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

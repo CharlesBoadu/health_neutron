@@ -28,7 +28,7 @@ function VaccineCards() {
     const fetchAllVaccines = async () => {
       try {
         const response = await fetch(
-          "https://sandbox.healthneutron.com/api/v1/vaccine/list",
+          "https://api.healthneutron.com/api/v1/vaccine/list",
           {
             Method: "GET",
             mode: "cors",

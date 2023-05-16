@@ -3,6 +3,7 @@ import { bearerToken } from "../bearerToken";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/router";
+import Pusher from "pusher";
 
 function MobilePayment({ name, contact, amount, token, request_id }) {
   const [loading, setLoading] = useState(false);
@@ -17,7 +18,7 @@ function MobilePayment({ name, contact, amount, token, request_id }) {
 
   const handleSubmit = async (e) => {
     const req = await fetch(
-      `https://sandbox.healthneutron.com/api/v1/genpay/debit/momo`,
+      `https://api.healthneutron.com/api/v1/genpay/debit/momo`,
       {
         method: "POST",
         // mode: "cors",
@@ -57,7 +58,10 @@ function MobilePayment({ name, contact, amount, token, request_id }) {
         toast.success("Awaiting Confirmation");
         setLoading(false);
         setTimeout(() => {
-          router.push("/pendingPayment");
+          router.push({
+            pathname: `/pendingPayment`,
+            query: {token: `${token}`},
+          });
         }, 3000);
       }
     }

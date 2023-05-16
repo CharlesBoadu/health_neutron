@@ -27,16 +27,25 @@ function CartList({ data, totalPrice }) {
     return setUpdatedItem(updatedItem);
   }
 
-  function handleDelete() {
-    setDeleteState(false);
-    const nowPrice = newTotalPrice - updatedItem.price;
-    setNewTotalPrice(nowPrice);
-    setTimeout(() => {
-      router.push({
-        pathname: "/cart",
-        query: { newTotalPrice: newTotalPrice },
-      });
-    }, 2000);
+  function handleDelete(bundle_id) {
+    console.log("New", newData);
+    console.log("ama", bundle_id);
+    if (newData.length === 1) {
+      window.location.reload();
+    } else {
+      newData.splice(bundle_id, 1);
+      console.log("Now", newData);
+      setDeleteState(false);  
+      const nowPrice = parseFloat(newTotalPrice) - parseFloat(updatedItem.price);
+      console.log("New Price", nowPrice);
+      // setNewTotalPrice(nowPrice);
+      setTimeout(() => {
+        router.push({
+          pathname: "/cart",
+          query: { newTotalPrice: nowPrice },
+        });
+      }, 2000);
+    }
   }
 
   useEffect(() => {
@@ -69,7 +78,7 @@ function CartList({ data, totalPrice }) {
                 </div>
               </div> */}
               <div className="flex flex-row md:space-x-10 md:justify-start justify-between">
-                <div className="flex flex-row space-x-2">
+                {/* <div className="flex flex-row space-x-2"> */}
                   {/* <div className="bg-white w-contain px-2 py-1 rounded-sm cursor-pointer shadow-sm"
                 onClick={handleIncrease}
                 >
@@ -83,10 +92,13 @@ function CartList({ data, totalPrice }) {
                 >
                   <GrFormSubtract size={15}/>
                 </div> */}
-                </div>
-                {/* <div
+                {/* </div> */}
+                <div
                   className="flex flex-row md:space-x-2 space-x-1 cursor-pointer"
-                  onClick={handleDelete}
+                  onClick={() => {
+                    handleDelete(data?.bundle_id)
+                  }
+                }
                 >
                   <div className="hidden sm:block">
                     <AiOutlineDelete size={25} color="red" className="mt-1 " />
@@ -95,7 +107,7 @@ function CartList({ data, totalPrice }) {
                   <div className="block md:hidden">
                     <AiOutlineDelete size={25} color="red" className="mt-1 " />
                   </div>
-                </div> */}
+                </div>
               </div>
             </div>
           </div>

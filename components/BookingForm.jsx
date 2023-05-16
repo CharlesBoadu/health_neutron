@@ -32,7 +32,7 @@ function BookingForm({ name, amount }) {
 
   const handleSubmit = async (e) => {
     const req = await fetch(
-      `https://sandbox.healthneutron.com/api/v1/service/book`,
+      `https://api.healthneutron.com/api/v1/service/book`,
       {
         method: "POST",
         // mode: "cors",

@@ -52,7 +52,7 @@ function LabSmallCards() {
     const fetchAllLabItems = async () => {
       try {
         const response = await fetch(
-          "https://sandbox.healthneutron.com/api/v1/fetch/labs/bundles?slug=single_featured&type=&assignedGroup=",
+          "https://api.healthneutron.com/api/v1/fetch/labs/bundles?slug=single_featured&type=&assignedGroup=",
           {
             Method: "GET",
             mode: "cors",
@@ -75,38 +75,37 @@ function LabSmallCards() {
     fetchAllLabItems();
   }, [])
 
-  console.log(labItems[4]);
   return (
     <>
       <div className="flex flex-row justify-center items-center md:space-x-3 space-x-7 py-2 z-1 hover:cursor-pointer">
         <div className="flex flex-col" onClick={() => {
-          handleNavigateToItem(labItems[2])
+          handleNavigateToItem(labItems[3])
         }
       }>
           <div className="md:w-[150px] md:h-[100px] w-[120px] bg-gray-300">
             <img
-              src={labItems[2]?.image_url}
+              src={labItems[3]?.image_url}
               alt="Lab Image 1"
               className="object-cover h-full w-full"
             />
           </div>
-          <div className="md:text-sm text-xs text-gray-600 flex flex-col font-montserrat">
-            <div>{labItems[2]?.bundle_name}</div>
+          <div className="md:text-sm text-xs text-gray-600 flex flex-col font-montserrat flex-wrap">
+            <div>{labItems[3]?.bundle_name.toLowerCase()}</div>
           </div>
         </div>
         <div className="flex flex-col" onClick={() => {
-          handleNavigateToItem(labItems[1])
+          handleNavigateToItem(labItems[5])
         }
       }>
           <div className="md:w-[150px] md:h-[100px] w-[120px] bg-gray-300">
             <img
-              src={labItems[1]?.image_url}
+              src={labItems[5]?.image_url}
               alt="Lab Image 2"
               className="object-cover h-full w-full"
             />
           </div>
           <div className="md:text-sm text-xs text-gray-600 font-montserrat">
-            {labItems[1]?.bundle_name}
+            {labItems[5]?.bundle_name.toLowerCase()}
           </div>
         </div>
       </div>
@@ -125,7 +124,7 @@ function LabSmallCards() {
             />
           </div>
           <div className="md:text-sm text-xs text-gray-600 font-montserrat">
-            {labItems[0]?.bundle_name}
+            {labItems[0]?.bundle_name.toLowerCase()}
           </div>
         </div>
         <div className="flex flex-col" onClick={() => {

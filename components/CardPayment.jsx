@@ -14,7 +14,7 @@ function CardPayment({ name, amount }) {
 
   const handleSubmit = async (e) => {
     const req = await fetch(
-      `https://sandbox.healthneutron.com/api/v1/genpay/debit/card`,
+      `https://api.healthneutron.com/api/v1/genpay/debit/card`,
       {
         method: "POST",
         // mode: "cors",

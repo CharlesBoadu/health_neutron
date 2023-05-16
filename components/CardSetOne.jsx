@@ -22,8 +22,8 @@ function CardSetOne({
   return (
     <div className="flex md:flex-row flex-col w-full h-contain bg-[#e5e7eb] mb-10 md:h-[60vh] md:space-x-6">
       <div className="flex items-center justify-center w-full md:flex-row flex-col md:m-10 m-0 md:h-[40vh] h-contain font-montserrat md:space-x-8 md:space-y-0 space-y-10">
-        <div className="flex-1 md:h-full w-full md:py-32 py-16 flex items-center justify-center md:flex-row flex-col md:space-y-0 space-y-10">
-          <div className="flex-1 text-center bg-white h-[150] md:mr-5 overflow-hidden md:relative">
+        <div className="flex-1 md:h-full w-full md:py-32 py-8 flex items-center justify-center md:flex-row flex-col md:space-y-0 space-y-10">
+          <div className="flex-1 text-center w-[50%] bg-white md:mr-5 overflow-hidden md:relative">
             <div
               className="flex transition-transform ease-out duration-500 border-b-0"
               style={{ transform: `translateX(-${curr * 100}%)` }}
@@ -43,7 +43,7 @@ function CardSetOne({
               </div>
             </div>
           </div>
-          <div className="flex aspect-w-16 aspect-h-9 md:w-[45%] w-[80%] bg-gray-200">
+          <div className="flex aspect-w-16 aspect-h-9 md:w-[55%] w-[100%] bg-gray-200">
             <iframe
               class="w-full h-full aspect-video"
               src="https://www.youtube.com/embed/RRT3Fz7SRKw"
@@ -52,12 +52,11 @@ function CardSetOne({
             ></iframe>
           </div>
         </div>
-        <div
+        {/* <div
           className="flex flex-col md:w-[300px] w-[80%] h-full rounded-lg"
           onClick={() => {
-            router.push("https://healthneutron.com/blogs/", undefined, {
-              target: "_blank",
-            });
+            window.open("https://healthneutron.com/blogs/", '_blank');
+
           }}
         >
           <div className="rounded-lg">
@@ -66,7 +65,7 @@ function CardSetOne({
           <div className="mx-auto bg-[#62276a] text-white rounded-sm md:mt-[-120px] mt-2 md:shadow-lg md:px-3 px-10 md:text-sm md:py-1 py-2 hover:cursor-pointer hover:bg-[#f7ca00] hover:text-[#62276a] md:mb-0 mb-10">
             Read Blog
           </div>
-        </div>
+        </div> */}
       </div>
       {/* <div className='bg-white w-[300px] h-[400px] p-5 space-y-2'>
             <div className='flex text-black font-montserrat font-bold text-lg'>

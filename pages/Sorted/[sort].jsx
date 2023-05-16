@@ -43,7 +43,7 @@ function Sort() {
     const fetchAllSortedItems = async () => {
       try {
         const response = await fetch(
-          `https://sandbox.healthneutron.com/api/v1/fetch/labs/bundles?slug=&type=&searchKey=&parentSlugId=${id}`,
+          `https://api.healthneutron.com/api/v1/fetch/labs/bundles?slug=&type=&searchKey=&parentSlugId=${id}`,
           {
             Method: "GET",
             mode: "cors",
