@@ -112,7 +112,7 @@ function Payment() {
             <div className="font-medium text-[#ffd814]">₵{returnTotal()}.00</div>
           </div>
           <div className="flex flex-row justify-between">
-            <div className="text-white">Discount</div>
+            <div className="text-white">Charges</div>
             <div className="font-medium text-[#ffd814]">0%</div>
           </div>
           <div className="flex flex-row justify-between">

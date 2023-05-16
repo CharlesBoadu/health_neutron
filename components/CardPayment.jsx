@@ -97,7 +97,7 @@ function CardPayment({ name, amount }) {
             onChange={(event) =>
               setValues({ ...values, cardNumber: event.target.value })
             }
-            placeholder="Card Number"
+            placeholder="1111-2222-3333-4444"
           />
         </div>
 
@@ -107,25 +107,24 @@ function CardPayment({ name, amount }) {
             className={`block font-latoBold text-sm pb-2`}
             htmlFor="expiration_date"
           >
-            Expiration Date
+            Expirational Date
           </label>
           <input
             className="w-full p-2 focus:border-[#7d018c] focus:ring-[#7d018c] text-xs"
-            type="date"
+            type="text"
             name="expiration_date"
             value={values.expirationDate}
             onChange={(event) =>
               setValues({ ...values, expirationDate: event.target.value })
             }
-            placeholder={amount}
-            disabled
+            placeholder="MM/YYYY"
           />
         </div>
 
         {/* Card Input field*/}
         <div className="pb-4">
           <label className={`block font-latoBold text-sm pb-2`} htmlFor="name">
-            Card
+            Card CVV
           </label>
           <input
             className="w-full p-2 border-0 border-b-2 text-xs focus:border-[#7d018c] focus:ring-[#7d018c]"
@@ -135,7 +134,7 @@ function CardPayment({ name, amount }) {
             onChange={(event) =>
               setValues({ ...values, card: event.target.value })
             }
-            placeholder="Enter Card Number"
+            placeholder="352"
           />
         </div>
 

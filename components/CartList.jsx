@@ -15,9 +15,7 @@ function CartList({ data, totalPrice }) {
 
   function handleIncrease() {
     setUpdatedItem(newData);
-    console.log("Greatest", updatedItem);
     updatedItem.quantity += 1;
-    console.log("After", updatedItem);
     return setUpdatedItem(updatedItem);
   }
 
@@ -40,8 +38,6 @@ function CartList({ data, totalPrice }) {
       });
     }, 2000);
   }
-
-  console.log("New Price Outside Delete", newTotalPrice);
 
   useEffect(() => {
     setUpdatedItem(newData);

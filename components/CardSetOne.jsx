@@ -22,8 +22,8 @@ function CardSetOne({
   return (
     <div className="flex md:flex-row flex-col w-full h-contain bg-[#e5e7eb] mb-10 md:h-[60vh] md:space-x-6">
       <div className="flex items-center justify-center w-full md:flex-row flex-col md:m-10 m-0 md:h-[40vh] h-contain font-montserrat md:space-x-8 md:space-y-0 space-y-10">
-        <div className="flex-1 md:h-full w-full md:py-0 py-32 flex items-center justify-center">
-          <div className="flex-1 text-center bg-white h-[150%] mr-5 overflow-hidden relative">
+        <div className="flex-1 md:h-full w-full md:py-32 py-16 flex items-center justify-center md:flex-row flex-col md:space-y-0 space-y-10">
+          <div className="flex-1 text-center bg-white h-[150] md:mr-5 overflow-hidden md:relative">
             <div
               className="flex transition-transform ease-out duration-500 border-b-0"
               style={{ transform: `translateX(-${curr * 100}%)` }}
@@ -35,7 +35,7 @@ function CardSetOne({
                 {slides.map((_, i) => (
                   <div
                     className={`
-              transition-all w-3 h-3 bg-[#62276a] rounded-full
+              transition-all w-3 h-3 bg-white rounded-full
               ${curr === i ? "p-2" : "bg-opacity-50"}
               `}
                   />
@@ -43,7 +43,7 @@ function CardSetOne({
               </div>
             </div>
           </div>
-          <div className="flex aspect-w-16 aspect-h-9 w-[45%] bg-gray-200">
+          <div className="flex aspect-w-16 aspect-h-9 md:w-[45%] w-[80%] bg-gray-200">
             <iframe
               class="w-full h-full aspect-video"
               src="https://www.youtube.com/embed/RRT3Fz7SRKw"

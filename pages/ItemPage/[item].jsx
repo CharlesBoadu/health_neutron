@@ -169,7 +169,7 @@ function Item() {
       </div>
     ) : (
       <>
-      <div className="flex md:flex-row flex-col md:w-[90%] w-[90%] h-full mx-auto m-4 items-center justify-center space-x-8">
+      <div className="flex md:flex-row flex-col md:w-[90%] w-[90%] h-full mx-auto m-4 items-center justify-center md:space-x-8">
         <div className="flex-1 w-full h-full">
           <img src={item?.image_url} alt="Lab Item Image" />
         </div>
